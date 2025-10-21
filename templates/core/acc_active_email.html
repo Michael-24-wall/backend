@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            padding: 40px 20px;
+        }
+        .button { 
+            display: inline-block; 
+            padding: 14px 28px; 
+            background-color: #001a33; /* Blue 900 */
+            color: white; 
+            text-decoration: none; 
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .footer { 
+            margin-top: 30px; 
+            font-size: 12px; 
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 20px;
+        }
+        .header {
+            color: #001a33; /* Blue 900 */
+            margin-bottom: 20px;
+        }
+        .link-text {
+            color: #001a33; /* Blue 900 */
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="header">Welcome to Paperless SaaS!</h2>
+        <p>Hi {{ user.first_name }},</p>
+        <p>Thank you for registering with Paperless SaaS. Please verify your email address to activate your account and start using our services.</p>
+        
+        <p style="margin: 30px 0;">
+            <a href="{{ verification_url }}" class="button">Verify Email Address</a>
+        </p>
+        
+        <p>Or copy and paste this link in your browser:</p>
+        <p><a href="{{ verification_url }}" class="link-text">{{ verification_url }}</a></p>
+        
+        <p>If you didn't create an account with us, please ignore this email.</p>
+        
+        <div class="footer">
+            <p>Best regards,<br>The Paperless SaaS Team</p>
+        </div>
+    </div>
+</body>
+</html>

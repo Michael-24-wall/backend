@@ -1,0 +1,61 @@
+INFO 2025-10-20 09:50:53,443 autoreload 20972 22416 Watching for file changes with StatReloader
+INFO 2025-10-20 09:51:01,102 autoreload 8132 10796 Watching for file changes with StatReloader
+WARNING 2025-10-20 09:51:09,765 log 8132 1532 Not Found: /test_chat.html
+WARNING 2025-10-20 09:51:09,766 basehttp 8132 1532 "GET /test_chat.html HTTP/1.1" 404 3520
+WARNING 2025-10-20 09:51:26,776 log 8132 1532 Not Found: /api/chat
+WARNING 2025-10-20 09:51:26,777 basehttp 8132 1532 "GET /api/chat HTTP/1.1" 404 12001
+WARNING 2025-10-20 09:52:00,894 log 8132 1532 Not Found: /api/chat
+WARNING 2025-10-20 09:52:00,894 basehttp 8132 1532 "GET /api/chat HTTP/1.1" 404 12001
+WARNING 2025-10-20 09:52:02,292 log 8132 1532 Not Found: /api/chat
+WARNING 2025-10-20 09:52:02,307 basehttp 8132 1532 "GET /api/chat HTTP/1.1" 404 12001
+WARNING 2025-10-20 09:53:03,924 log 8132 1532 Not Found: /api/chat/
+WARNING 2025-10-20 09:53:03,925 basehttp 8132 1532 "GET /api/chat/ HTTP/1.1" 404 15476
+INFO 2025-10-20 09:53:59,372 autoreload 8132 10796 C:\Users\MICHAEL\workflow\backend\paperless_saas\urls.py changed, reloading.
+INFO 2025-10-20 09:53:59,996 autoreload 11800 2960 Watching for file changes with StatReloader
+INFO 2025-10-20 09:54:01,375 autoreload 11800 2960 C:\Users\MICHAEL\workflow\backend\paperless_saas\urls.py changed, reloading.
+INFO 2025-10-20 09:54:01,913 autoreload 20732 9524 Watching for file changes with StatReloader
+WARNING 2025-10-20 09:54:05,860 log 20732 10988 Not Found: /api/chat/
+WARNING 2025-10-20 09:54:05,861 basehttp 20732 10988 "GET /api/chat/ HTTP/1.1" 404 15476
+WARNING 2025-10-20 09:55:54,887 log 20732 10988 Not Found: /api/chat/
+WARNING 2025-10-20 09:55:54,888 basehttp 20732 10988 "GET /api/chat/ HTTP/1.1" 404 15476
+INFO 2025-10-20 09:57:32,579 autoreload 20732 9524 C:\Users\MICHAEL\workflow\backend\chat\urls.py changed, reloading.
+INFO 2025-10-20 09:57:33,161 autoreload 24432 23268 Watching for file changes with StatReloader
+INFO 2025-10-20 09:57:34,489 autoreload 24432 23268 C:\Users\MICHAEL\workflow\backend\chat\urls.py changed, reloading.
+INFO 2025-10-20 09:57:35,032 autoreload 20540 21516 Watching for file changes with StatReloader
+WARNING 2025-10-20 09:57:52,629 log 20540 11624 Unauthorized: /api/chat/
+WARNING 2025-10-20 09:57:52,630 basehttp 20540 11624 "GET /api/chat/ HTTP/1.1" 401 5131
+INFO 2025-10-20 09:57:52,692 basehttp 20540 20492 "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3426
+INFO 2025-10-20 09:57:52,693 basehttp 20540 11624 "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2025-10-20 09:57:52,706 basehttp 20540 11624 "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+INFO 2025-10-20 09:57:52,706 basehttp 20540 20492 "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+INFO 2025-10-20 09:57:52,734 basehttp 20540 11624 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3796
+INFO 2025-10-20 09:57:52,734 basehttp 20540 20492 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1793
+INFO 2025-10-20 09:57:52,765 basehttp 20540 20492 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+INFO 2025-10-20 09:57:52,772 basehttp 20540 11624 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2025-10-20 09:57:52,772 basehttp 20540 23416 "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 200 87533
+INFO 2025-10-20 09:57:52,775 basehttp 20540 23416 "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+INFO 2025-10-20 09:57:52,789 basehttp 20540 11624 "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 200 59
+INFO 2025-10-20 09:57:52,789 basehttp 20540 20492 "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+WARNING 2025-10-20 09:58:05,017 log 20540 20492 Not Found: /api/chat/message
+WARNING 2025-10-20 09:58:05,017 basehttp 20540 20492 "GET /api/chat/message HTTP/1.1" 404 41363
+WARNING 2025-10-20 09:58:18,440 log 20540 20492 Unauthorized: /api/chat/messages/
+WARNING 2025-10-20 09:58:18,441 basehttp 20540 20492 "GET /api/chat/messages/ HTTP/1.1" 401 5308
+WARNING 2025-10-20 09:58:39,847 log 20540 20492 Unauthorized: /api/chat/profile/
+WARNING 2025-10-20 09:58:39,848 basehttp 20540 20492 "GET /api/chat/profile/ HTTP/1.1" 401 5333
+WARNING 2025-10-20 09:58:57,971 log 20540 20492 Unauthorized: /api/chat/history/general/
+WARNING 2025-10-20 09:58:57,972 basehttp 20540 20492 "GET /api/chat/history/general/ HTTP/1.1" 401 5379
+INFO 2025-10-20 10:07:05,060 autoreload 20540 21516 C:\Users\MICHAEL\workflow\backend\workflow\models.py changed, reloading.
+INFO 2025-10-20 10:07:05,789 autoreload 13092 20428 Watching for file changes with StatReloader
+INFO 2025-10-20 10:07:15,392 autoreload 13092 20428 C:\Users\MICHAEL\workflow\backend\workflow\models.py changed, reloading.
+INFO 2025-10-20 10:07:15,982 autoreload 18968 7376 Watching for file changes with StatReloader
+INFO 2025-10-20 10:09:14,709 autoreload 18968 7376 C:\Users\MICHAEL\workflow\backend\paperless_saas\urls.py changed, reloading.
+INFO 2025-10-20 10:09:15,321 autoreload 18916 5368 Watching for file changes with StatReloader
+INFO 2025-10-20 10:09:16,670 autoreload 18916 5368 C:\Users\MICHAEL\workflow\backend\paperless_saas\urls.py changed, reloading.
+INFO 2025-10-20 10:09:17,246 autoreload 9352 24348 Watching for file changes with StatReloader
+INFO 2025-10-20 10:09:30,982 autoreload 9352 24348 C:\Users\MICHAEL\workflow\backend\paperless_saas\urls.py changed, reloading.
+INFO 2025-10-20 10:09:31,568 autoreload 6096 2692 Watching for file changes with StatReloader
+INFO 2025-10-20 10:09:38,077 autoreload 6096 2692 C:\Users\MICHAEL\workflow\backend\paperless_saas\urls.py changed, reloading.
+INFO 2025-10-20 10:09:38,665 autoreload 13976 21932 Watching for file changes with StatReloader
+INFO 2025-10-20 10:11:31,065 basehttp 13976 13604 "GET /api/workflow HTTP/1.1" 301 0
+WARNING 2025-10-20 10:11:31,112 log 13976 22976 Unauthorized: /api/workflow/
+WARNING 2025-10-20 10:11:31,113 basehttp 13976 22976 "GET /api/workflow/ HTTP/1.1" 401 5151
