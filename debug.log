@@ -193,3 +193,7 @@ INFO 2025-10-21 19:54:42,500 autoreload 12172 22884 C:\Users\MICHAEL\workflow\ba
 INFO 2025-10-21 19:54:43,128 autoreload 14840 1288 Watching for file changes with StatReloader
 INFO 2025-10-21 20:02:30,025 autoreload 14840 1288 C:\Users\MICHAEL\workflow\backend\editor\views.py changed, reloading.
 INFO 2025-10-21 20:02:30,760 autoreload 24844 23748 Watching for file changes with StatReloader
+INFO 2025-10-21 20:02:39,182 basehttp 24844 24688 "GET /swagger/ HTTP/1.1" 200 1642
+INFO 2025-10-21 20:02:40,343 basehttp 24844 24688 "GET /swagger/?format=openapi HTTP/1.1" 200 87957
+WARNING 2025-10-21 20:09:03,479 log 24844 4120 Not Found: /
+WARNING 2025-10-21 20:09:03,480 basehttp 24844 4120 "GET / HTTP/1.1" 404 3770
