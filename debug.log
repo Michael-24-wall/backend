@@ -59,3 +59,137 @@ INFO 2025-10-20 10:09:38,665 autoreload 13976 21932 Watching for file changes wi
 INFO 2025-10-20 10:11:31,065 basehttp 13976 13604 "GET /api/workflow HTTP/1.1" 301 0
 WARNING 2025-10-20 10:11:31,112 log 13976 22976 Unauthorized: /api/workflow/
 WARNING 2025-10-20 10:11:31,113 basehttp 13976 22976 "GET /api/workflow/ HTTP/1.1" 401 5151
+INFO 2025-10-21 18:17:18,959 autoreload 12324 2584 Watching for file changes with StatReloader
+INFO 2025-10-21 18:17:24,759 basehttp 12324 25596 "GET /swagger/ HTTP/1.1" 200 1642
+INFO 2025-10-21 18:17:24,788 basehttp 12324 25596 "GET /static/drf-yasg/style.css HTTP/1.1" 304 0
+INFO 2025-10-21 18:17:24,791 basehttp 12324 19112 "GET /static/drf-yasg/swagger-ui-dist/swagger-ui.css HTTP/1.1" 304 0
+INFO 2025-10-21 18:17:24,794 basehttp 12324 13616 "GET /static/drf-yasg/immutable.min.js HTTP/1.1" 304 0
+INFO 2025-10-21 18:17:24,795 basehttp 12324 25596 "GET /static/drf-yasg/swagger-ui-init.js HTTP/1.1" 304 0
+INFO 2025-10-21 18:17:24,797 basehttp 12324 19472 "GET /static/drf-yasg/insQ.min.js HTTP/1.1" 304 0
+INFO 2025-10-21 18:17:24,798 basehttp 12324 19416 "GET /static/drf-yasg/swagger-ui-dist/swagger-ui-standalone-preset.js HTTP/1.1" 304 0
+INFO 2025-10-21 18:17:24,799 basehttp 12324 1628 "GET /static/drf-yasg/swagger-ui-dist/swagger-ui-bundle.js HTTP/1.1" 304 0
+INFO 2025-10-21 18:17:25,796 basehttp 12324 19416 "GET /static/drf-yasg/swagger-ui-dist/favicon-32x32.png HTTP/1.1" 304 0
+INFO 2025-10-21 18:17:26,395 basehttp 12324 1628 "GET /swagger/?format=openapi HTTP/1.1" 200 59178
+INFO 2025-10-21 18:22:21,202 autoreload 12324 2584 C:\Users\MICHAEL\workflow\backend\editor\views.py changed, reloading.
+INFO 2025-10-21 18:22:22,121 autoreload 4268 21396 Watching for file changes with StatReloader
+INFO 2025-10-21 18:30:56,567 autoreload 4268 21396 C:\Users\MICHAEL\workflow\backend\editor\models.py changed, reloading.
+INFO 2025-10-21 18:30:57,446 autoreload 25496 16604 Watching for file changes with StatReloader
+INFO 2025-10-21 18:35:52,672 autoreload 25496 16604 C:\Users\MICHAEL\workflow\backend\editor\models.py changed, reloading.
+INFO 2025-10-21 18:35:53,491 autoreload 13200 22720 Watching for file changes with StatReloader
+INFO 2025-10-21 18:35:54,774 autoreload 13200 22720 C:\Users\MICHAEL\workflow\backend\editor\models.py changed, reloading.
+INFO 2025-10-21 18:35:55,644 autoreload 16628 21344 Watching for file changes with StatReloader
+INFO 2025-10-21 19:43:21,784 autoreload 5532 21068 Watching for file changes with StatReloader
+INFO 2025-10-21 19:43:34,416 basehttp 5532 19104 "GET /swagger/ HTTP/1.1" 200 1642
+ERROR 2025-10-21 19:43:36,132 log 5532 19104 Internal Server Error: /swagger/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\drf_yasg\views.py", line 129, in get
+    schema = generator.get_schema(request, self.public)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\drf_yasg\generators.py", line 337, in get_schema
+    paths, prefix = self.get_paths(endpoints, components, request, public)
+                    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\drf_yasg\generators.py", line 561, in get_paths
+    operation = self.get_operation(
+        view, path, prefix, method, components, request
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\drf_yasg\generators.py", line 609, in get_operation
+    operation = view_inspector.get_operation(operation_keys)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 58, in get_operation
+    responses = self.get_responses()
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 224, in get_responses
+    response_serializers = self.get_response_serializers()
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 289, in get_response_serializers
+    responses = self.get_default_responses()
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\drf_yasg\inspectors\view.py", line 257, in get_default_responses
+    default_schema = self.serializer_to_schema(default_schema) or ""
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 551, in serializer_to_schema
+    return self.probe_inspectors(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        self.field_inspectors,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        {"field_inspectors": self.field_inspectors},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 137, in probe_inspectors
+    result = method(obj, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 55, in get_schema
+    return self.probe_field_inspectors(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        serializer, openapi.Schema, self.use_definitions
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 277, in probe_field_inspectors
+    return self.probe_inspectors(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        self.field_inspectors,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 137, in probe_inspectors
+    result = method(obj, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 154, in field_to_swagger_object
+    actual_schema = definitions.setdefault(ref_name, make_schema_definition)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\drf_yasg\openapi.py", line 822, in setdefault
+    ret = maker()
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 130, in make_schema_definition
+    child_schema = self.probe_field_inspectors(
+        child, ChildSwaggerType, use_references, **prop_kwargs
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 277, in probe_field_inspectors
+    return self.probe_inspectors(
+           ~~~~~~~~~~~~~~~~~~~~~^
+        self.field_inspectors,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\drf_yasg\inspectors\base.py", line 137, in probe_inspectors
+    result = method(obj, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\drf_yasg\inspectors\field.py", line 164, in field_to_swagger_object
+    raise SwaggerGenerationError(
+    ...<4 lines>...
+    )
+drf_yasg.errors.SwaggerGenerationError: Schema for <class 'editor.serializers.OrganizationSerializer'> would override distinct serializer <class 'editor.serializers.OrganizationSerializer'> because they implicitly share the same ref_name; explicitly set the ref_name attribute on both serializers' Meta classes
+ERROR 2025-10-21 19:43:36,151 basehttp 5532 19104 "GET /swagger/?format=openapi HTTP/1.1" 500 273762
+INFO 2025-10-21 19:52:11,418 autoreload 5532 21068 C:\Users\MICHAEL\workflow\backend\editor\serializers.py changed, reloading.
+INFO 2025-10-21 19:52:12,132 autoreload 22560 13360 Watching for file changes with StatReloader
+INFO 2025-10-21 19:53:49,895 autoreload 22560 13360 C:\Users\MICHAEL\workflow\backend\editor\views.py changed, reloading.
+INFO 2025-10-21 19:53:50,530 autoreload 20784 18364 Watching for file changes with StatReloader
+INFO 2025-10-21 19:53:55,938 autoreload 20784 18364 C:\Users\MICHAEL\workflow\backend\editor\views.py changed, reloading.
+INFO 2025-10-21 19:53:56,498 autoreload 13664 13408 Watching for file changes with StatReloader
+INFO 2025-10-21 19:54:25,529 autoreload 13664 13408 C:\Users\MICHAEL\workflow\backend\editor\views.py changed, reloading.
+INFO 2025-10-21 19:54:26,186 autoreload 2720 8448 Watching for file changes with StatReloader
+INFO 2025-10-21 19:54:29,511 autoreload 2720 8448 C:\Users\MICHAEL\workflow\backend\editor\views.py changed, reloading.
+INFO 2025-10-21 19:54:30,074 autoreload 22308 24148 Watching for file changes with StatReloader
+INFO 2025-10-21 19:54:35,467 autoreload 22308 24148 C:\Users\MICHAEL\workflow\backend\editor\views.py changed, reloading.
+INFO 2025-10-21 19:54:36,096 autoreload 12172 22884 Watching for file changes with StatReloader
+INFO 2025-10-21 19:54:42,500 autoreload 12172 22884 C:\Users\MICHAEL\workflow\backend\editor\views.py changed, reloading.
+INFO 2025-10-21 19:54:43,128 autoreload 14840 1288 Watching for file changes with StatReloader
+INFO 2025-10-21 20:02:30,025 autoreload 14840 1288 C:\Users\MICHAEL\workflow\backend\editor\views.py changed, reloading.
+INFO 2025-10-21 20:02:30,760 autoreload 24844 23748 Watching for file changes with StatReloader
