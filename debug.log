@@ -3717,3 +3717,393 @@ WARNING 2025-10-24 11:38:20,770 basehttp 7792 17108 "POST /api/auth/change_passw
 INFO 2025-10-24 11:38:56,527 basehttp 7792 17108 "POST /api/auth/change_password/ HTTP/1.1" 200 44
 INFO 2025-10-24 11:45:49,100 autoreload 7792 12476 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
 INFO 2025-10-24 11:45:50,424 autoreload 11596 20736 Watching for file changes with StatReloader
+INFO 2025-10-24 11:49:30,234 basehttp 11596 9412 "GET /api/documents/templates/ HTTP/1.1" 200 52
+WARNING 2025-10-24 11:50:21,038 log 11596 9412 Not Found: /api/documents/templates/1/
+WARNING 2025-10-24 11:50:21,039 basehttp 11596 9412 "GET /api/documents/templates/1/ HTTP/1.1" 404 57
+WARNING 2025-10-24 11:54:34,993 log 11596 12500 Unauthorized: /api/documents/templates/
+WARNING 2025-10-24 11:54:34,993 basehttp 11596 12500 "POST /api/documents/templates/ HTTP/1.1" 401 58
+WARNING 2025-10-24 11:54:45,702 log 11596 12500 Bad Request: /api/documents/templates/
+WARNING 2025-10-24 11:54:45,703 basehttp 11596 12500 "POST /api/documents/templates/ HTTP/1.1" 400 84
+WARNING 2025-10-24 11:55:28,403 log 11596 12500 Bad Request: /api/documents/templates/
+WARNING 2025-10-24 11:55:28,403 basehttp 11596 12500 "POST /api/documents/templates/ HTTP/1.1" 400 84
+INFO 2025-10-24 11:59:30,179 basehttp 11596 19276 "POST /api/documents/templates/ HTTP/1.1" 201 823
+WARNING 2025-10-24 12:01:33,736 log 11596 12696 Method Not Allowed: /api/documents/templates/1/
+WARNING 2025-10-24 12:01:33,737 basehttp 11596 12696 "POST /api/documents/templates/1/ HTTP/1.1" 405 41
+WARNING 2025-10-24 12:01:41,579 log 11596 12696 Bad Request: /api/documents/templates/1/
+WARNING 2025-10-24 12:01:41,579 basehttp 11596 12696 "PUT /api/documents/templates/1/ HTTP/1.1" 400 84
+INFO 2025-10-24 12:05:52,493 basehttp 11596 2872 "PUT /api/documents/templates/1/ HTTP/1.1" 200 823
+WARNING 2025-10-24 12:07:35,756 log 11596 8940 Method Not Allowed: /api/documents/templates/1/
+WARNING 2025-10-24 12:07:35,757 basehttp 11596 8940 "PATCH /api/documents/templates/1/ HTTP/1.1" 405 42
+WARNING 2025-10-24 12:08:07,076 log 11596 8940 Method Not Allowed: /api/documents/templates/
+WARNING 2025-10-24 12:08:07,077 basehttp 11596 8940 "PUT /api/documents/templates/ HTTP/1.1" 405 40
+WARNING 2025-10-24 12:08:16,225 log 11596 8940 Method Not Allowed: /api/documents/templates/
+WARNING 2025-10-24 12:08:16,225 basehttp 11596 8940 "PATCH /api/documents/templates/ HTTP/1.1" 405 42
+WARNING 2025-10-24 12:10:47,646 log 11596 7620 Not Found: /api/documents/documents/
+WARNING 2025-10-24 12:10:47,647 basehttp 11596 7620 "POST /api/documents/documents/ HTTP/1.1" 404 20318
+WARNING 2025-10-24 12:10:54,777 log 11596 7620 Not Found: /api/documents/documents/
+WARNING 2025-10-24 12:10:54,777 basehttp 11596 7620 "GET /api/documents/documents/ HTTP/1.1" 404 20317
+WARNING 2025-10-24 12:10:56,556 log 11596 7620 Not Found: /api/documents/documents/
+WARNING 2025-10-24 12:10:56,557 basehttp 11596 7620 "GET /api/documents/documents/ HTTP/1.1" 404 20317
+WARNING 2025-10-24 12:11:40,953 log 11596 7620 Not Found: /api/documents/document/
+WARNING 2025-10-24 12:11:40,954 basehttp 11596 7620 "GET /api/documents/document/ HTTP/1.1" 404 20314
+WARNING 2025-10-24 12:12:02,534 log 11596 7620 Not Found: /api/documents/documents/
+WARNING 2025-10-24 12:12:02,535 basehttp 11596 7620 "GET /api/documents/documents/ HTTP/1.1" 404 20317
+WARNING 2025-10-24 12:13:18,943 log 11596 16668 Not Found: /api/documents/documents/
+WARNING 2025-10-24 12:13:18,944 basehttp 11596 16668 "GET /api/documents/documents/ HTTP/1.1" 404 20317
+INFO 2025-10-24 12:15:48,563 basehttp 11596 9304 "GET /api/documents/templates/ HTTP/1.1" 200 875
+INFO 2025-10-24 12:17:09,939 basehttp 11596 3020 "GET /api/documents/instances/ HTTP/1.1" 200 52
+WARNING 2025-10-24 12:18:04,784 log 11596 3020 Not Found: /api/documents/instances/1/
+WARNING 2025-10-24 12:18:04,785 basehttp 11596 3020 "GET /api/documents/instances/1/ HTTP/1.1" 404 49
+WARNING 2025-10-24 12:18:50,493 log 11596 9256 Not Found: /api/documents/instances/1/
+WARNING 2025-10-24 12:18:50,494 basehttp 11596 9256 "GET /api/documents/instances/1/ HTTP/1.1" 404 49
+WARNING 2025-10-24 12:20:28,265 log 11596 2884 Bad Request: /api/documents/instances/
+WARNING 2025-10-24 12:20:28,266 basehttp 11596 2884 "POST /api/documents/instances/ HTTP/1.1" 400 43
+INFO 2025-10-24 12:22:22,831 basehttp 11596 3956 "POST /api/documents/instances/ HTTP/1.1" 201 45
+WARNING 2025-10-24 12:23:42,229 log 11596 6952 Method Not Allowed: /api/documents/instances/1/generate-pdf/
+WARNING 2025-10-24 12:23:42,230 basehttp 11596 6952 "GET /api/documents/instances/1/generate-pdf/ HTTP/1.1" 405 40
+INFO 2025-10-24 12:23:48,426 basehttp 11596 6952 "POST /api/documents/instances/1/generate-pdf/ HTTP/1.1" 200 78
+WARNING 2025-10-24 12:25:04,362 log 11596 16492 Method Not Allowed: /api/documents/instances/1/sign/
+WARNING 2025-10-24 12:25:04,363 basehttp 11596 16492 "GET /api/documents/instances/1/sign/ HTTP/1.1" 405 40
+WARNING 2025-10-24 12:25:10,097 log 11596 16492 Bad Request: /api/documents/instances/1/sign/
+WARNING 2025-10-24 12:25:10,097 basehttp 11596 16492 "POST /api/documents/instances/1/sign/ HTTP/1.1" 400 60
+WARNING 2025-10-24 12:25:49,635 log 11596 16492 Bad Request: /api/documents/instances/1/sign/
+WARNING 2025-10-24 12:25:49,636 basehttp 11596 16492 "POST /api/documents/instances/1/sign/ HTTP/1.1" 400 60
+WARNING 2025-10-24 12:28:21,701 log 11596 12976 Not Found: /api/documents/instances/{{1}}/
+WARNING 2025-10-24 12:28:21,702 basehttp 11596 12976 "GET /api/documents/instances/%7B%7B1%7D%7D/ HTTP/1.1" 404 23
+INFO 2025-10-24 12:28:34,099 basehttp 11596 12976 "GET /api/documents/instances/1/ HTTP/1.1" 200 930
+WARNING 2025-10-24 12:31:16,969 log 11596 16664 Unauthorized: /api/documents/instances/1/
+WARNING 2025-10-24 12:31:16,970 basehttp 11596 16664 "PUT /api/documents/instances/1/ HTTP/1.1" 401 172
+WARNING 2025-10-24 12:32:52,853 log 11596 9092 Unauthorized: /api/documents/instances/1/
+WARNING 2025-10-24 12:32:52,853 basehttp 11596 9092 "PUT /api/documents/instances/1/ HTTP/1.1" 401 172
+WARNING 2025-10-24 12:33:19,706 log 11596 9092 Unauthorized: /api/auth/login/
+WARNING 2025-10-24 12:33:19,707 basehttp 11596 9092 "POST /api/auth/login/ HTTP/1.1" 401 63
+INFO 2025-10-24 12:33:43,257 basehttp 11596 9092 "POST /api/auth/login/ HTTP/1.1" 200 1069
+WARNING 2025-10-24 12:34:21,599 log 11596 9092 Unauthorized: /api/documents/instances/1/
+WARNING 2025-10-24 12:34:21,599 basehttp 11596 9092 "PUT /api/documents/instances/1/ HTTP/1.1" 401 172
+INFO 2025-10-24 12:34:38,142 basehttp 11596 9092 "PUT /api/documents/instances/1/ HTTP/1.1" 200 930
+WARNING 2025-10-24 12:35:13,752 log 11596 9092 Unauthorized: /api/documents/instances/1/sign/
+WARNING 2025-10-24 12:35:13,753 basehttp 11596 9092 "POST /api/documents/instances/1/sign/ HTTP/1.1" 401 172
+WARNING 2025-10-24 12:35:31,461 log 11596 9092 Unauthorized: /api/documents/instances/1/generate-pdf/
+WARNING 2025-10-24 12:35:31,469 basehttp 11596 9092 "POST /api/documents/instances/1/generate-pdf/ HTTP/1.1" 401 172
+INFO 2025-10-24 12:36:21,702 basehttp 11596 9092 "POST /api/auth/login/ HTTP/1.1" 200 1069
+WARNING 2025-10-24 12:45:53,212 log 11596 18240 Bad Request: /api/auth/register/
+WARNING 2025-10-24 12:45:53,213 basehttp 11596 18240 "POST /api/auth/register/ HTTP/1.1" 400 85
+WARNING 2025-10-24 12:46:14,979 log 11596 18240 Bad Request: /api/auth/register/
+WARNING 2025-10-24 12:46:14,979 basehttp 11596 18240 "POST /api/auth/register/ HTTP/1.1" 400 41
+WARNING 2025-10-24 12:46:40,008 log 11596 18240 Bad Request: /api/auth/register/
+WARNING 2025-10-24 12:46:40,008 basehttp 11596 18240 "POST /api/auth/register/ HTTP/1.1" 400 40
+INFO 2025-10-24 12:47:16,594 basehttp 11596 18240 "POST /api/auth/register/ HTTP/1.1" 201 348
+INFO 2025-10-24 12:49:11,508 basehttp 11596 10064 "POST /api/auth/register/ HTTP/1.1" 201 342
+WARNING 2025-10-24 12:50:25,548 log 11596 20140 Bad Request: /api/auth/verify_email/
+WARNING 2025-10-24 12:50:25,549 basehttp 11596 20140 "GET /api/auth/verify_email/?uidb64=Mg&token=cy4pa2-76baebdae2fa1303154869cb10570b7c HTTP/1.1" 400 7061
+INFO 2025-10-24 12:50:25,570 basehttp 11596 20140 "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-10-24 12:50:25,570 basehttp 11596 17988 "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+INFO 2025-10-24 12:50:25,572 basehttp 11596 13960 "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+INFO 2025-10-24 12:50:25,573 basehttp 11596 6388 "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+INFO 2025-10-24 12:50:25,575 basehttp 11596 17988 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+INFO 2025-10-24 12:50:25,576 basehttp 11596 20140 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+INFO 2025-10-24 12:50:25,576 basehttp 11596 10800 "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+INFO 2025-10-24 12:50:25,577 basehttp 11596 13960 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+INFO 2025-10-24 12:50:25,577 basehttp 11596 6388 "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+INFO 2025-10-24 12:50:25,577 basehttp 11596 2288 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+INFO 2025-10-24 12:50:25,579 basehttp 11596 17988 "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+INFO 2025-10-24 12:50:25,597 basehttp 11596 17988 "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+WARNING 2025-10-24 12:50:25,664 log 11596 17988 Not Found: /favicon.ico
+WARNING 2025-10-24 12:50:25,666 basehttp 11596 17988 "GET /favicon.ico HTTP/1.1" 404 3826
+WARNING 2025-10-24 12:51:24,267 log 11596 1348 Unauthorized: /api/auth/profile/
+WARNING 2025-10-24 12:51:24,268 basehttp 11596 1348 "GET /api/auth/profile/ HTTP/1.1" 401 172
+INFO 2025-10-24 12:51:35,506 basehttp 11596 16680 "POST /api/auth/login/ HTTP/1.1" 200 1069
+INFO 2025-10-24 12:51:59,118 basehttp 11596 1348 "GET /api/auth/profile/ HTTP/1.1" 200 264
+WARNING 2025-10-24 12:52:42,842 log 11596 1348 Unauthorized: /api/auth/update_profile/
+WARNING 2025-10-24 12:52:42,843 basehttp 11596 1348 "PATCH /api/auth/update_profile/ HTTP/1.1" 401 172
+INFO 2025-10-24 12:52:52,427 basehttp 11596 16680 "POST /api/auth/login/ HTTP/1.1" 200 1069
+INFO 2025-10-24 12:53:36,396 basehttp 11596 1348 "PATCH /api/auth/update_profile/ HTTP/1.1" 200 264
+WARNING 2025-10-24 12:57:52,024 log 11596 7360 Unauthorized: /api/organization/my_organization/
+WARNING 2025-10-24 12:57:52,024 basehttp 11596 7360 "GET /api/organization/my_organization/ HTTP/1.1" 401 172
+INFO 2025-10-24 12:58:05,076 basehttp 11596 16804 "POST /api/auth/login/ HTTP/1.1" 200 1069
+INFO 2025-10-24 12:58:47,991 basehttp 11596 7360 "GET /api/organization/my_organization/ HTTP/1.1" 200 117
+WARNING 2025-10-24 12:59:44,412 log 11596 19480 Unauthorized: /api/organization/my_organization/
+WARNING 2025-10-24 12:59:44,413 basehttp 11596 19480 "GET /api/organization/my_organization/ HTTP/1.1" 401 5293
+INFO 2025-10-24 12:59:44,443 basehttp 11596 19480 "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-10-24 12:59:44,465 basehttp 11596 19480 "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+INFO 2025-10-24 12:59:44,465 basehttp 11596 20748 "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+INFO 2025-10-24 12:59:44,467 basehttp 11596 19480 "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+INFO 2025-10-24 12:59:44,468 basehttp 11596 20748 "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+INFO 2025-10-24 12:59:44,470 basehttp 11596 19480 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+INFO 2025-10-24 12:59:44,470 basehttp 11596 20748 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+INFO 2025-10-24 12:59:44,550 basehttp 11596 20748 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+INFO 2025-10-24 12:59:44,550 basehttp 11596 19480 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+INFO 2025-10-24 12:59:44,552 basehttp 11596 20748 "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+INFO 2025-10-24 12:59:44,552 basehttp 11596 19480 "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+INFO 2025-10-24 12:59:44,764 basehttp 11596 19480 "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+WARNING 2025-10-24 12:59:45,396 log 11596 19480 Not Found: /favicon.ico
+WARNING 2025-10-24 12:59:45,397 basehttp 11596 19480 "GET /favicon.ico HTTP/1.1" 404 3826
+INFO 2025-10-24 13:00:03,502 basehttp 11596 19480 "GET /api/auth/register HTTP/1.1" 301 0
+WARNING 2025-10-24 13:00:03,524 log 11596 20748 Method Not Allowed: /api/auth/register/
+WARNING 2025-10-24 13:00:03,525 basehttp 11596 20748 "GET /api/auth/register/ HTTP/1.1" 405 10592
+WARNING 2025-10-24 13:01:38,785 log 11596 20748 Bad Request: /api/auth/register/
+WARNING 2025-10-24 13:01:38,785 basehttp 11596 20748 "POST /api/auth/register/ HTTP/1.1" 400 10764
+WARNING 2025-10-24 13:02:15,303 log 11596 20748 Bad Request: /api/auth/register/
+WARNING 2025-10-24 13:02:15,304 basehttp 11596 20748 "POST /api/auth/register/ HTTP/1.1" 400 10766
+INFO 2025-10-24 13:03:32,635 basehttp 11596 10868 "POST /api/auth/register/ HTTP/1.1" 201 11203
+WARNING 2025-10-24 13:04:18,304 log 11596 10868 Bad Request: /api/auth/register/
+WARNING 2025-10-24 13:04:18,305 basehttp 11596 10868 "POST /api/auth/register/ HTTP/1.1" 400 10793
+INFO 2025-10-24 13:04:35,523 basehttp 11596 10868 "POST /api/auth/register/ HTTP/1.1" 201 11205
+WARNING 2025-10-24 13:08:34,952 log 11596 18120 Unauthorized: /api/organization/pending_invitations/
+WARNING 2025-10-24 13:08:34,953 basehttp 11596 18120 "GET /api/organization/pending_invitations/ HTTP/1.1" 401 172
+INFO 2025-10-24 13:09:20,263 basehttp 11596 18120 "GET /api/organization/pending_invitations/ HTTP/1.1" 200 463
+WARNING 2025-10-24 13:09:53,008 log 11596 18120 Unauthorized: /api/organization/members/
+WARNING 2025-10-24 13:09:53,008 basehttp 11596 18120 "GET /api/organization/members/ HTTP/1.1" 401 172
+WARNING 2025-10-24 13:10:14,727 log 11596 18120 Unauthorized: /api/organization/members/
+WARNING 2025-10-24 13:10:14,727 basehttp 11596 18120 "GET /api/organization/members/ HTTP/1.1" 401 58
+INFO 2025-10-24 13:10:37,543 basehttp 11596 1164 "POST /api/auth/login/ HTTP/1.1" 200 1069
+WARNING 2025-10-24 13:10:52,522 log 11596 18120 Unauthorized: /api/organization/members/
+WARNING 2025-10-24 13:10:52,523 basehttp 11596 18120 "GET /api/organization/members/ HTTP/1.1" 401 58
+INFO 2025-10-24 13:11:22,321 basehttp 11596 18120 "GET /api/organization/members/ HTTP/1.1" 200 266
+WARNING 2025-10-24 13:12:21,350 log 11596 18120 Bad Request: /api/auth/change_password/
+WARNING 2025-10-24 13:12:21,350 basehttp 11596 18120 "POST /api/auth/change_password/ HTTP/1.1" 400 38
+WARNING 2025-10-24 13:13:05,046 log 11596 18120 Bad Request: /api/auth/change_password/
+WARNING 2025-10-24 13:13:05,047 basehttp 11596 18120 "POST /api/auth/change_password/ HTTP/1.1" 400 62
+WARNING 2025-10-24 13:13:18,443 log 11596 18120 Bad Request: /api/auth/change_password/
+WARNING 2025-10-24 13:13:18,445 basehttp 11596 18120 "POST /api/auth/change_password/ HTTP/1.1" 400 62
+WARNING 2025-10-24 13:13:43,151 log 11596 18120 Bad Request: /api/auth/change_password/
+WARNING 2025-10-24 13:13:43,151 basehttp 11596 18120 "POST /api/auth/change_password/ HTTP/1.1" 400 61
+INFO 2025-10-24 13:14:40,208 basehttp 11596 18120 "POST /api/auth/change_password/ HTTP/1.1" 200 44
+WARNING 2025-10-24 13:17:34,696 log 11596 13768 Unauthorized: /api/dashboard/
+WARNING 2025-10-24 13:17:34,697 basehttp 11596 13768 "GET /api/dashboard/ HTTP/1.1" 401 172
+INFO 2025-10-24 13:17:58,534 basehttp 11596 13768 "GET /api/dashboard/ HTTP/1.1" 200 237
+WARNING 2025-10-24 13:19:24,565 log 11596 9480 Unauthorized: /api/documents/templates/
+WARNING 2025-10-24 13:19:24,565 basehttp 11596 9480 "GET /api/documents/templates/ HTTP/1.1" 401 58
+INFO 2025-10-24 13:19:32,518 basehttp 11596 9480 "GET /api/documents/templates/ HTTP/1.1" 200 875
+INFO 2025-10-24 13:20:23,981 basehttp 11596 9480 "GET /api/documents/templates/1/ HTTP/1.1" 200 823
+ERROR 2025-10-24 13:21:13,332 log 11596 9480 Internal Server Error: /api/documents/templates/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "documents_documenttemplate_organization_id_title_f2ab5ab1_uniq"
+DETAIL:  Key (organization_id, title)=(1, Monthly Service Retainer Agreement) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\documents\views.py", line 52, in create
+    serializer.save(organization=user.organization, created_by=user)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "documents_documenttemplate_organization_id_title_f2ab5ab1_uniq"
+DETAIL:  Key (organization_id, title)=(1, Monthly Service Retainer Agreement) already exists.
+
+ERROR 2025-10-24 13:21:13,350 basehttp 11596 9480 "POST /api/documents/templates/ HTTP/1.1" 500 219008
+ERROR 2025-10-24 13:21:34,908 log 11596 9480 Internal Server Error: /api/documents/templates/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "documents_documenttemplate_organization_id_title_f2ab5ab1_uniq"
+DETAIL:  Key (organization_id, title)=(1, Monthly Service Retainer Agreement) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\documents\views.py", line 52, in create
+    serializer.save(organization=user.organization, created_by=user)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "documents_documenttemplate_organization_id_title_f2ab5ab1_uniq"
+DETAIL:  Key (organization_id, title)=(1, Monthly Service Retainer Agreement) already exists.
+
+ERROR 2025-10-24 13:21:34,916 basehttp 11596 9480 "POST /api/documents/templates/ HTTP/1.1" 500 219015
+WARNING 2025-10-24 13:23:06,982 log 11596 808 Unauthorized: /api/documents/templates/1/
+WARNING 2025-10-24 13:23:06,983 basehttp 11596 808 "PUT /api/documents/templates/1/ HTTP/1.1" 401 58
+INFO 2025-10-24 13:23:18,791 basehttp 11596 808 "PUT /api/documents/templates/1/ HTTP/1.1" 200 818
+INFO 2025-10-24 13:24:30,239 basehttp 11596 19964 "GET /api/documents/templates/ HTTP/1.1" 200 870
+WARNING 2025-10-24 13:25:37,254 log 11596 10452 Unauthorized: /api/documents/instances/
+WARNING 2025-10-24 13:25:37,255 basehttp 11596 10452 "POST /api/documents/instances/ HTTP/1.1" 401 58
+INFO 2025-10-24 13:25:51,203 basehttp 11596 10452 "POST /api/documents/instances/ HTTP/1.1" 201 35
+INFO 2025-10-24 13:26:43,388 basehttp 11596 10452 "POST /api/documents/instances/2/generate-pdf/ HTTP/1.1" 200 68
+INFO 2025-10-24 13:29:02,442 basehttp 11596 18436 "GET /api/documents/instances/2/ HTTP/1.1" 200 915
+INFO 2025-10-24 13:30:01,970 basehttp 11596 18436 "POST /api/documents/instances/2/generate-pdf/ HTTP/1.1" 200 68
+INFO 2025-10-24 13:31:00,641 basehttp 11596 18436 "GET /api/documents/instances/2/ HTTP/1.1" 200 915
+INFO 2025-10-24 13:31:51,294 basehttp 11596 18436 "PUT /api/documents/instances/1/ HTTP/1.1" 200 925
+INFO 2025-10-24 13:48:14,998 autoreload 11596 20736 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-24 13:48:15,880 autoreload 7660 20956 Watching for file changes with StatReloader
+INFO 2025-10-24 13:48:53,158 autoreload 7660 20956 C:\Users\MICHAEL\workflow\backend\documents\serializers.py changed, reloading.
+INFO 2025-10-24 13:48:53,828 autoreload 8284 9064 Watching for file changes with StatReloader
+INFO 2025-10-24 13:51:40,665 autoreload 8284 9064 C:\Users\MICHAEL\workflow\backend\documents\models.py changed, reloading.
