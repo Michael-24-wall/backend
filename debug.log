@@ -4130,3 +4130,15 @@ WARNING 2025-10-24 14:42:08,632 basehttp 9396 18548 "GET /api/documents/1/upload
 INFO 2025-10-24 14:43:52,129 autoreload 9396 3144 C:\Users\MICHAEL\workflow\backend\documents\urls.py changed, reloading.
 INFO 2025-10-24 14:43:52,771 autoreload 3224 20472 Watching for file changes with StatReloader
 INFO 2025-10-24 14:47:07,233 autoreload 21468 7804 Watching for file changes with StatReloader
+WARNING 2025-10-24 14:47:13,613 log 21468 8908 Not Found: /api/documents/1/upload-attachment/
+WARNING 2025-10-24 14:47:13,614 basehttp 21468 8908 "GET /api/documents/1/upload-attachment/ HTTP/1.1" 404 28203
+WARNING 2025-10-24 14:48:47,731 log 21468 2392 Not Found: /api/documents/1/upload-attachment/
+WARNING 2025-10-24 14:48:47,732 basehttp 21468 2392 "POST /api/documents/1/upload-attachment/ HTTP/1.1" 404 28204
+WARNING 2025-10-24 14:50:41,572 log 21468 19860 Bad Request: /api/documents/instances/1/upload-attachment/
+WARNING 2025-10-24 14:50:41,575 basehttp 21468 19860 "POST /api/documents/instances/1/upload-attachment/ HTTP/1.1" 400 28
+WARNING 2025-10-24 14:51:38,076 log 21468 19860 Bad Request: /api/documents/instances/1/upload-attachment/
+WARNING 2025-10-24 14:51:38,077 basehttp 21468 19860 "POST /api/documents/instances/1/upload-attachment/ HTTP/1.1" 400 28
+WARNING 2025-10-24 14:52:35,545 log 21468 19860 Bad Request: /api/documents/instances/1/upload-attachment/
+WARNING 2025-10-24 14:52:35,545 basehttp 21468 19860 "POST /api/documents/instances/1/upload-attachment/ HTTP/1.1" 400 28
+WARNING 2025-10-24 14:52:42,742 log 21468 19860 Bad Request: /api/documents/instances/1/upload-attachment/
+WARNING 2025-10-24 14:52:42,742 basehttp 21468 19860 "POST /api/documents/instances/1/upload-attachment/ HTTP/1.1" 400 28
