@@ -4107,3 +4107,26 @@ INFO 2025-10-24 13:48:15,880 autoreload 7660 20956 Watching for file changes wit
 INFO 2025-10-24 13:48:53,158 autoreload 7660 20956 C:\Users\MICHAEL\workflow\backend\documents\serializers.py changed, reloading.
 INFO 2025-10-24 13:48:53,828 autoreload 8284 9064 Watching for file changes with StatReloader
 INFO 2025-10-24 13:51:40,665 autoreload 8284 9064 C:\Users\MICHAEL\workflow\backend\documents\models.py changed, reloading.
+INFO 2025-10-24 13:51:41,471 autoreload 4404 13604 Watching for file changes with StatReloader
+INFO 2025-10-24 14:35:30,682 autoreload 9396 3144 Watching for file changes with StatReloader
+WARNING 2025-10-24 14:35:34,909 log 9396 20360 Unauthorized: /api/documents/templates/1/duplicate/
+WARNING 2025-10-24 14:35:34,910 basehttp 9396 20360 "PUT /api/documents/templates/1/duplicate/ HTTP/1.1" 401 172
+WARNING 2025-10-24 14:35:54,729 log 9396 20360 Unauthorized: /api/documents/templates/1/duplicate/
+WARNING 2025-10-24 14:35:54,730 basehttp 9396 20360 "PUT /api/documents/templates/1/duplicate/ HTTP/1.1" 401 58
+WARNING 2025-10-24 14:36:24,210 log 9396 20360 Unauthorized: /api/documents/templates/1/duplicate/
+WARNING 2025-10-24 14:36:24,211 basehttp 9396 20360 "PUT /api/documents/templates/1/duplicate/ HTTP/1.1" 401 172
+WARNING 2025-10-24 14:36:48,747 log 9396 20360 Unauthorized: /api/auth/login/
+WARNING 2025-10-24 14:36:48,748 basehttp 9396 20360 "POST /api/auth/login/ HTTP/1.1" 401 63
+INFO 2025-10-24 14:37:26,157 basehttp 9396 20360 "POST /api/auth/login/ HTTP/1.1" 200 1069
+WARNING 2025-10-24 14:38:09,215 log 9396 20360 Method Not Allowed: /api/documents/templates/1/duplicate/
+WARNING 2025-10-24 14:38:09,215 basehttp 9396 20360 "PUT /api/documents/templates/1/duplicate/ HTTP/1.1" 405 40
+WARNING 2025-10-24 14:38:16,957 log 9396 20360 Method Not Allowed: /api/documents/templates/1/duplicate/
+WARNING 2025-10-24 14:38:16,958 basehttp 9396 20360 "GET /api/documents/templates/1/duplicate/ HTTP/1.1" 405 40
+INFO 2025-10-24 14:38:29,010 basehttp 9396 20360 "POST /api/documents/templates/1/duplicate/ HTTP/1.1" 201 351
+WARNING 2025-10-24 14:41:39,139 log 9396 18816 Not Found: /api/documents/1/upload-attachment/
+WARNING 2025-10-24 14:41:39,140 basehttp 9396 18816 "POST /api/documents/1/upload-attachment/ HTTP/1.1" 404 28204
+WARNING 2025-10-24 14:42:08,631 log 9396 18548 Not Found: /api/documents/1/upload-attachment/
+WARNING 2025-10-24 14:42:08,632 basehttp 9396 18548 "GET /api/documents/1/upload-attachment/ HTTP/1.1" 404 28203
+INFO 2025-10-24 14:43:52,129 autoreload 9396 3144 C:\Users\MICHAEL\workflow\backend\documents\urls.py changed, reloading.
+INFO 2025-10-24 14:43:52,771 autoreload 3224 20472 Watching for file changes with StatReloader
+INFO 2025-10-24 14:47:07,233 autoreload 21468 7804 Watching for file changes with StatReloader

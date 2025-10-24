@@ -2,7 +2,7 @@ from rest_framework import viewsets, status, filters
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 from django.shortcuts import get_object_or_404
@@ -14,7 +14,9 @@ import os
 import json
 from datetime import datetime
 from django.db import models  
-from rest_framework.parsers import JSONParser, MultiPartParser, FormParser
+
+# CORRECT IMPORT - Add this line
+from django_filters.rest_framework import DjangoFilterBackend
 
 from .models import DocumentTemplate, Document, DigitalSignatureLog
 from .serializers import (
@@ -126,7 +128,9 @@ class DocumentViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     http_method_names = ['get', 'post', 'put', 'patch', 'delete']
     parser_classes = [MultiPartParser, FormParser, JSONParser]
-    filter_backends = [filters.SearchFilter, filters.OrderingFilter, filters.DjangoFilterBackend]
+    
+    # FIXED: Use the correctly imported DjangoFilterBackend (not filters.DjangoFilterBackend)
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter, DjangoFilterBackend]
     search_fields = ['title', 'final_content', 'status']
     ordering_fields = ['title', 'created_at', 'updated_at', 'status']
     ordering = ['-updated_at']
@@ -220,12 +224,14 @@ class DocumentViewSet(viewsets.ModelViewSet):
         # Save file to document
         document.file_attachment.save(uploaded_file.name, uploaded_file)
         document.file_description = description
+        document.file_size = uploaded_file.size
         document.save()
         
         return Response({
             'detail': 'File uploaded successfully',
             'file_url': document.file_attachment.url if document.file_attachment else None,
-            'file_name': uploaded_file.name
+            'file_name': uploaded_file.name,
+            'file_size': uploaded_file.size
         })
 
     @swagger_auto_schema(
@@ -373,19 +379,7 @@ class DocumentViewSet(viewsets.ModelViewSet):
             'updated_count': updated_count
         })
 
-    @swagger_auto_schema(
-        method='get',
-        operation_description="Get document statistics for the organization",
-        responses={200: openapi.Schema(
-            type=openapi.TYPE_OBJECT,
-            properties={
-                'total_documents': openapi.Schema(type=openapi.TYPE_INTEGER),
-                'by_status': openapi.Schema(type=openapi.TYPE_OBJECT),
-                'by_template': openapi.Schema(type=openapi.TYPE_OBJECT),
-                'recent_activity': openapi.Schema(type=openapi.TYPE_ARRAY),
-            }
-        )}
-    )
+    # FIXED: Removed problematic Swagger schema
     @action(detail=False, methods=['get'], url_path='statistics')
     def document_statistics(self, request):
         """Get document statistics for the organization"""
@@ -465,6 +459,7 @@ class DocumentViewSet(viewsets.ModelViewSet):
             # Save to file field
             filename = f"{document.title.replace(' ', '_')}_{document.id}.pdf"
             document.file_attachment.save(filename, ContentFile(pdf_file))
+            document.file_size = len(pdf_file)
             
             # Update status
             document.status = 'pending_review'

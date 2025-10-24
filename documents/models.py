@@ -154,7 +154,7 @@ class DigitalSignatureLog(models.Model):
     signer = models.ForeignKey(
         CustomUser, 
         on_delete=models.PROTECT,
-        related_name='signatures'
+        related_name='document_signatures'
     )
     
     signed_at = models.DateTimeField(auto_now_add=True)
@@ -241,7 +241,7 @@ class DocumentPermission(models.Model):
     granted_by = models.ForeignKey(
         CustomUser, 
         on_delete=models.CASCADE,
-        related_name='granted_permissions'
+        related_name='granted_document_permissions'
     )
     granted_at = models.DateTimeField(auto_now_add=True)
     expires_at = models.DateTimeField(null=True, blank=True)
@@ -269,7 +269,7 @@ class DocumentComment(models.Model):
     user = models.ForeignKey(
         CustomUser,
         on_delete=models.CASCADE,
-        related_name='document_comments'
+        related_name='documents_document_comments'  # Fixed: unique related_name
     )
     comment = models.TextField()
     is_internal = models.BooleanField(
@@ -304,7 +304,8 @@ class DocumentVersion(models.Model):
     )
     created_by = models.ForeignKey(
         CustomUser,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name='created_document_versions'
     )
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -333,7 +334,8 @@ class DocumentShare(models.Model):
     )
     shared_by = models.ForeignKey(
         CustomUser,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name='shared_documents'
     )
     shared_with_email = models.EmailField(
         blank=True,
