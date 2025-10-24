@@ -17,8 +17,7 @@ from .serializers import (
     DigitalSignatureSerializer
 )
 
-# Assume the base permission is IsAuthenticated from settings.py,
-# but we explicitly add it for clarity.
+
 
 class DocumentTemplateViewSet(viewsets.ModelViewSet):
     """

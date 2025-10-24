@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'projects',              # Project management, Expenses
     'chat',                  # Real-time messaging
     'workflow',  
-     'editor',          # Approval routing logic
+     'editor', 
+     'dashboard',       # Approval routing logic
 ]
 
 MIDDLEWARE = [
@@ -338,3 +339,11 @@ CACHES = {
 #         }
 #     }
 # }
+
+import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+HRIS_API_KEY = os.environ.get('HRIS_API_KEY', 'your-hris-api-key')
+HRIS_BASE_URL = os.environ.get('HRIS_BASE_URL', 'https://api.hrsystem.com/v1')

@@ -13,6 +13,7 @@ from django.contrib.auth import get_user_model
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from django.contrib.auth.password_validation import validate_password
+from django.db.models import Count
 
 from .utils import account_activation_token, decode_uid_and_token
 from .serializers import (
@@ -22,6 +23,7 @@ from .serializers import (
     InvitationSerializer,
     InvitationResponseSerializer,
     OrganizationSerializer,
+    JoinOrganizationSerializer,
 )
 from .models import Organization, Invitation, OrganizationMembership 
 
@@ -72,6 +74,19 @@ class AuthViewSet(viewsets.GenericViewSet):
     """Handles User Registration and Email Verification."""
     permission_classes = [AllowAny]
 
+    def get_serializer_class(self):
+        """
+        Return appropriate serializer class based on action
+        """
+        if self.action == 'register':
+            return UserRegistrationSerializer
+        elif self.action in ['profile', 'update_profile']:
+            return UserSerializer
+        elif self.action == 'join_organization':
+            return JoinOrganizationSerializer
+        # For other actions that don't need a serializer, return None
+        return None
+
     # --- Helper Method to Send Email ---
     def _send_verification_email(self, user, request):
         try:
@@ -100,7 +115,7 @@ class AuthViewSet(viewsets.GenericViewSet):
 
     # --- 2.1. Registration Endpoint ---
     @swagger_auto_schema(
-        operation_description="Register a new user. Can be Organization Owner (with org data) or Invited User (with token).",
+        operation_description="Register a new user. Can be Organization Owner (with org data) or Invited User (with token) or Standalone User (no org).",
         request_body=UserRegistrationSerializer,
         responses={
             201: openapi.Response(
@@ -130,7 +145,8 @@ class AuthViewSet(viewsets.GenericViewSet):
     )
     @action(detail=False, methods=['post'])
     def register(self, request):
-        serializer = UserRegistrationSerializer(data=request.data)
+        serializer_class = self.get_serializer_class()
+        serializer = serializer_class(data=request.data)
         if serializer.is_valid():
             user = serializer.save()
             
@@ -430,6 +446,57 @@ class AuthViewSet(viewsets.GenericViewSet):
             status=status.HTTP_200_OK
         )
 
+    # --- 2.7. Join Organization Endpoint ---
+    @swagger_auto_schema(
+        operation_description="Join an organization using an invite token",
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            properties={
+                'invite_token': openapi.Schema(type=openapi.TYPE_STRING, description='Invitation token'),
+            },
+            required=['invite_token']
+        ),
+        responses={
+            200: openapi.Response(
+                description="Successfully joined organization",
+                schema=openapi.Schema(
+                    type=openapi.TYPE_OBJECT,
+                    properties={
+                        'message': openapi.Schema(type=openapi.TYPE_STRING),
+                        'user': openapi.Schema(
+                            type=openapi.TYPE_OBJECT,
+                            properties={
+                                'id': openapi.Schema(type=openapi.TYPE_INTEGER),
+                                'email': openapi.Schema(type=openapi.TYPE_STRING),
+                                'first_name': openapi.Schema(type=openapi.TYPE_STRING),
+                                'last_name': openapi.Schema(type=openapi.TYPE_STRING),
+                                'is_verified': openapi.Schema(type=openapi.TYPE_BOOLEAN),
+                                'is_active': openapi.Schema(type=openapi.TYPE_BOOLEAN),
+                                'date_joined': openapi.Schema(type=openapi.TYPE_STRING),
+                                'organization_role': openapi.Schema(type=openapi.TYPE_STRING),
+                            }
+                        )
+                    }
+                )
+            ),
+            400: 'Bad Request'
+        }
+    )
+    @action(detail=False, methods=['post'], permission_classes=[IsAuthenticated])
+    def join_organization(self, request):
+        """Allow existing users to join an organization using an invite token"""
+        serializer_class = self.get_serializer_class()
+        serializer = serializer_class(data=request.data, context={'request': request})
+        
+        if serializer.is_valid():
+            user = serializer.join_organization(request.user)
+            return Response({
+                'message': f'Successfully joined {user.organization.name}',
+                'user': UserSerializer(user).data
+            }, status=status.HTTP_200_OK)
+        
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 # ----------------------------------------------------------------------
 # --- 3. Organization Management ViewSet -------------------------------
@@ -438,17 +505,35 @@ class OrganizationViewSet(viewsets.GenericViewSet):
     """Handles Organization and Invitation Management."""
     permission_classes = [IsAuthenticated]
     
-    # Define roles a manager can invite people to
+    # Define roles a manager can invite people to - UPDATED WITH HR
     MANAGER_ALLOWED_ROLES = [
         'contributor', 
         'staff',
         'assistant_manager'
     ]
+    
+    # Define roles HR can invite people to - ADDED HR PERMISSIONS
+    HR_ALLOWED_ROLES = [
+        'contributor',
+        'staff',
+        'hr'  # HR can invite other HR staff
+    ]
 
-    # --- Helper function to check if user is owner or manager ---
-    def _is_owner_or_manager(self, user):
-        """Check if user has owner or manager role in their organization"""
-        if not user.organization:
+    def get_serializer_class(self):
+        """
+        Return appropriate serializer class based on action
+        """
+        if self.action == 'send_invitation':
+            return InvitationSerializer
+        elif self.action == 'my_organization':
+            return OrganizationSerializer
+        return None
+
+    # --- Helper function to check if user is owner, manager, or HR ---
+    def _is_owner_manager_or_hr(self, user):
+        """Check if user has owner, manager, or HR role in their organization"""
+        # USE THE SAFE PROPERTY INSTEAD OF DIRECT CHECK
+        if not user.has_valid_organization:
             return False
             
         membership = OrganizationMembership.objects.filter(
@@ -457,11 +542,11 @@ class OrganizationViewSet(viewsets.GenericViewSet):
             is_active=True
         ).first()
         
-        return membership and membership.role in ['owner', 'manager', 'ceo', 'administrator']
+        return membership and membership.role in ['owner', 'manager', 'ceo', 'administrator', 'hr']
 
-    # --- 3.1. Send Invitation Endpoint ---
+    # --- 3.1. Send Invitation Endpoint - UPDATED WITH HR ---
     @swagger_auto_schema(
-        operation_description="Send invitation to join organization (Owner: Any Role; Manager: Contributor/Staff/Assistant only).",
+        operation_description="Send invitation to join organization (Owner: Any Role; Manager: Contributor/Staff/Assistant only; HR: Contributor/Staff/HR only).",
         request_body=InvitationSerializer,
         responses={
             201: openapi.Response(
@@ -492,26 +577,37 @@ class OrganizationViewSet(viewsets.GenericViewSet):
     )
     @action(detail=False, methods=['post'])
     def send_invitation(self, request):
-        """Send invitation to join organization (Owners and Managers only)"""
+        """Send invitation to join organization (Owners, Managers, and HR only)"""
         user = request.user
         
-        # 1. Permission Check: Must be Owner or Manager
-        if not self._is_owner_or_manager(user):
+        # 1. Permission Check: Must be Owner, Manager, or HR
+        if not self._is_owner_manager_or_hr(user):
             return Response(
-                {'error': 'Only organization owners or managers can send invitations.'},
+                {'error': 'Only organization owners, managers, or HR can send invitations.'},
                 status=status.HTTP_403_FORBIDDEN
             )
         
-        serializer = InvitationSerializer(data=request.data)
+        serializer_class = self.get_serializer_class()
+        serializer = serializer_class(data=request.data)
         if serializer.is_valid():
             invited_role = serializer.validated_data.get('role', 'contributor')
             
-            # 2. Role Hierarchy Check: Managers cannot invite to high-level roles
+            # 2. Role Hierarchy Check based on user's role
             user_role = user.primary_role
+            
+            # Managers cannot invite to high-level roles
             if user_role in ['manager', 'assistant_manager']:
                 if invited_role not in self.MANAGER_ALLOWED_ROLES:
                     return Response(
                         {'role': f"Managers can only invite users to the roles: {', '.join(self.MANAGER_ALLOWED_ROLES)}."},
+                        status=status.HTTP_403_FORBIDDEN
+                    )
+            
+            # HR can only invite to specific roles - ADDED HR CHECK
+            if user_role == 'hr':
+                if invited_role not in self.HR_ALLOWED_ROLES:
+                    return Response(
+                        {'role': f"HR can only invite users to the roles: {', '.join(self.HR_ALLOWED_ROLES)}."},
                         status=status.HTTP_403_FORBIDDEN
                     )
 
@@ -556,19 +652,20 @@ class OrganizationViewSet(viewsets.GenericViewSet):
     @action(detail=False, methods=['get'])
     def my_organization(self, request):
         """Get current user's organization details"""
-        organization = request.user.organization
-        if not organization:
+        # USE THE SAFE PROPERTY INSTEAD OF DIRECT CHECK
+        if not request.user.has_valid_organization:
             return Response(
-                {'error': 'User does not belong to any organization.'},
+                {'error': 'User does not belong to any organization or organization is invalid.'},
                 status=status.HTTP_404_NOT_FOUND
             )
         
+        organization = request.user.organization
         serializer = OrganizationSerializer(organization)
         return Response(serializer.data)
 
-    # --- 3.3. Get Pending Invitations ---
+    # --- 3.3. Get Pending Invitations - UPDATED WITH HR ---
     @swagger_auto_schema(
-        operation_description="Get pending invitations for organization (Owners and Managers only)",
+        operation_description="Get pending invitations for organization (Owners, Managers, and HR only)",
         responses={
             200: openapi.Response(
                 description="List of pending invitations",
@@ -589,19 +686,26 @@ class OrganizationViewSet(viewsets.GenericViewSet):
                     )
                 )
             ),
-            403: 'Only organization owners or managers can view invitations'
+            403: 'Only organization owners, managers, or HR can view invitations'
         }
     )
     @action(detail=False, methods=['get'])
     def pending_invitations(self, request):
-        """Get pending invitations for organization (Owners and Managers only)"""
+        """Get pending invitations for organization (Owners, Managers, and HR only)"""
         user = request.user
 
-        # Permission Check: Must be Owner or Manager
-        if not self._is_owner_or_manager(user):
+        # Permission Check: Must be Owner, Manager, or HR
+        if not self._is_owner_manager_or_hr(user):
             return Response(
-                {'error': 'Only organization owners or managers can view invitations.'},
+                {'error': 'Only organization owners, managers, or HR can view invitations.'},
                 status=status.HTTP_403_FORBIDDEN
+            )
+        
+        # USE THE SAFE PROPERTY INSTEAD OF DIRECT CHECK
+        if not user.has_valid_organization:
+            return Response(
+                {'error': 'User organization not found or invalid.'},
+                status=status.HTTP_400_BAD_REQUEST
             )
         
         invitations = Invitation.objects.filter(
@@ -610,3 +714,110 @@ class OrganizationViewSet(viewsets.GenericViewSet):
         )
         serializer = InvitationResponseSerializer(invitations, many=True)
         return Response(serializer.data)
+
+    # --- 3.4. Get Organization Members - ADDED HR ACCESS ---
+    @swagger_auto_schema(
+        operation_description="Get organization members list (Owners, Managers, and HR only)",
+        responses={
+            200: openapi.Response(
+                description="List of organization members",
+                schema=openapi.Schema(
+                    type=openapi.TYPE_ARRAY,
+                    items=openapi.Schema(
+                        type=openapi.TYPE_OBJECT,
+                        properties={
+                            'id': openapi.Schema(type=openapi.TYPE_INTEGER),
+                            'email': openapi.Schema(type=openapi.TYPE_STRING),
+                            'first_name': openapi.Schema(type=openapi.TYPE_STRING),
+                            'last_name': openapi.Schema(type=openapi.TYPE_STRING),
+                            'is_verified': openapi.Schema(type=openapi.TYPE_BOOLEAN),
+                            'is_active': openapi.Schema(type=openapi.TYPE_BOOLEAN),
+                            'date_joined': openapi.Schema(type=openapi.TYPE_STRING),
+                            'organization_role': openapi.Schema(type=openapi.TYPE_STRING),
+                        }
+                    )
+                )
+            ),
+            403: 'Only organization owners, managers, or HR can view members'
+        }
+    )
+    @action(detail=False, methods=['get'])
+    def members(self, request):
+        """Get organization members (Owners, Managers, and HR only)"""
+        user = request.user
+
+        # Permission Check: Must be Owner, Manager, or HR
+        if not self._is_owner_manager_or_hr(user):
+            return Response(
+                {'error': 'Only organization owners, managers, or HR can view members.'},
+                status=status.HTTP_403_FORBIDDEN
+            )
+        
+        # USE THE SAFE PROPERTY INSTEAD OF DIRECT CHECK
+        if not user.has_valid_organization:
+            return Response(
+                {'error': 'User organization not found or invalid.'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        members = User.objects.filter(organization=user.organization)
+        serializer = UserSerializer(members, many=True)
+        return Response(serializer.data)
+
+    # --- 3.5. Get Organization Statistics - ADDED HR ACCESS ---
+    @swagger_auto_schema(
+        operation_description="Get organization statistics (Owners, Managers, and HR only)",
+        responses={
+            200: openapi.Response(
+                description="Organization statistics",
+                schema=openapi.Schema(
+                    type=openapi.TYPE_OBJECT,
+                    properties={
+                        'total_members': openapi.Schema(type=openapi.TYPE_INTEGER),
+                        'active_members': openapi.Schema(type=openapi.TYPE_INTEGER),
+                        'pending_invitations': openapi.Schema(type=openapi.TYPE_INTEGER),
+                        'role_distribution': openapi.Schema(type=openapi.TYPE_OBJECT),
+                    }
+                )
+            ),
+            403: 'Only organization owners, managers, or HR can view statistics'
+        }
+    )
+    @action(detail=False, methods=['get'])
+    def statistics(self, request):
+        """Get organization statistics (Owners, Managers, and HR only)"""
+        user = request.user
+
+        # Permission Check: Must be Owner, Manager, or HR
+        if not self._is_owner_manager_or_hr(user):
+            return Response(
+                {'error': 'Only organization owners, managers, or HR can view statistics.'},
+                status=status.HTTP_403_FORBIDDEN
+            )
+        
+        # USE THE SAFE PROPERTY INSTEAD OF DIRECT CHECK
+        if not user.has_valid_organization:
+            return Response(
+                {'error': 'User organization not found or invalid.'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        organization = user.organization
+        total_members = User.objects.filter(organization=organization).count()
+        active_members = User.objects.filter(organization=organization, is_active=True).count()
+        pending_invitations = Invitation.objects.filter(organization=organization, is_accepted=False).count()
+        
+        # Role distribution
+        role_distribution = dict(
+            User.objects.filter(organization=organization)
+            .values('primary_role')
+            .annotate(count=Count('id'))
+            .values_list('primary_role', 'count')
+        )
+        
+        return Response({
+            'total_members': total_members,
+            'active_members': active_members,
+            'pending_invitations': pending_invitations,
+            'role_distribution': role_distribution,
+        })

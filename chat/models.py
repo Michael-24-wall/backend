@@ -71,7 +71,7 @@ class Message(models.Model):
         ]
     
     def __str__(self):
-        return f"{self.user.username}: {self.content[:50]}"
+        return f"{self.user.email}: {self.content[:50]}"
 
 class MessageReadReceipt(models.Model):
     message = models.ForeignKey(Message, on_delete=models.CASCADE, related_name='read_receipts')
@@ -85,13 +85,13 @@ class UserProfile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='chat_profile')
     avatar = models.ImageField(upload_to='chat/avatars/', null=True, blank=True)
     status = models.CharField(max_length=100, blank=True)
-    is_online = models.BooleanField(default=False)
+    online = models.BooleanField(default=False)  # CHANGED FROM is_online TO online
     last_seen = models.DateTimeField(auto_now=True)
     theme = models.CharField(max_length=20, default='light')
     notification_enabled = models.BooleanField(default=True)
     
     def __str__(self):
-        return f"Profile - {self.user.username}"
+        return f"Profile - {self.user.email}"
 
 class TypingIndicator(models.Model):
     room = models.ForeignKey(ChatRoom, on_delete=models.CASCADE)

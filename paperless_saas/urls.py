@@ -46,10 +46,11 @@ urlpatterns = [
     path('api/documents/', include('documents.urls')),
     path('api/projects/', include('projects.urls')), 
     path('api/workflow/', include('workflow.urls')),
+    path('api/dashboard/', include('dashboard.urls')),
     
-    path('api/chat/', include('chat.urls')), 
+    # path('api/chat/', include('chat.urls')), 
     
-        path('chat/', TemplateView.as_view(template_name='chat_app.html'), name='chat'),
-        path('api/editor/', include('editor.urls')),
+    path('chat/', TemplateView.as_view(template_name='chat_app.html'), name='chat'),
+    path('api/editor/', include('editor.urls')),
 
 ]

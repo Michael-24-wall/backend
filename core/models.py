@@ -4,8 +4,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.utils.text import slugify
 import uuid
-from django.utils import timezone  # CORRECT IMPORT
-from datetime import timedelta  # ADD THIS IMPORT
+from django.utils import timezone
+from datetime import timedelta
 
 # Custom User Manager
 class CustomUserManager(BaseUserManager):
@@ -106,22 +106,49 @@ class CustomUser(AbstractUser):
     def __str__(self):
         return self.email
     
-    # HELPER METHODS
+    # HELPER METHODS - FIXED THESE PROPERTIES
     @property
     def primary_membership(self):
         """Get the membership for the user's primary organization"""
         if self.organization:
-            return self.organizationmembership_set.filter(
-                organization=self.organization,
-                is_active=True
-            ).first()
+            try:
+                return self.organizationmembership_set.filter(
+                    organization=self.organization,
+                    is_active=True
+                ).first()
+            except Exception:
+                # If there's any issue accessing the membership, return None
+                return None
         return None
     
     @property 
     def primary_role(self):
-        """Get the role in primary organization"""
+        """Get the role in primary organization - FIXED WITH BETTER ERROR HANDLING"""
+        if not self.organization:
+            return 'individual'
+        
         membership = self.primary_membership
-        return membership.role if membership else None
+        if membership and hasattr(membership, 'role'):
+            return membership.role
+        
+        # If organization exists but no membership, it's an inconsistent state
+        # Return 'individual' to prevent errors
+        return 'individual'
+    
+    @property
+    def has_valid_organization(self):
+        """Check if user has a valid organization with proper membership"""
+        if not self.organization:
+            return False
+        
+        # Check if organization actually exists in database
+        try:
+            Organization.objects.get(id=self.organization.id)
+        except Organization.DoesNotExist:
+            return False
+        
+        # Check if membership exists
+        return self.primary_membership is not None
     
     @property
     def full_name(self):
@@ -155,6 +182,7 @@ class OrganizationMembership(models.Model):
         ('administrator', 'Administrator'),
         ('staff', 'Staff'),
         ('contributor', 'Contributor'),
+        ('individual', 'Individual'),  # ADDED FOR STANDALONE USERS
     ]
 
     ROLE_HIERARCHY = {
@@ -167,6 +195,7 @@ class OrganizationMembership(models.Model):
         'accountant': 50,
         'staff': 40,
         'contributor': 30,
+        'individual': 0,  # ADDED FOR STANDALONE USERS
     }
 
     user = models.ForeignKey(
