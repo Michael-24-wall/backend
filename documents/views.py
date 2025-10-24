@@ -489,15 +489,12 @@ class DocumentViewSet(viewsets.ModelViewSet):
         document = get_object_or_404(self.get_queryset(), pk=pk)
         user = request.user
         
-        # 1. Workflow Check (Placeholder: Ensure signing is allowed)
         if document.status not in ['pending', 'pending_approval']:
              return Response({'error': 'Document cannot be signed in its current status.'}, status=status.HTTP_400_BAD_REQUEST)
         
-        # 2. Check if user already signed this document
         if DigitalSignatureLog.objects.filter(document=document, signer=user).exists():
             return Response({'error': 'You have already signed this document.'}, status=status.HTTP_400_BAD_REQUEST)
         
-        # 3. Get the user's current primary role in the organization
         membership = get_object_or_404(
             user.organizationmembership_set.all(), 
             organization=document.organization, 
@@ -505,7 +502,6 @@ class DocumentViewSet(viewsets.ModelViewSet):
         )
         signer_role = membership.role
 
-        # 4. Create the Signature Log
         signature_data = {
             'document': document.id,
             'signer': user.id,

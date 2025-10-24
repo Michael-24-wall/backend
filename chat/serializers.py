@@ -15,10 +15,10 @@ class UserProfileSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = UserProfile
-        fields = ['user', 'avatar', 'status', 'is_online', 'last_seen', 'online_status', 'theme']
+        fields = ['user', 'avatar', 'status', 'online', 'last_seen', 'online_status', 'theme', 'notification_enabled']  # ✅ Fixed: is_online to online
     
     def get_online_status(self, obj):
-        if obj.is_online:
+        if obj.online:  # ✅ Fixed: is_online to online
             return "online"
         return "offline"
 
@@ -81,7 +81,7 @@ class ChatRoomSerializer(serializers.ModelSerializer):
     def get_online_count(self, obj):
         return UserProfile.objects.filter(
             user__in=obj.roommembership_set.filter(is_banned=False).values('user'),
-            is_online=True
+            online=True  # ✅ Fixed: is_online to online
         ).count()
     
     def get_last_message(self, obj):
@@ -119,7 +119,7 @@ class MessageReadReceiptSerializer(serializers.ModelSerializer):
 class CreateMessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Message
-        fields = ['content', 'message_type', 'reply_to', 'file_url', 'file_name', 'file_size']
+        fields = ['room', 'content', 'message_type', 'reply_to', 'file_url', 'file_name', 'file_size']
     
     def validate_content(self, value):
         if len(value) > 5000:

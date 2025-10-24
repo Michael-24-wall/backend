@@ -4142,3 +4142,2051 @@ WARNING 2025-10-24 14:52:35,545 log 21468 19860 Bad Request: /api/documents/inst
 WARNING 2025-10-24 14:52:35,545 basehttp 21468 19860 "POST /api/documents/instances/1/upload-attachment/ HTTP/1.1" 400 28
 WARNING 2025-10-24 14:52:42,742 log 21468 19860 Bad Request: /api/documents/instances/1/upload-attachment/
 WARNING 2025-10-24 14:52:42,742 basehttp 21468 19860 "POST /api/documents/instances/1/upload-attachment/ HTTP/1.1" 400 28
+INFO 2025-10-24 15:02:51,970 basehttp 21468 16896 "GET /api/projects/ HTTP/1.1" 200 111
+WARNING 2025-10-24 15:04:27,462 log 21468 2996 Method Not Allowed: /api/projects/
+WARNING 2025-10-24 15:04:27,462 basehttp 21468 2996 "POST /api/projects/ HTTP/1.1" 405 41
+WARNING 2025-10-24 15:05:19,847 log 21468 2996 Not Found: /api/project/
+WARNING 2025-10-24 15:05:19,848 basehttp 21468 2996 "POST /api/project/ HTTP/1.1" 404 14713
+WARNING 2025-10-24 15:05:25,834 log 21468 2996 Method Not Allowed: /api/projects/
+WARNING 2025-10-24 15:05:25,834 basehttp 21468 2996 "POST /api/projects/ HTTP/1.1" 405 41
+INFO 2025-10-24 15:07:26,682 autoreload 21468 7804 C:\Users\MICHAEL\workflow\backend\projects\urls.py changed, reloading.
+INFO 2025-10-24 15:07:27,423 autoreload 18000 20604 Watching for file changes with StatReloader
+WARNING 2025-10-24 15:08:09,092 log 18000 19588 Not Found: /api/documents/1/upload-attachment/
+WARNING 2025-10-24 15:08:09,093 basehttp 18000 19588 "GET /api/documents/1/upload-attachment/ HTTP/1.1" 404 28203
+WARNING 2025-10-24 15:08:15,147 log 18000 19860 Method Not Allowed: /api/projects/
+WARNING 2025-10-24 15:08:15,148 basehttp 18000 19860 "POST /api/projects/ HTTP/1.1" 405 41
+INFO 2025-10-24 15:11:35,026 autoreload 18000 20604 C:\Users\MICHAEL\workflow\backend\projects\views.py changed, reloading.
+INFO 2025-10-24 15:11:35,753 autoreload 20392 18204 Watching for file changes with StatReloader
+INFO 2025-10-24 15:11:37,230 autoreload 20392 18204 C:\Users\MICHAEL\workflow\backend\projects\views.py changed, reloading.
+INFO 2025-10-24 15:11:37,881 autoreload 2696 12524 Watching for file changes with StatReloader
+INFO 2025-10-24 15:11:39,378 autoreload 2696 12524 C:\Users\MICHAEL\workflow\backend\projects\views.py changed, reloading.
+INFO 2025-10-24 15:11:39,948 autoreload 7124 20560 Watching for file changes with StatReloader
+WARNING 2025-10-24 15:12:02,931 log 7124 12680 Method Not Allowed: /api/projects/
+WARNING 2025-10-24 15:12:02,934 basehttp 7124 12680 "POST /api/projects/ HTTP/1.1" 405 41
+WARNING 2025-10-24 15:12:06,939 log 7124 12680 Method Not Allowed: /api/projects/
+WARNING 2025-10-24 15:12:06,940 basehttp 7124 12680 "POST /api/projects/ HTTP/1.1" 405 41
+INFO 2025-10-24 15:14:44,343 autoreload 7124 20560 C:\Users\MICHAEL\workflow\backend\projects\views.py changed, reloading.
+INFO 2025-10-24 15:14:45,007 autoreload 19116 16540 Watching for file changes with StatReloader
+WARNING 2025-10-24 15:14:56,749 log 19116 18072 Method Not Allowed: /api/projects/
+WARNING 2025-10-24 15:14:56,750 basehttp 19116 18072 "POST /api/projects/ HTTP/1.1" 405 41
+WARNING 2025-10-24 15:15:04,795 log 19116 18072 Method Not Allowed: /api/projects/
+WARNING 2025-10-24 15:15:04,795 basehttp 19116 18072 "POST /api/projects/ HTTP/1.1" 405 41
+WARNING 2025-10-24 15:15:29,842 log 19116 18072 Method Not Allowed: /api/projects/
+WARNING 2025-10-24 15:15:29,842 basehttp 19116 18072 "POST /api/projects/ HTTP/1.1" 405 41
+WARNING 2025-10-24 15:17:12,660 log 19116 10428 Method Not Allowed: /api/projects/
+WARNING 2025-10-24 15:17:12,661 basehttp 19116 10428 "POST /api/projects/ HTTP/1.1" 405 41
+WARNING 2025-10-24 15:17:45,613 log 19116 10428 Method Not Allowed: /api/projects/
+WARNING 2025-10-24 15:17:45,614 basehttp 19116 10428 "POST /api/projects/ HTTP/1.1" 405 41
+INFO 2025-10-24 15:19:04,557 autoreload 19116 16540 C:\Users\MICHAEL\workflow\backend\projects\views.py changed, reloading.
+INFO 2025-10-24 15:19:05,961 autoreload 5556 17980 Watching for file changes with StatReloader
+INFO 2025-10-24 15:19:08,374 autoreload 5556 17980 C:\Users\MICHAEL\workflow\backend\projects\views.py changed, reloading.
+INFO 2025-10-24 15:19:09,153 autoreload 12368 20924 Watching for file changes with StatReloader
+WARNING 2025-10-24 15:19:20,633 log 12368 20568 Method Not Allowed: /api/projects/
+WARNING 2025-10-24 15:19:20,634 basehttp 12368 20568 "POST /api/projects/ HTTP/1.1" 405 41
+WARNING 2025-10-24 15:19:24,867 log 12368 20568 Method Not Allowed: /api/projects/
+WARNING 2025-10-24 15:19:24,868 basehttp 12368 20568 "POST /api/projects/ HTTP/1.1" 405 41
+INFO 2025-10-24 15:24:44,570 autoreload 12368 20924 C:\Users\MICHAEL\workflow\backend\projects\views.py changed, reloading.
+INFO 2025-10-24 15:24:45,443 autoreload 18808 7032 Watching for file changes with StatReloader
+INFO 2025-10-24 15:24:46,788 autoreload 18808 7032 C:\Users\MICHAEL\workflow\backend\projects\views.py changed, reloading.
+INFO 2025-10-24 15:24:47,478 autoreload 20524 20472 Watching for file changes with StatReloader
+WARNING 2025-10-24 15:24:52,823 log 20524 3000 Method Not Allowed: /api/projects/
+WARNING 2025-10-24 15:24:52,824 basehttp 20524 3000 "POST /api/projects/ HTTP/1.1" 405 41
+INFO 2025-10-24 15:25:15,171 basehttp 20524 4360 "GET /api/projects/ HTTP/1.1" 200 5639
+INFO 2025-10-24 15:25:23,853 basehttp 20524 4360 "GET /api/projects/tasks/ HTTP/1.1" 200 16226
+INFO 2025-10-24 15:25:24,035 basehttp 20524 4360 "GET /static/rest_framework/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+INFO 2025-10-24 15:25:40,238 basehttp 20524 4360 "GET /api/projects/ HTTP/1.1" 200 5639
+INFO 2025-10-24 15:26:56,633 basehttp 20524 22300 "GET /api/projects/ HTTP/1.1" 200 111
+INFO 2025-10-24 15:28:57,442 autoreload 20524 20472 C:\Users\MICHAEL\workflow\backend\paperless_saas\urls.py changed, reloading.
+INFO 2025-10-24 15:28:59,119 autoreload 5420 22036 Watching for file changes with StatReloader
+INFO 2025-10-24 15:29:00,891 autoreload 5420 22036 C:\Users\MICHAEL\workflow\backend\paperless_saas\urls.py changed, reloading.
+INFO 2025-10-24 15:29:01,774 autoreload 7032 8716 Watching for file changes with StatReloader
+INFO 2025-10-24 15:29:09,999 basehttp 7032 19664 "GET /api/projects/ HTTP/1.1" 200 52
+INFO 2025-10-24 15:29:21,580 basehttp 7032 19664 "POST /api/projects/ HTTP/1.1" 201 307
+WARNING 2025-10-24 15:33:25,614 log 7032 3904 Unauthorized: /api/projects/tasks/
+WARNING 2025-10-24 15:33:25,615 basehttp 7032 3904 "POST /api/projects/tasks/ HTTP/1.1" 401 58
+WARNING 2025-10-24 15:33:53,877 log 7032 3904 Method Not Allowed: /api/projects/tasks/
+WARNING 2025-10-24 15:33:53,878 basehttp 7032 3904 "POST /api/projects/tasks/ HTTP/1.1" 405 41
+WARNING 2025-10-24 15:34:39,374 log 7032 3904 Method Not Allowed: /api/projects/tasks/
+WARNING 2025-10-24 15:34:39,375 basehttp 7032 3904 "POST /api/projects/tasks/ HTTP/1.1" 405 41
+WARNING 2025-10-24 15:34:49,392 log 7032 3904 Not Found: /api/projects/tasks/
+WARNING 2025-10-24 15:34:49,393 basehttp 7032 3904 "GET /api/projects/tasks/ HTTP/1.1" 404 23
+WARNING 2025-10-24 15:37:21,078 log 7032 14432 Method Not Allowed: /api/projects/projects/
+WARNING 2025-10-24 15:37:21,080 basehttp 7032 14432 "POST /api/projects/projects/ HTTP/1.1" 405 41
+WARNING 2025-10-24 15:37:40,419 log 7032 14432 Unauthorized: /api/projects/
+WARNING 2025-10-24 15:37:40,420 basehttp 7032 14432 "POST /api/projects/ HTTP/1.1" 401 172
+INFO 2025-10-24 15:38:08,166 basehttp 7032 14432 "POST /api/auth/login/ HTTP/1.1" 200 1069
+ERROR 2025-10-24 15:38:38,678 log 7032 14432 Internal Server Error: /api/projects/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "projects_project_organization_id_name_6767dd89_uniq"
+DETAIL:  Key (organization_id, name)=(1, Website Redesign) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\projects\views.py", line 33, in perform_create
+    serializer.save(organization=self.request.user.organization)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\projects\serializers.py", line 123, in create
+    return super().create(validated_data)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "projects_project_organization_id_name_6767dd89_uniq"
+DETAIL:  Key (organization_id, name)=(1, Website Redesign) already exists.
+
+ERROR 2025-10-24 15:38:38,710 basehttp 7032 14432 "POST /api/projects/ HTTP/1.1" 500 221321
+INFO 2025-10-24 15:39:44,248 basehttp 7032 19052 "POST /api/projects/ HTTP/1.1" 201 300
+WARNING 2025-10-24 15:40:35,416 log 7032 19052 Method Not Allowed: /api/projects/tasks/
+WARNING 2025-10-24 15:40:35,418 basehttp 7032 19052 "POST /api/projects/tasks/ HTTP/1.1" 405 41
+WARNING 2025-10-24 15:41:17,912 log 7032 19052 Method Not Allowed: /api/projects/tasks/
+WARNING 2025-10-24 15:41:17,913 basehttp 7032 19052 "POST /api/projects/tasks/ HTTP/1.1" 405 41
+WARNING 2025-10-24 15:41:24,466 log 7032 19052 Not Found: /api/projects/tasks/
+WARNING 2025-10-24 15:41:24,467 basehttp 7032 19052 "GET /api/projects/tasks/ HTTP/1.1" 404 23
+WARNING 2025-10-24 15:42:03,529 log 7032 19052 Method Not Allowed: /api/projects/tasks/
+WARNING 2025-10-24 15:42:03,530 basehttp 7032 19052 "POST /api/projects/tasks/ HTTP/1.1" 405 41
+WARNING 2025-10-24 15:42:29,879 log 7032 19052 Method Not Allowed: /api/projects/tasks/
+WARNING 2025-10-24 15:42:29,880 basehttp 7032 19052 "POST /api/projects/tasks/ HTTP/1.1" 405 41
+WARNING 2025-10-24 15:42:50,267 log 7032 19052 Method Not Allowed: /api/projects/tasks/
+WARNING 2025-10-24 15:42:50,268 basehttp 7032 19052 "POST /api/projects/tasks/ HTTP/1.1" 405 41
+WARNING 2025-10-24 15:43:42,416 log 7032 19052 Not Found: /api/projects/projects/
+WARNING 2025-10-24 15:43:42,417 basehttp 7032 19052 "GET /api/projects/projects/ HTTP/1.1" 404 23
+WARNING 2025-10-24 15:45:02,634 log 7032 21156 Not Found: /api/projects/projects/
+WARNING 2025-10-24 15:45:02,635 basehttp 7032 21156 "GET /api/projects/projects/ HTTP/1.1" 404 23
+INFO 2025-10-24 15:46:12,377 autoreload 7032 8716 C:\Users\MICHAEL\workflow\backend\projects\urls.py changed, reloading.
+INFO 2025-10-24 15:46:13,223 autoreload 16456 8140 Watching for file changes with StatReloader
+INFO 2025-10-24 15:49:35,632 autoreload 16456 8140 C:\Users\MICHAEL\workflow\backend\projects\views.py changed, reloading.
+INFO 2025-10-24 15:49:36,415 autoreload 14600 2708 Watching for file changes with StatReloader
+ERROR 2025-10-24 15:52:09,415 log 14600 9832 Internal Server Error: /api/projects/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "projects_project_organization_id_name_6767dd89_uniq"
+DETAIL:  Key (organization_id, name)=(1, Website Redesign) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\projects\views.py", line 36, in perform_create
+    serializer.save(organization=self.request.user.organization)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\projects\serializers.py", line 123, in create
+    return super().create(validated_data)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "projects_project_organization_id_name_6767dd89_uniq"
+DETAIL:  Key (organization_id, name)=(1, Website Redesign) already exists.
+
+ERROR 2025-10-24 15:52:09,438 basehttp 14600 9832 "POST /api/projects/ HTTP/1.1" 500 219866
+ERROR 2025-10-24 15:52:58,230 log 14600 9832 Internal Server Error: /api/projects/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 540, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\fields.py", line 1272, in to_representation
+    assert not isinstance(value, datetime.datetime), (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.
+ERROR 2025-10-24 15:52:58,237 basehttp 14600 9832 "POST /api/projects/ HTTP/1.1" 500 129640
+INFO 2025-10-24 16:07:39,132 basehttp 14600 24332 "GET /api/projects/tasks HTTP/1.1" 301 0
+WARNING 2025-10-24 16:07:39,762 log 14600 9736 Not Found: /api/projects/tasks/
+WARNING 2025-10-24 16:07:39,764 basehttp 14600 9736 "GET /api/projects/tasks/ HTTP/1.1" 404 13388
+WARNING 2025-10-24 16:09:26,583 log 14600 7176 Method Not Allowed: /api/projects/tasks/
+WARNING 2025-10-24 16:09:26,584 basehttp 14600 7176 "POST /api/projects/tasks/ HTTP/1.1" 405 41
+WARNING 2025-10-24 16:10:29,971 log 14600 18056 Not Found: /api/projects/tasks/
+WARNING 2025-10-24 16:10:29,973 basehttp 14600 18056 "GET /api/projects/tasks/ HTTP/1.1" 404 23
+WARNING 2025-10-24 16:11:24,355 log 14600 18056 Not Found: /api/projects/tasks/
+WARNING 2025-10-24 16:11:24,356 basehttp 14600 18056 "GET /api/projects/tasks/ HTTP/1.1" 404 23
+INFO 2025-10-24 16:12:19,004 autoreload 14600 2708 C:\Users\MICHAEL\workflow\backend\paperless_saas\settings.py changed, reloading.
+INFO 2025-10-24 16:12:19,900 autoreload 13428 12320 Watching for file changes with StatReloader
+WARNING 2025-10-24 16:12:29,386 log 13428 8900 Not Found: /api/projects/tasks/
+WARNING 2025-10-24 16:12:29,387 basehttp 13428 8900 "GET /api/projects/tasks/ HTTP/1.1" 404 23
+WARNING 2025-10-24 16:14:51,174 log 13428 15120 Bad Request: /api/projects/
+WARNING 2025-10-24 16:14:51,176 basehttp 13428 15120 "POST /api/projects/ HTTP/1.1" 400 49
+ERROR 2025-10-24 16:15:09,667 log 13428 15120 Internal Server Error: /api/projects/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 540, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\fields.py", line 1272, in to_representation
+    assert not isinstance(value, datetime.datetime), (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.
+ERROR 2025-10-24 16:15:09,678 basehttp 13428 15120 "POST /api/projects/ HTTP/1.1" 500 129812
+ERROR 2025-10-24 16:16:38,206 log 13428 14828 Internal Server Error: /api/projects/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "projects_project_organization_id_name_6767dd89_uniq"
+DETAIL:  Key (organization_id, name)=(1, Website Redesign) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\projects\views.py", line 36, in perform_create
+    serializer.save(organization=self.request.user.organization)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\projects\serializers.py", line 123, in create
+    return super().create(validated_data)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "projects_project_organization_id_name_6767dd89_uniq"
+DETAIL:  Key (organization_id, name)=(1, Website Redesign) already exists.
+
+ERROR 2025-10-24 16:16:38,223 basehttp 13428 14828 "POST /api/projects/ HTTP/1.1" 500 220108
+ERROR 2025-10-24 16:17:22,334 log 13428 14828 Internal Server Error: /api/projects/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 540, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\fields.py", line 1272, in to_representation
+    assert not isinstance(value, datetime.datetime), (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.
+ERROR 2025-10-24 16:17:22,341 basehttp 13428 14828 "POST /api/projects/ HTTP/1.1" 500 129836
+INFO 2025-10-24 16:18:52,265 autoreload 13428 12320 C:\Users\MICHAEL\workflow\backend\projects\serializers.py changed, reloading.
+INFO 2025-10-24 16:18:53,117 autoreload 18216 4752 Watching for file changes with StatReloader
+ERROR 2025-10-24 16:19:07,377 log 18216 7904 Internal Server Error: /api/projects/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "projects_project_organization_id_name_6767dd89_uniq"
+DETAIL:  Key (organization_id, name)=(1, Mobile App Development) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\projects\views.py", line 36, in perform_create
+    serializer.save(organization=self.request.user.organization)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\projects\serializers.py", line 98, in create
+    return super().create(validated_data)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "projects_project_organization_id_name_6767dd89_uniq"
+DETAIL:  Key (organization_id, name)=(1, Mobile App Development) already exists.
+
+ERROR 2025-10-24 16:19:07,398 basehttp 18216 7904 "POST /api/projects/ HTTP/1.1" 500 220910
+INFO 2025-10-24 16:19:55,583 basehttp 18216 7904 "POST /api/projects/ HTTP/1.1" 201 317
+ERROR 2025-10-24 16:21:30,796 log 18216 24312 Internal Server Error: /api/projects/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 540, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\fields.py", line 1207, in to_representation
+    value = self.enforce_timezone(value)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\fields.py", line 1153, in enforce_timezone
+    if timezone.is_aware(value):
+       ~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\utils\timezone.py", line 221, in is_aware
+    return value.utcoffset() is not None
+           ^^^^^^^^^^^^^^^
+AttributeError: 'datetime.date' object has no attribute 'utcoffset'
+ERROR 2025-10-24 16:21:30,806 basehttp 18216 24312 "GET /api/projects/ HTTP/1.1" 500 145175
+WARNING 2025-10-24 16:23:04,325 log 18216 22740 Bad Request: /api/projects/1/
+WARNING 2025-10-24 16:23:04,327 basehttp 18216 22740 "PUT /api/projects/1/ HTTP/1.1" 400 36
+WARNING 2025-10-24 16:23:22,785 log 18216 22740 Bad Request: /api/projects/1/
+WARNING 2025-10-24 16:23:22,786 basehttp 18216 22740 "PUT /api/projects/1/ HTTP/1.1" 400 53
+ERROR 2025-10-24 16:23:38,185 log 18216 22740 Internal Server Error: /api/projects/1/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 75, in update
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 540, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\fields.py", line 1207, in to_representation
+    value = self.enforce_timezone(value)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\fields.py", line 1153, in enforce_timezone
+    if timezone.is_aware(value):
+       ~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\utils\timezone.py", line 221, in is_aware
+    return value.utcoffset() is not None
+           ^^^^^^^^^^^^^^^
+AttributeError: 'datetime.date' object has no attribute 'utcoffset'
+ERROR 2025-10-24 16:23:38,192 basehttp 18216 22740 "PUT /api/projects/1/ HTTP/1.1" 500 137656
+WARNING 2025-10-24 16:24:16,638 log 18216 22740 Bad Request: /api/projects/1/
+WARNING 2025-10-24 16:24:16,639 basehttp 18216 22740 "PUT /api/projects/1/ HTTP/1.1" 400 53
+INFO 2025-10-24 16:25:56,456 basehttp 18216 24256 "DELETE /api/projects/1/ HTTP/1.1" 204 0
+WARNING 2025-10-24 16:27:18,368 log 18216 6384 Unauthorized: /api/projects/3/tasks/
+WARNING 2025-10-24 16:27:18,370 basehttp 18216 6384 "GET /api/projects/3/tasks/ HTTP/1.1" 401 58
+INFO 2025-10-24 16:27:27,958 basehttp 18216 6384 "GET /api/projects/3/tasks/ HTTP/1.1" 200 2
+WARNING 2025-10-24 16:28:43,726 log 18216 4788 Not Found: /api/projects/1/set-status/
+WARNING 2025-10-24 16:28:43,727 basehttp 18216 4788 "POST /api/projects/1/set-status/ HTTP/1.1" 404 48
+WARNING 2025-10-24 16:29:01,739 log 18216 4788 Not Found: /api/projects/1/set-status/
+WARNING 2025-10-24 16:29:01,740 basehttp 18216 4788 "POST /api/projects/1/set-status/ HTTP/1.1" 404 48
+WARNING 2025-10-24 16:30:19,539 log 18216 18680 Not Found: /api/projects/1/set-status/
+WARNING 2025-10-24 16:30:19,540 basehttp 18216 18680 "POST /api/projects/1/set-status/ HTTP/1.1" 404 48
+WARNING 2025-10-24 16:31:51,498 log 18216 2984 Not Found: /api/projects/1/set-status/
+WARNING 2025-10-24 16:31:51,499 basehttp 18216 2984 "POST /api/projects/1/set-status/ HTTP/1.1" 404 48
+WARNING 2025-10-24 16:32:00,560 log 18216 2984 Bad Request: /api/projects/3/set-status/
+WARNING 2025-10-24 16:32:00,561 basehttp 18216 2984 "POST /api/projects/3/set-status/ HTTP/1.1" 400 94
+ERROR 2025-10-24 16:32:29,945 log 18216 2984 Internal Server Error: /api/projects/3/set-status/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\projects\views.py", line 66, in set_status
+    return Response(ProjectSerializer(project).data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 540, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\fields.py", line 1207, in to_representation
+    value = self.enforce_timezone(value)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\fields.py", line 1153, in enforce_timezone
+    if timezone.is_aware(value):
+       ~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\utils\timezone.py", line 221, in is_aware
+    return value.utcoffset() is not None
+           ^^^^^^^^^^^^^^^
+AttributeError: 'datetime.date' object has no attribute 'utcoffset'
+ERROR 2025-10-24 16:32:29,951 basehttp 18216 2984 "POST /api/projects/3/set-status/ HTTP/1.1" 500 134834
+WARNING 2025-10-24 16:34:01,202 log 18216 21916 Method Not Allowed: /api/projects/3/set-status/
+WARNING 2025-10-24 16:34:01,203 basehttp 18216 21916 "GET /api/projects/3/set-status/ HTTP/1.1" 405 11006
+WARNING 2025-10-24 16:34:31,451 log 18216 17968 Not Found: /api/projects/2/set-status/
+WARNING 2025-10-24 16:34:31,452 basehttp 18216 17968 "POST /api/projects/2/set-status/ HTTP/1.1" 404 48
+INFO 2025-10-24 16:37:04,029 basehttp 18216 13136 "GET /api/projects/statistics/ HTTP/1.1" 200 637
+WARNING 2025-10-24 16:39:47,582 log 18216 18088 Unauthorized: /api/projects/1/task-count/
+WARNING 2025-10-24 16:39:47,584 basehttp 18216 18088 "GET /api/projects/1/task-count/ HTTP/1.1" 401 172
+WARNING 2025-10-24 16:40:11,901 log 18216 18088 Unauthorized: /api/projects/1/task-count/
+WARNING 2025-10-24 16:40:11,903 basehttp 18216 18088 "GET /api/projects/1/task-count/ HTTP/1.1" 401 172
+INFO 2025-10-24 16:40:45,876 basehttp 18216 18088 "POST /api/auth/login/ HTTP/1.1" 200 1069
+WARNING 2025-10-24 16:41:13,791 log 18216 18088 Not Found: /api/projects/1/task-count/
+WARNING 2025-10-24 16:41:13,792 basehttp 18216 18088 "GET /api/projects/1/task-count/ HTTP/1.1" 404 48
+WARNING 2025-10-24 16:41:23,383 log 18216 18088 Not Found: /api/projects/2/task-count/
+WARNING 2025-10-24 16:41:23,384 basehttp 18216 18088 "GET /api/projects/2/task-count/ HTTP/1.1" 404 48
+INFO 2025-10-24 16:41:28,596 basehttp 18216 18088 "GET /api/projects/3/task-count/ HTTP/1.1" 200 120
+WARNING 2025-10-24 16:42:38,729 log 18216 18816 Bad Request: /api/tasks/
+WARNING 2025-10-24 16:42:38,730 basehttp 18216 18816 "POST /api/tasks/ HTTP/1.1" 400 37
+WARNING 2025-10-24 16:42:54,924 log 18216 18816 Bad Request: /api/tasks/
+WARNING 2025-10-24 16:42:54,925 basehttp 18216 18816 "POST /api/tasks/ HTTP/1.1" 400 43
+WARNING 2025-10-24 16:43:25,705 log 18216 18816 Bad Request: /api/tasks/
+WARNING 2025-10-24 16:43:25,706 basehttp 18216 18816 "POST /api/tasks/ HTTP/1.1" 400 43
+WARNING 2025-10-24 16:43:40,627 log 18216 18816 Bad Request: /api/tasks/
+WARNING 2025-10-24 16:43:40,629 basehttp 18216 18816 "POST /api/tasks/ HTTP/1.1" 400 43
+WARNING 2025-10-24 16:43:50,803 log 18216 18816 Bad Request: /api/tasks/
+WARNING 2025-10-24 16:43:50,804 basehttp 18216 18816 "POST /api/tasks/ HTTP/1.1" 400 43
+INFO 2025-10-24 16:44:57,862 basehttp 18216 13824 "GET /api/tasks/ HTTP/1.1" 200 52
+WARNING 2025-10-24 16:46:49,550 log 18216 11076 Not Found: /api/tasks/1/
+WARNING 2025-10-24 16:46:49,552 basehttp 18216 11076 "GET /api/tasks/1/ HTTP/1.1" 404 45
+INFO 2025-10-24 16:46:57,089 basehttp 18216 11076 "GET /api/tasks/ HTTP/1.1" 200 52
+WARNING 2025-10-24 16:50:58,098 log 18216 24324 Not Found: /api/tasks/1/
+WARNING 2025-10-24 16:50:58,099 basehttp 18216 24324 "PUT /api/tasks/1/ HTTP/1.1" 404 45
+WARNING 2025-10-24 16:51:02,321 log 18216 24324 Method Not Allowed: /api/tasks/
+WARNING 2025-10-24 16:51:02,323 basehttp 18216 24324 "PUT /api/tasks/ HTTP/1.1" 405 40
+WARNING 2025-10-24 16:51:16,503 log 18216 24324 Not Found: /api/tasks/1/
+WARNING 2025-10-24 16:51:16,504 basehttp 18216 24324 "PUT /api/tasks/1/ HTTP/1.1" 404 45
+WARNING 2025-10-24 16:53:54,567 log 18216 20136 Not Found: /api/tasks/1/
+WARNING 2025-10-24 16:53:54,569 basehttp 18216 20136 "DELETE /api/tasks/1/ HTTP/1.1" 404 45
+WARNING 2025-10-24 17:03:38,350 log 18216 6668 Not Found: /api/tasks/1/complete/
+WARNING 2025-10-24 17:03:38,351 basehttp 18216 6668 "POST /api/tasks/1/complete/ HTTP/1.1" 404 45
+WARNING 2025-10-24 17:05:07,991 log 18216 4880 Not Found: /api/tasks/1/update-status/
+WARNING 2025-10-24 17:05:07,992 basehttp 18216 4880 "POST /api/tasks/1/update-status/ HTTP/1.1" 404 45
+WARNING 2025-10-24 17:06:55,362 log 18216 23492 Not Found: /api/tasks/my-tasks/
+WARNING 2025-10-24 17:06:55,364 basehttp 18216 23492 "GET /api/tasks/my-tasks/ HTTP/1.1" 404 23
+WARNING 2025-10-24 17:07:26,584 log 18216 16068 Not Found: /api/tasks/my-tasks/
+WARNING 2025-10-24 17:07:26,585 basehttp 18216 16068 "GET /api/tasks/my-tasks/ HTTP/1.1" 404 13401
+WARNING 2025-10-24 17:08:27,340 log 18216 16068 Not Found: /api/tasks/my-tasks/
+WARNING 2025-10-24 17:08:27,341 basehttp 18216 16068 "PUT /api/tasks/my-tasks/ HTTP/1.1" 404 13401
+WARNING 2025-10-24 17:08:33,738 log 18216 16068 Not Found: /api/tasks/my-tasks/
+WARNING 2025-10-24 17:08:33,739 basehttp 18216 16068 "PUT /api/tasks/my-tasks/ HTTP/1.1" 404 13401
+WARNING 2025-10-24 17:08:41,390 log 18216 5060 Not Found: /api/tasks/my-tasks/
+WARNING 2025-10-24 17:08:41,391 basehttp 18216 5060 "GET /api/tasks/my-tasks/ HTTP/1.1" 404 23
+INFO 2025-10-24 17:10:00,214 basehttp 18216 4828 "GET /api/tasks/overdue/ HTTP/1.1" 200 2
+INFO 2025-10-24 17:11:35,215 basehttp 18216 17280 "GET /api/tasks/upcoming-deadlines/ HTTP/1.1" 200 2
+INFO 2025-10-24 17:12:49,377 basehttp 18216 23368 "GET /api/documents/templates/ HTTP/1.1" 200 1342
+INFO 2025-10-24 17:14:21,340 basehttp 18216 2688 "GET /api/documents/instances/ HTTP/1.1" 200 3973
+WARNING 2025-10-24 17:14:45,057 log 18216 2688 Bad Request: /api/documents/instances/
+WARNING 2025-10-24 17:14:45,059 basehttp 18216 2688 "POST /api/documents/instances/ HTTP/1.1" 400 43
+INFO 2025-10-24 17:14:59,737 basehttp 18216 2688 "GET /api/documents/instances/ HTTP/1.1" 200 3973
+WARNING 2025-10-24 17:15:12,153 log 18216 2688 Bad Request: /api/documents/instances/
+WARNING 2025-10-24 17:15:12,154 basehttp 18216 2688 "POST /api/documents/instances/ HTTP/1.1" 400 43
+WARNING 2025-10-24 17:15:22,771 log 18216 2688 Bad Request: /api/documents/instances/
+WARNING 2025-10-24 17:15:22,772 basehttp 18216 2688 "POST /api/documents/instances/ HTTP/1.1" 400 43
+WARNING 2025-10-24 17:17:47,119 log 18216 6284 Method Not Allowed: /api/documents/instances/1/upload-attachment/
+WARNING 2025-10-24 17:18:00,773 log 18216 7020 Bad Request: /api/documents/instances/1/upload-attachment/
+WARNING 2025-10-24 17:18:00,774 basehttp 18216 7020 "POST /api/documents/instances/1/upload-attachment/ HTTP/1.1" 400 28
+WARNING 2025-10-24 17:18:19,558 log 18216 23164 Method Not Allowed: /api/documents/instances/1/upload-attachment/
+WARNING 2025-10-24 17:18:19,559 basehttp 18216 23164 "GET /api/documents/instances/1/upload-attachment/ HTTP/1.1" 405 8694
+INFO 2025-10-24 17:19:16,550 basehttp 18216 23164 "GET /api/documents/instances/ HTTP/1.1" 200 15212
+INFO 2025-10-24 17:19:18,998 basehttp 18216 23164 "GET /api/documents/ HTTP/1.1" 200 5664
+INFO 2025-10-24 17:19:20,614 basehttp 18216 23164 "GET /api/ HTTP/1.1" 200 5349
+WARNING 2025-10-24 17:19:24,580 log 18216 23164 Method Not Allowed: /api/documents/instances/1/upload-attachment/
+WARNING 2025-10-24 17:19:24,581 basehttp 18216 23164 "GET /api/documents/instances/1/upload-attachment/ HTTP/1.1" 405 8694
+WARNING 2025-10-24 17:19:42,366 log 18216 23164 Not Found: /api/documents/instances/1/upload-attachment/
+WARNING 2025-10-24 17:19:42,367 basehttp 18216 23164 "POST /api/documents/instances/1/upload-attachment/ HTTP/1.1" 404 8685
+WARNING 2025-10-24 17:21:48,219 log 18216 14432 Method Not Allowed: /api/documents/instances/1/generate-pdf/
+WARNING 2025-10-24 17:21:48,221 basehttp 18216 14432 "GET /api/documents/instances/1/generate-pdf/ HTTP/1.1" 405 40
+WARNING 2025-10-24 17:21:57,073 log 18216 14432 Bad Request: /api/documents/instances/1/generate-pdf/
+WARNING 2025-10-24 17:21:57,075 basehttp 18216 14432 "POST /api/documents/instances/1/generate-pdf/ HTTP/1.1" 400 189
+WARNING 2025-10-24 17:24:55,406 log 18216 23032 Method Not Allowed: /api/documents/instances/1/sign/
+WARNING 2025-10-24 17:24:55,407 basehttp 18216 23032 "GET /api/documents/instances/1/sign/ HTTP/1.1" 405 40
+WARNING 2025-10-24 17:25:03,614 log 18216 23032 Bad Request: /api/documents/instances/1/sign/
+WARNING 2025-10-24 17:25:03,616 basehttp 18216 23032 "POST /api/documents/instances/1/sign/ HTTP/1.1" 400 60
+WARNING 2025-10-24 17:26:26,519 log 18216 8588 Bad Request: /api/documents/instances/1/upload-attachment/
+WARNING 2025-10-24 17:26:26,520 basehttp 18216 8588 "POST /api/documents/instances/1/upload-attachment/ HTTP/1.1" 400 28
+WARNING 2025-10-24 17:26:28,324 log 18216 8588 Bad Request: /api/documents/instances/1/upload-attachment/
+WARNING 2025-10-24 17:26:28,325 basehttp 18216 8588 "POST /api/documents/instances/1/upload-attachment/ HTTP/1.1" 400 28
+WARNING 2025-10-24 17:26:33,823 log 18216 8588 Bad Request: /api/documents/instances/1/upload-attachment/
+WARNING 2025-10-24 17:26:33,824 basehttp 18216 8588 "POST /api/documents/instances/1/upload-attachment/ HTTP/1.1" 400 28
+WARNING 2025-10-24 17:26:50,477 log 18216 8588 Bad Request: /api/documents/instances/1/generate-pdf/
+WARNING 2025-10-24 17:26:50,478 basehttp 18216 8588 "POST /api/documents/instances/1/generate-pdf/ HTTP/1.1" 400 189
+INFO 2025-10-24 17:28:55,845 autoreload 18436 9008 Watching for file changes with StatReloader
+WARNING 2025-10-24 17:29:01,345 log 18436 22560 Bad Request: /api/documents/instances/1/generate-pdf/
+WARNING 2025-10-24 17:29:01,346 basehttp 18436 22560 "POST /api/documents/instances/1/generate-pdf/ HTTP/1.1" 400 189
+WARNING 2025-10-24 17:29:04,525 log 18436 22560 Bad Request: /api/documents/instances/1/generate-pdf/
+WARNING 2025-10-24 17:29:04,526 basehttp 18436 22560 "POST /api/documents/instances/1/generate-pdf/ HTTP/1.1" 400 189
+WARNING 2025-10-24 17:29:10,974 log 18436 22560 Bad Request: /api/documents/instances/1/generate-pdf/
+WARNING 2025-10-24 17:29:10,975 basehttp 18436 22560 "POST /api/documents/instances/1/generate-pdf/ HTTP/1.1" 400 189
+WARNING 2025-10-24 17:29:19,725 log 18436 22560 Bad Request: /api/documents/instances/1/generate-pdf/
+WARNING 2025-10-24 17:29:19,726 basehttp 18436 22560 "POST /api/documents/instances/1/generate-pdf/ HTTP/1.1" 400 189
+WARNING 2025-10-24 17:29:41,140 log 18436 22560 Bad Request: /api/documents/instances/1/generate-pdf/
+WARNING 2025-10-24 17:29:41,140 basehttp 18436 22560 "POST /api/documents/instances/1/generate-pdf/ HTTP/1.1" 400 189
+WARNING 2025-10-24 17:36:44,351 log 18436 10160 Not Found: /api/documents/instances/1/download/
+WARNING 2025-10-24 17:36:44,352 basehttp 18436 10160 "GET /api/documents/instances/1/download/ HTTP/1.1" 404 36
+INFO 2025-10-24 18:49:43,621 autoreload 18436 9008 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-24 18:49:44,724 autoreload 12592 24324 Watching for file changes with StatReloader
+INFO 2025-10-24 18:49:46,629 autoreload 12592 24324 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-24 18:49:47,429 autoreload 4152 24360 Watching for file changes with StatReloader
+INFO 2025-10-24 18:49:51,121 autoreload 4152 24360 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-24 18:49:51,974 autoreload 11636 19984 Watching for file changes with StatReloader
+INFO 2025-10-24 18:49:56,711 autoreload 11636 19984 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-24 18:49:57,639 autoreload 2804 24884 Watching for file changes with StatReloader
+ERROR 2025-10-24 19:09:14,383 log 2804 25024 Internal Server Error: /api/chat/rooms/   
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:9000/api/chat/rooms/%20%20%20/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-10-24 19:09:14,387 basehttp 2804 25024 "POST /api/chat/rooms/%20%20%20 HTTP/1.1" 500 81999
+ERROR 2025-10-24 19:10:25,875 log 2804 4880 Internal Server Error: /api/chat/rooms/   
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:9000/api/chat/rooms/%20%20%20/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-10-24 19:10:25,877 basehttp 2804 4880 "POST /api/chat/rooms/%20%20%20 HTTP/1.1" 500 82147
+INFO 2025-10-24 19:10:43,799 basehttp 2804 18260 "GET /api/chat/rooms/%20%20%20 HTTP/1.1" 301 0
+WARNING 2025-10-24 19:10:44,627 log 2804 1356 Not Found: /api/chat/rooms/   /
+WARNING 2025-10-24 19:10:44,628 basehttp 2804 1356 "GET /api/chat/rooms/%20%20%20/ HTTP/1.1" 404 23
+INFO 2025-10-24 19:11:39,425 basehttp 2804 1356 "GET /api/chat/rooms/%20%20%20 HTTP/1.1" 301 0
+WARNING 2025-10-24 19:11:39,471 log 2804 4172 Not Found: /api/chat/rooms/   /
+WARNING 2025-10-24 19:11:39,471 basehttp 2804 4172 "GET /api/chat/rooms/%20%20%20/ HTTP/1.1" 404 23
+ERROR 2025-10-24 19:11:49,391 log 2804 4172 Internal Server Error: /api/chat/rooms/   
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+    ...<9 lines>...
+    )
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:9000/api/chat/rooms/%20%20%20/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-10-24 19:11:49,394 basehttp 2804 4172 "POST /api/chat/rooms/%20%20%20 HTTP/1.1" 500 82147
+WARNING 2025-10-24 19:15:12,684 log 2804 4812 Bad Request: /api/chat/rooms/
+WARNING 2025-10-24 19:15:12,685 basehttp 2804 4812 "POST /api/chat/rooms/ HTTP/1.1" 400 36
+ERROR 2025-10-24 19:20:38,278 log 2804 2776 Internal Server Error: /api/chat/rooms/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: null value in column "created_by_id" of relation "chat_chatroom" violates not-null constraint
+DETAIL:  Failing row contains (1, general-chat, General Chat, General discussion room, t, f, 100, 2025-10-24 16:20:37.988276+00, 2025-10-24 16:20:37.988289+00, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: null value in column "created_by_id" of relation "chat_chatroom" violates not-null constraint
+DETAIL:  Failing row contains (1, general-chat, General Chat, General discussion room, t, f, 100, 2025-10-24 16:20:37.988276+00, 2025-10-24 16:20:37.988289+00, null).
+
+ERROR 2025-10-24 19:20:38,297 basehttp 2804 2776 "POST /api/chat/rooms/ HTTP/1.1" 500 215401
+ERROR 2025-10-24 19:21:23,226 log 2804 2776 Internal Server Error: /api/chat/rooms/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: null value in column "created_by_id" of relation "chat_chatroom" violates not-null constraint
+DETAIL:  Failing row contains (2, general-chat, General Chat, General discussion room, t, f, 100, 2025-10-24 16:21:23.16384+00, 2025-10-24 16:21:23.163849+00, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: null value in column "created_by_id" of relation "chat_chatroom" violates not-null constraint
+DETAIL:  Failing row contains (2, general-chat, General Chat, General discussion room, t, f, 100, 2025-10-24 16:21:23.16384+00, 2025-10-24 16:21:23.163849+00, null).
+
+ERROR 2025-10-24 19:21:23,235 basehttp 2804 2776 "POST /api/chat/rooms/ HTTP/1.1" 500 215391
+INFO 2025-10-24 19:23:36,915 basehttp 2804 20808 "GET /api/chat/rooms/ HTTP/1.1" 200 12329
+WARNING 2025-10-24 19:24:30,812 log 2804 20808 Bad Request: /api/chat/rooms/
+WARNING 2025-10-24 19:24:30,812 basehttp 2804 20808 "POST /api/chat/rooms/ HTTP/1.1" 400 10344
+ERROR 2025-10-24 19:26:25,919 log 2804 20808 Internal Server Error: /api/chat/rooms/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: null value in column "created_by_id" of relation "chat_chatroom" violates not-null constraint
+DETAIL:  Failing row contains (3, mike, general, general discission, f, f, 100, 2025-10-24 16:26:25.872895+00, 2025-10-24 16:26:25.872914+00, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: null value in column "created_by_id" of relation "chat_chatroom" violates not-null constraint
+DETAIL:  Failing row contains (3, mike, general, general discission, f, f, 100, 2025-10-24 16:26:25.872895+00, 2025-10-24 16:26:25.872914+00, null).
+
+ERROR 2025-10-24 19:26:25,924 basehttp 2804 20808 "POST /api/chat/rooms/ HTTP/1.1" 500 217625
+ERROR 2025-10-24 19:26:47,631 log 2804 23220 Internal Server Error: /api/chat/rooms/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: null value in column "created_by_id" of relation "chat_chatroom" violates not-null constraint
+DETAIL:  Failing row contains (4, general-chat, General Chat, General discussion room, t, f, 100, 2025-10-24 16:26:47.571939+00, 2025-10-24 16:26:47.571949+00, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: null value in column "created_by_id" of relation "chat_chatroom" violates not-null constraint
+DETAIL:  Failing row contains (4, general-chat, General Chat, General discussion room, t, f, 100, 2025-10-24 16:26:47.571939+00, 2025-10-24 16:26:47.571949+00, null).
+
+ERROR 2025-10-24 19:26:47,643 basehttp 2804 23220 "POST /api/chat/rooms/ HTTP/1.1" 500 215401
+ERROR 2025-10-24 19:27:40,230 log 2804 23220 Internal Server Error: /api/chat/rooms/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: null value in column "created_by_id" of relation "chat_chatroom" violates not-null constraint
+DETAIL:  Failing row contains (5, general-chat, General Chat Room, A room for general discussions, t, f, 100, 2025-10-24 16:27:40.168465+00, 2025-10-24 16:27:40.168476+00, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 24, in perform_create
+    serializer.save()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.IntegrityError: null value in column "created_by_id" of relation "chat_chatroom" violates not-null constraint
+DETAIL:  Failing row contains (5, general-chat, General Chat Room, A room for general discussions, t, f, 100, 2025-10-24 16:27:40.168465+00, 2025-10-24 16:27:40.168476+00, null).
+
+ERROR 2025-10-24 19:27:40,236 basehttp 2804 23220 "POST /api/chat/rooms/ HTTP/1.1" 500 215972
+INFO 2025-10-24 19:30:25,807 autoreload 2804 24884 C:\Users\MICHAEL\workflow\backend\chat\views.py changed, reloading.
+INFO 2025-10-24 19:30:27,107 autoreload 22980 8776 Watching for file changes with StatReloader
+ERROR 2025-10-24 19:30:47,654 log 22980 16684 Internal Server Error: /api/chat/rooms/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 540, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\fields.py", line 1870, in to_representation
+    return method(value)
+  File "C:\Users\MICHAEL\workflow\backend\chat\serializers.py", line 82, in get_online_count
+    return UserProfile.objects.filter(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        user__in=obj.roommembership_set.filter(is_banned=False).values('user'),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        is_online=True
+        ^^^^^^^^^^^^^^
+    ).count()
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1511, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1518, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1646, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1678, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1526, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1333, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1806, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'is_online' into field. Choices are: avatar, id, last_seen, notification_enabled, online, status, theme, user, user_id
+ERROR 2025-10-24 19:30:47,668 basehttp 22980 16684 "POST /api/chat/rooms/ HTTP/1.1" 500 181296
+WARNING 2025-10-24 19:31:05,964 log 22980 16684 Bad Request: /api/chat/rooms/
+WARNING 2025-10-24 19:31:05,965 basehttp 22980 16684 "POST /api/chat/rooms/ HTTP/1.1" 400 53
+ERROR 2025-10-24 19:31:41,142 log 22980 16684 Internal Server Error: /api/chat/rooms/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 540, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\fields.py", line 1870, in to_representation
+    return method(value)
+  File "C:\Users\MICHAEL\workflow\backend\chat\serializers.py", line 82, in get_online_count
+    return UserProfile.objects.filter(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        user__in=obj.roommembership_set.filter(is_banned=False).values('user'),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        is_online=True
+        ^^^^^^^^^^^^^^
+    ).count()
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1511, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1518, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1646, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1678, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1526, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1333, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1806, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'is_online' into field. Choices are: avatar, id, last_seen, notification_enabled, online, status, theme, user, user_id
+ERROR 2025-10-24 19:31:41,146 basehttp 22980 16684 "POST /api/chat/rooms/ HTTP/1.1" 500 181086
+ERROR 2025-10-24 19:31:51,396 log 22980 16684 Internal Server Error: /api/chat/rooms/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 540, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\fields.py", line 1870, in to_representation
+    return method(value)
+  File "C:\Users\MICHAEL\workflow\backend\chat\serializers.py", line 82, in get_online_count
+    return UserProfile.objects.filter(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        user__in=obj.roommembership_set.filter(is_banned=False).values('user'),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        is_online=True
+        ^^^^^^^^^^^^^^
+    ).count()
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1511, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1518, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1646, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1678, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1526, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1333, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1806, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'is_online' into field. Choices are: avatar, id, last_seen, notification_enabled, online, status, theme, user, user_id
+ERROR 2025-10-24 19:31:51,400 basehttp 22980 16684 "GET /api/chat/rooms/ HTTP/1.1" 500 186771
+WARNING 2025-10-24 19:32:00,130 log 22980 16684 Bad Request: /api/chat/rooms/
+WARNING 2025-10-24 19:32:00,130 basehttp 22980 16684 "POST /api/chat/rooms/ HTTP/1.1" 400 53
+ERROR 2025-10-24 19:32:09,222 log 22980 16684 Internal Server Error: /api/chat/rooms/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 540, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\fields.py", line 1870, in to_representation
+    return method(value)
+  File "C:\Users\MICHAEL\workflow\backend\chat\serializers.py", line 82, in get_online_count
+    return UserProfile.objects.filter(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        user__in=obj.roommembership_set.filter(is_banned=False).values('user'),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        is_online=True
+        ^^^^^^^^^^^^^^
+    ).count()
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1511, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1518, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1646, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1678, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1526, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1333, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1806, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'is_online' into field. Choices are: avatar, id, last_seen, notification_enabled, online, status, theme, user, user_id
+ERROR 2025-10-24 19:32:09,230 basehttp 22980 16684 "POST /api/chat/rooms/ HTTP/1.1" 500 181074
+ERROR 2025-10-24 19:33:03,043 log 22980 10932 Internal Server Error: /api/chat/rooms/
+Traceback (most recent call last):
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 573, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\serializers.py", line 540, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\rest_framework\fields.py", line 1870, in to_representation
+    return method(value)
+  File "C:\Users\MICHAEL\workflow\backend\chat\serializers.py", line 82, in get_online_count
+    return UserProfile.objects.filter(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        user__in=obj.roommembership_set.filter(is_banned=False).values('user'),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        is_online=True
+        ^^^^^^^^^^^^^^
+    ).count()
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1511, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\query.py", line 1518, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1646, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1678, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1526, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1333, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MICHAEL\workflow\backend\venv\Lib\site-packages\django\db\models\sql\query.py", line 1806, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'is_online' into field. Choices are: avatar, id, last_seen, notification_enabled, online, status, theme, user, user_id
+ERROR 2025-10-24 19:33:03,048 basehttp 22980 10932 "POST /api/chat/rooms/ HTTP/1.1" 500 183476
+INFO 2025-10-24 19:36:02,352 autoreload 22980 8776 C:\Users\MICHAEL\workflow\backend\chat\views.py changed, reloading.
+INFO 2025-10-24 19:36:02,995 autoreload 22936 7096 Watching for file changes with StatReloader
+INFO 2025-10-24 19:36:34,490 autoreload 22936 7096 C:\Users\MICHAEL\workflow\backend\chat\models.py changed, reloading.
+INFO 2025-10-24 19:36:35,134 autoreload 23856 17596 Watching for file changes with StatReloader
+INFO 2025-10-24 19:36:38,488 autoreload 23856 17596 C:\Users\MICHAEL\workflow\backend\chat\models.py changed, reloading.
+INFO 2025-10-24 19:36:39,052 autoreload 18868 23948 Watching for file changes with StatReloader
+INFO 2025-10-24 19:39:22,377 autoreload 18868 23948 C:\Users\MICHAEL\workflow\backend\chat\serializers.py changed, reloading.
+INFO 2025-10-24 19:39:22,974 autoreload 19960 25492 Watching for file changes with StatReloader
+INFO 2025-10-24 19:42:08,598 autoreload 19960 25492 C:\Users\MICHAEL\workflow\backend\chat\views.py changed, reloading.
+INFO 2025-10-24 19:42:09,209 autoreload 9036 22388 Watching for file changes with StatReloader
+INFO 2025-10-24 19:42:36,785 basehttp 9036 13928 "POST /api/chat/rooms/ HTTP/1.1" 201 128
+INFO 2025-10-24 19:46:23,432 basehttp 9036 17400 "GET /api/chat/rooms/ HTTP/1.1" 200 1790
+WARNING 2025-10-24 19:47:58,941 log 9036 19856 Not Found: /api/chat/rooms/1/
+WARNING 2025-10-24 19:47:58,942 basehttp 9036 19856 "GET /api/chat/rooms/1/ HTTP/1.1" 404 49
+WARNING 2025-10-24 19:48:09,035 log 9036 19856 Not Found: /api/chat/rooms/1/
+WARNING 2025-10-24 19:48:09,036 basehttp 9036 19856 "GET /api/chat/rooms/1/ HTTP/1.1" 404 49
+INFO 2025-10-24 19:48:24,042 basehttp 9036 19856 "GET /api/chat/rooms/ HTTP/1.1" 200 1790
+INFO 2025-10-24 19:48:36,012 basehttp 9036 19856 "GET /api/chat/rooms/6/ HTTP/1.1" 200 437
+WARNING 2025-10-24 19:53:14,948 log 9036 25420 Not Found: /api/chat/rooms/1/
+WARNING 2025-10-24 19:53:14,948 basehttp 9036 25420 "PUT /api/chat/rooms/1/ HTTP/1.1" 404 49
+WARNING 2025-10-24 19:53:26,831 log 9036 25420 Not Found: /api/chat/rooms/4/
+WARNING 2025-10-24 19:53:26,832 basehttp 9036 25420 "PUT /api/chat/rooms/4/ HTTP/1.1" 404 49
+WARNING 2025-10-24 19:53:31,705 log 9036 25420 Bad Request: /api/chat/rooms/6/
+WARNING 2025-10-24 19:53:31,706 basehttp 9036 25420 "PUT /api/chat/rooms/6/ HTTP/1.1" 400 36
+INFO 2025-10-24 19:53:58,144 basehttp 9036 3208 "GET /api/chat/rooms/ HTTP/1.1" 200 13041
+WARNING 2025-10-24 19:54:19,389 log 9036 25420 Not Found: /api/chat/rooms/9/
+WARNING 2025-10-24 19:54:19,390 basehttp 9036 25420 "PUT /api/chat/rooms/9/ HTTP/1.1" 404 49
+INFO 2025-10-24 19:54:43,238 basehttp 9036 3208 "GET /api/chat/rooms/9/ HTTP/1.1" 200 13558
+WARNING 2025-10-24 19:54:58,755 log 9036 25420 Not Found: /api/chat/rooms/9/
+WARNING 2025-10-24 19:54:58,755 basehttp 9036 25420 "PUT /api/chat/rooms/9/ HTTP/1.1" 404 49
+WARNING 2025-10-24 19:55:00,276 log 9036 25420 Not Found: /api/chat/rooms/9/
+WARNING 2025-10-24 19:55:00,277 basehttp 9036 25420 "PUT /api/chat/rooms/9/ HTTP/1.1" 404 49
+INFO 2025-10-24 19:55:29,281 basehttp 9036 3208 "GET /api/chat/rooms HTTP/1.1" 301 0
+INFO 2025-10-24 19:55:29,355 basehttp 9036 8872 "GET /api/chat/rooms/ HTTP/1.1" 200 13041
+WARNING 2025-10-24 19:55:43,716 log 9036 25420 Bad Request: /api/chat/rooms/6/
+WARNING 2025-10-24 19:55:43,717 basehttp 9036 25420 "PUT /api/chat/rooms/6/ HTTP/1.1" 400 36
+INFO 2025-10-24 19:58:06,274 basehttp 9036 21620 "DELETE /api/chat/rooms/6/ HTTP/1.1" 204 0
+WARNING 2025-10-24 19:58:12,741 log 9036 21620 Not Found: /api/chat/rooms/6/
+WARNING 2025-10-24 19:58:12,741 basehttp 9036 21620 "DELETE /api/chat/rooms/6/ HTTP/1.1" 404 49
+WARNING 2025-10-24 20:00:15,870 log 9036 4328 Not Found: /api/chat/rooms/9/join/
+WARNING 2025-10-24 20:00:15,870 basehttp 9036 4328 "POST /api/chat/rooms/9/join/ HTTP/1.1" 404 49
+WARNING 2025-10-24 20:00:25,781 log 9036 4328 Not Found: /api/chat/rooms/4/join/
+WARNING 2025-10-24 20:00:25,782 basehttp 9036 4328 "POST /api/chat/rooms/4/join/ HTTP/1.1" 404 49
+WARNING 2025-10-24 20:00:37,826 log 9036 4328 Not Found: /api/chat/rooms/9/join/
+WARNING 2025-10-24 20:00:37,827 basehttp 9036 4328 "POST /api/chat/rooms/9/join/ HTTP/1.1" 404 49
+WARNING 2025-10-24 20:01:50,715 log 9036 20568 Not Found: /api/chat/rooms/1/leave/
+WARNING 2025-10-24 20:01:50,716 basehttp 9036 20568 "POST /api/chat/rooms/1/leave/ HTTP/1.1" 404 49
+INFO 2025-10-24 20:07:06,254 basehttp 9036 13696 "GET /api/chat/messages/??room%3D1 HTTP/1.1" 200 52
+WARNING 2025-10-24 20:08:22,160 log 9036 22080 Bad Request: /api/chat/messages/
+WARNING 2025-10-24 20:08:22,161 basehttp 9036 22080 "POST /api/chat/messages/ HTTP/1.1" 400 54
+INFO 2025-10-24 20:08:35,335 basehttp 9036 22080 "POST /api/chat/messages/ HTTP/1.1" 201 126
+WARNING 2025-10-24 20:09:56,938 log 9036 2516 Not Found: /api/chat/messages/9/
+WARNING 2025-10-24 20:09:56,939 basehttp 9036 2516 "GET /api/chat/messages/9/ HTTP/1.1" 404 48
+WARNING 2025-10-24 20:10:02,491 log 9036 2516 Not Found: /api/chat/messages/1/
+WARNING 2025-10-24 20:10:02,492 basehttp 9036 2516 "GET /api/chat/messages/1/ HTTP/1.1" 404 48
+WARNING 2025-10-24 20:10:19,526 log 9036 2516 Not Found: /api/chat/messages/2/
+WARNING 2025-10-24 20:10:19,527 basehttp 9036 2516 "GET /api/chat/messages/2/ HTTP/1.1" 404 48
+WARNING 2025-10-24 20:22:47,918 log 9036 18600 Not Found: /api/chat/messages/1/
+WARNING 2025-10-24 20:22:47,918 basehttp 9036 18600 "PUT /api/chat/messages/1/ HTTP/1.1" 404 48
+WARNING 2025-10-24 20:24:48,896 log 9036 13244 Unauthorized: /api/chat/messages/1/
+WARNING 2025-10-24 20:24:48,897 basehttp 9036 13244 "DELETE /api/chat/messages/1/ HTTP/1.1" 401 58
+WARNING 2025-10-24 20:25:14,606 log 9036 13244 Not Found: /api/chat/messages/1/
+WARNING 2025-10-24 20:25:14,606 basehttp 9036 13244 "DELETE /api/chat/messages/1/ HTTP/1.1" 404 48
+WARNING 2025-10-24 20:27:35,323 log 9036 15688 Not Found: /api/chat/messages/1/react/
+WARNING 2025-10-24 20:27:35,324 basehttp 9036 15688 "POST /api/chat/messages/1/react/ HTTP/1.1" 404 48
+INFO 2025-10-24 20:29:35,905 basehttp 9036 14164 "GET /api/chat/memberships/ HTTP/1.1" 200 52
+WARNING 2025-10-24 20:30:38,107 log 9036 21028 Method Not Allowed: /api/chat/memberships/1/ban/
+WARNING 2025-10-24 20:30:38,107 basehttp 9036 21028 "GET /api/chat/memberships/1/ban/ HTTP/1.1" 405 40
+WARNING 2025-10-24 20:30:45,878 log 9036 21028 Not Found: /api/chat/memberships/1/ban/
+WARNING 2025-10-24 20:30:45,879 basehttp 9036 21028 "POST /api/chat/memberships/1/ban/ HTTP/1.1" 404 55
+WARNING 2025-10-24 20:32:50,666 log 9036 13676 Not Found: /api/chat/profiles/
+WARNING 2025-10-24 20:32:50,666 basehttp 9036 13676 "GET /api/chat/profiles/ HTTP/1.1" 404 41747
+WARNING 2025-10-24 20:33:06,116 log 9036 13676 Not Found: /api/chat/profiles/
+WARNING 2025-10-24 20:33:06,117 basehttp 9036 13676 "PUT /api/chat/profiles/ HTTP/1.1" 404 41747
+WARNING 2025-10-24 20:33:21,694 log 9036 13676 Not Found: /api/chat/profiles/
+WARNING 2025-10-24 20:33:21,695 basehttp 9036 13676 "PUT /api/chat/profiles/ HTTP/1.1" 404 41747
+INFO 2025-10-24 20:35:59,212 autoreload 9036 22388 C:\Users\MICHAEL\workflow\backend\paperless_saas\urls.py changed, reloading.
+INFO 2025-10-24 20:36:00,004 autoreload 7676 20592 Watching for file changes with StatReloader
+WARNING 2025-10-24 20:36:21,248 log 7676 17464 Method Not Allowed: /api/chat/profiles/
+WARNING 2025-10-24 20:36:21,249 basehttp 7676 17464 "PUT /api/chat/profiles/ HTTP/1.1" 405 40
+INFO 2025-10-24 20:36:58,534 basehttp 7676 17464 "GET /api/chat/profiles/ HTTP/1.1" 200 52
+INFO 2025-10-24 20:40:12,440 basehttp 7676 3936 "GET /api/chat/profiles/ HTTP/1.1" 200 52
+INFO 2025-10-24 20:43:21,958 basehttp 7676 19824 "GET /api/chat/profiles/online-users/ HTTP/1.1" 200 269
+INFO 2025-10-24 20:46:49,549 basehttp 7676 12500 "GET /api/chat/statistics/ HTTP/1.1" 200 56
+INFO 2025-10-24 20:49:13,535 basehttp 7676 25068 "GET /api/chat/search/?q=hello&room_id=1 HTTP/1.1" 200 2
+WARNING 2025-10-24 20:55:24,342 log 7676 10744 Not Found: /api/chat/history/general-chat/
+WARNING 2025-10-24 20:55:24,343 basehttp 7676 10744 "GET /api/chat/history/general-chat/ HTTP/1.1" 404 26
+INFO 2025-10-24 20:57:35,833 basehttp 7676 6104 "GET /api/chat/user-profile/ HTTP/1.1" 200 269
+WARNING 2025-10-24 20:58:50,124 log 7676 24232 Method Not Allowed: /api/chat/upload/
+WARNING 2025-10-24 20:58:50,124 basehttp 7676 24232 "GET /api/chat/upload/ HTTP/1.1" 405 40
+ERROR 2025-10-24 20:58:57,033 log 7676 24232 Not Implemented: /api/chat/upload/
+ERROR 2025-10-24 20:58:57,033 basehttp 7676 24232 "POST /api/chat/upload/ HTTP/1.1" 501 43
+INFO 2025-10-24 21:06:30,137 autoreload 7676 20592 C:\Users\MICHAEL\workflow\backend\chat\views.py changed, reloading.
+INFO 2025-10-24 21:06:30,902 autoreload 24868 14836 Watching for file changes with StatReloader
+INFO 2025-10-24 21:08:04,328 autoreload 24868 14836 C:\Users\MICHAEL\workflow\backend\paperless_saas\urls.py changed, reloading.
+INFO 2025-10-24 21:08:04,945 autoreload 23232 6952 Watching for file changes with StatReloader
+INFO 2025-10-24 21:08:06,288 autoreload 23232 6952 C:\Users\MICHAEL\workflow\backend\paperless_saas\urls.py changed, reloading.
+INFO 2025-10-24 21:08:06,856 autoreload 21528 23592 Watching for file changes with StatReloader
