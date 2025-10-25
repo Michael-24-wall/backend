@@ -6337,3 +6337,29 @@ INFO 2025-10-25 13:46:18,503 basehttp 15156 29620 "OPTIONS /api/auth/profile/ HT
 INFO 2025-10-25 13:47:19,937 basehttp 15156 29620 "OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
 INFO 2025-10-25 13:47:19,938 basehttp 15156 29620 "OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
 INFO 2025-10-25 13:56:18,089 autoreload 13256 3716 Watching for file changes with StatReloader
+INFO 2025-10-25 13:57:04,004 basehttp 13256 14752 "OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+INFO 2025-10-25 13:57:04,004 basehttp 13256 13544 "OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+WARNING 2025-10-25 13:57:04,324 log 13256 23004 Unauthorized: /api/auth/profile/
+WARNING 2025-10-25 13:57:04,325 basehttp 13256 23004 "GET /api/auth/profile/ HTTP/1.1" 401 58
+WARNING 2025-10-25 13:57:04,327 log 13256 23004 Unauthorized: /api/auth/profile/
+WARNING 2025-10-25 13:57:04,328 basehttp 13256 23004 "GET /api/auth/profile/ HTTP/1.1" 401 58
+WARNING 2025-10-25 13:58:35,285 log 13256 14752 Unauthorized: /api/auth/profile/
+WARNING 2025-10-25 13:58:35,286 basehttp 13256 14752 "GET /api/auth/profile/ HTTP/1.1" 401 58
+WARNING 2025-10-25 13:58:38,689 log 13256 14752 Unauthorized: /api/auth/profile/
+WARNING 2025-10-25 13:58:38,689 basehttp 13256 14752 "GET /api/auth/profile/ HTTP/1.1" 401 58
+WARNING 2025-10-25 13:58:38,691 log 13256 14752 Unauthorized: /api/auth/profile/
+WARNING 2025-10-25 13:58:38,692 basehttp 13256 14752 "GET /api/auth/profile/ HTTP/1.1" 401 58
+INFO 2025-10-25 14:01:41,474 basehttp 13256 14752 "OPTIONS /api/auth/register/ HTTP/1.1" 200 0
+WARNING 2025-10-25 14:01:41,605 log 13256 14752 Bad Request: /api/auth/register/
+WARNING 2025-10-25 14:01:41,606 basehttp 13256 14752 "POST /api/auth/register/ HTTP/1.1" 400 90
+INFO 2025-10-25 14:02:15,503 basehttp 13256 14752 "OPTIONS /api/auth/token/ HTTP/1.1" 200 0
+WARNING 2025-10-25 14:02:15,515 log 13256 14752 Not Found: /api/auth/token/
+WARNING 2025-10-25 14:02:15,516 basehttp 13256 14752 "POST /api/auth/token/ HTTP/1.1" 404 27296
+WARNING 2025-10-25 14:03:19,937 log 13256 14752 Bad Request: /api/auth/register/
+WARNING 2025-10-25 14:03:19,938 basehttp 13256 14752 "POST /api/auth/register/ HTTP/1.1" 400 41
+INFO 2025-10-25 14:06:22,876 autoreload 13256 3716 C:\Users\MICHAEL\workflow\backend\paperless_saas\settings.py changed, reloading.
+INFO 2025-10-25 14:06:23,550 autoreload 24240 28804 Watching for file changes with StatReloader
+INFO 2025-10-25 14:06:25,041 autoreload 24240 28804 C:\Users\MICHAEL\workflow\backend\paperless_saas\settings.py changed, reloading.
+INFO 2025-10-25 14:06:25,676 autoreload 24360 20100 Watching for file changes with StatReloader
+INFO 2025-10-25 14:06:28,190 autoreload 24360 20100 C:\Users\MICHAEL\workflow\backend\paperless_saas\settings.py changed, reloading.
+INFO 2025-10-25 14:06:28,841 autoreload 13832 27848 Watching for file changes with StatReloader
