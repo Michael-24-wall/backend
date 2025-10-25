@@ -209,13 +209,47 @@ SWAGGER_SETTINGS = {
 }
 
 # ==============================================================================
+# # ==============================================================================
 # CORS Settings
 # ==============================================================================
 CORS_ALLOW_ALL_ORIGINS = config('CORS_ALLOW_ALL_ORIGINS', default=DEBUG, cast=bool) 
-# Best Practice: In production, set specific origins.
-# CORS_ALLOWED_ORIGINS = [
-#     "https://your-frontend.com",
-#     "http://localhost:3000",
+
+# Add these specific settings for credentials
+CORS_ALLOW_CREDENTIALS = True
+
+# Explicitly allow your frontend origins
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
+# Or if you want to keep it simple during development:
+# CORS_ALLOW_ALL_ORIGINS = True  # This should already be set from your config
+# CORS_ALLOW_CREDENTIALS = True
+
+# Allow specific headers
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+
+# Allow specific methods
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
 # ]
 
 # ==============================================================================

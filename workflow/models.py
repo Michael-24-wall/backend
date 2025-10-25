@@ -1,7 +1,7 @@
 # workflow/models.py
 from django.db import models
 from django.conf import settings
-from documents.models import Document # Assuming you have a Document model
+# REMOVED: from documents.models import Document  # This causes circular import
 
 class ApprovalStep(models.Model):
     """
@@ -17,7 +17,7 @@ class ApprovalStep(models.Model):
     ]
 
     document = models.ForeignKey(
-        Document, 
+        'documents.Document',  # CHANGED: Use string reference instead of direct import
         on_delete=models.CASCADE, 
         related_name='approval_steps',
         help_text="The document this step belongs to."

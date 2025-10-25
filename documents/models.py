@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from core.models import Organization, CustomUser, OrganizationMembership
+import uuid
 
 # --- 1. Document Template Model ---
 class DocumentTemplate(models.Model):
@@ -362,3 +363,29 @@ class DocumentShare(models.Model):
 
     def __str__(self):
         return f"Share: {self.document.title} with {self.shared_with_email}"
+
+
+# --- 8. Collaboration Models ---
+class DocumentSession(models.Model):
+    """Tracks active editing sessions"""
+    document = models.ForeignKey(Document, on_delete=models.CASCADE)
+    session_id = models.UUIDField(default=uuid.uuid4, unique=True)
+    created_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+class CollaborationCursor(models.Model):
+    """Tracks user cursor positions in real-time"""
+    session = models.ForeignKey(DocumentSession, on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    position = models.IntegerField(default=0)  # cursor position in text
+    selection_range = models.JSONField(null=True, blank=True)  # {"start": 0, "end": 10}
+    last_activity = models.DateTimeField(auto_now=True)
+
+class OperationalTransform(models.Model):
+    """For conflict resolution in collaborative editing"""
+    session = models.ForeignKey(DocumentSession, on_delete=models.CASCADE)
+    version = models.IntegerField()
+    operation = models.JSONField()  # {"type": "insert", "position": 5, "text": "hello"}
+    applied_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)

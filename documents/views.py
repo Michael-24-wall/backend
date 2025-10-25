@@ -548,3 +548,5 @@ class DocumentViewSet(viewsets.ModelViewSet):
         else:
             ip = request.META.get('REMOTE_ADDR')
         return ip
+    
+    

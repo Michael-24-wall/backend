@@ -6249,3 +6249,91 @@ WARNING 2025-10-25 10:54:05,644 log 13000 23456 Unauthorized: /api/auth/forgot_p
 WARNING 2025-10-25 10:54:05,645 basehttp 13000 23456 "POST /api/auth/forgot_password/ HTTP/1.1" 401 172
 INFO 2025-10-25 10:54:17,858 basehttp 13000 23456 "POST /api/auth/login/ HTTP/1.1" 200 1069
 INFO 2025-10-25 10:54:56,175 basehttp 13000 23456 "POST /api/auth/forgot_password/ HTTP/1.1" 200 88
+INFO 2025-10-25 11:25:19,549 autoreload 13000 15124 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:25:20,872 autoreload 24508 29524 Watching for file changes with StatReloader
+INFO 2025-10-25 11:25:26,567 autoreload 24508 29524 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:25:27,203 autoreload 13556 10464 Watching for file changes with StatReloader
+INFO 2025-10-25 11:25:42,085 autoreload 13556 10464 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:25:42,690 autoreload 3208 18392 Watching for file changes with StatReloader
+INFO 2025-10-25 11:26:46,390 autoreload 3208 18392 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:26:47,230 autoreload 23928 19596 Watching for file changes with StatReloader
+INFO 2025-10-25 11:26:48,612 autoreload 23928 19596 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:26:49,171 autoreload 23744 26232 Watching for file changes with StatReloader
+INFO 2025-10-25 11:26:51,518 autoreload 23744 26232 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:26:52,094 autoreload 15016 25336 Watching for file changes with StatReloader
+INFO 2025-10-25 11:26:57,495 autoreload 15016 25336 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:26:58,252 autoreload 28860 6028 Watching for file changes with StatReloader
+INFO 2025-10-25 11:26:59,588 autoreload 28860 6028 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:27:00,146 autoreload 6488 6648 Watching for file changes with StatReloader
+INFO 2025-10-25 11:27:05,576 autoreload 6488 6648 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:27:06,449 autoreload 15676 26288 Watching for file changes with StatReloader
+INFO 2025-10-25 11:27:11,906 autoreload 15676 26288 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:27:12,475 autoreload 23208 12988 Watching for file changes with StatReloader
+INFO 2025-10-25 11:27:16,890 autoreload 23208 12988 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:27:17,442 autoreload 18348 1728 Watching for file changes with StatReloader
+INFO 2025-10-25 11:27:21,841 autoreload 18348 1728 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:27:22,400 autoreload 20688 26632 Watching for file changes with StatReloader
+INFO 2025-10-25 11:27:26,804 autoreload 20688 26632 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:27:27,370 autoreload 15560 11640 Watching for file changes with StatReloader
+INFO 2025-10-25 11:27:31,787 autoreload 15560 11640 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:27:32,424 autoreload 28052 25356 Watching for file changes with StatReloader
+INFO 2025-10-25 11:27:33,785 autoreload 28052 25356 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:27:34,348 autoreload 26084 23508 Watching for file changes with StatReloader
+INFO 2025-10-25 11:27:45,983 autoreload 26084 23508 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:27:46,570 autoreload 23092 20472 Watching for file changes with StatReloader
+INFO 2025-10-25 11:27:49,113 autoreload 23092 20472 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:27:49,763 autoreload 28872 26908 Watching for file changes with StatReloader
+INFO 2025-10-25 11:27:51,179 autoreload 28872 26908 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:27:51,757 autoreload 8004 5624 Watching for file changes with StatReloader
+INFO 2025-10-25 11:27:55,160 autoreload 8004 5624 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:27:55,803 autoreload 1208 11636 Watching for file changes with StatReloader
+INFO 2025-10-25 11:28:06,408 autoreload 1208 11636 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:28:07,045 autoreload 7096 21172 Watching for file changes with StatReloader
+INFO 2025-10-25 11:28:11,454 autoreload 7096 21172 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:28:12,043 autoreload 28032 7640 Watching for file changes with StatReloader
+INFO 2025-10-25 11:28:48,445 autoreload 28032 7640 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:28:49,041 autoreload 10308 27368 Watching for file changes with StatReloader
+INFO 2025-10-25 11:29:04,768 autoreload 10308 27368 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:29:05,354 autoreload 24560 23100 Watching for file changes with StatReloader
+INFO 2025-10-25 11:29:07,702 autoreload 24560 23100 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:29:08,282 autoreload 26768 25712 Watching for file changes with StatReloader
+INFO 2025-10-25 11:29:12,736 autoreload 26768 25712 C:\Users\MICHAEL\workflow\backend\documents\views.py changed, reloading.
+INFO 2025-10-25 11:29:13,397 autoreload 23208 22684 Watching for file changes with StatReloader
+INFO 2025-10-25 11:30:00,590 autoreload 23208 22684 C:\Users\MICHAEL\workflow\backend\documents\models.py changed, reloading.
+INFO 2025-10-25 11:30:01,198 autoreload 27708 25100 Watching for file changes with StatReloader
+INFO 2025-10-25 11:30:02,669 autoreload 27708 25100 C:\Users\MICHAEL\workflow\backend\documents\models.py changed, reloading.
+INFO 2025-10-25 11:30:03,292 autoreload 28712 26276 Watching for file changes with StatReloader
+INFO 2025-10-25 11:30:04,702 autoreload 28712 26276 C:\Users\MICHAEL\workflow\backend\documents\models.py changed, reloading.
+INFO 2025-10-25 11:30:05,308 autoreload 27444 1276 Watching for file changes with StatReloader
+INFO 2025-10-25 11:33:39,718 autoreload 27444 1276 C:\Users\MICHAEL\workflow\backend\documents\models.py changed, reloading.
+INFO 2025-10-25 11:33:40,391 autoreload 5868 17064 Watching for file changes with StatReloader
+INFO 2025-10-25 11:35:50,775 autoreload 5868 17064 C:\Users\MICHAEL\workflow\backend\workflow\models.py changed, reloading.
+INFO 2025-10-25 11:35:51,499 autoreload 3036 25760 Watching for file changes with StatReloader
+INFO 2025-10-25 11:35:52,848 autoreload 3036 25760 C:\Users\MICHAEL\workflow\backend\workflow\models.py changed, reloading.
+INFO 2025-10-25 11:35:53,433 autoreload 6872 20552 Watching for file changes with StatReloader
+INFO 2025-10-25 12:18:07,355 autoreload 26644 25412 Watching for file changes with StatReloader
+WARNING 2025-10-25 12:18:25,592 log 26644 18728 Unauthorized: /api/organization/send_invitation/
+WARNING 2025-10-25 12:18:25,593 basehttp 26644 18728 "GET /api/organization/send_invitation/ HTTP/1.1" 401 3910
+INFO 2025-10-25 12:18:25,619 basehttp 26644 18728 "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-10-25 12:18:25,620 basehttp 26644 26612 "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+INFO 2025-10-25 12:18:25,620 basehttp 26644 18728 "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+INFO 2025-10-25 12:18:25,634 basehttp 26644 18728 "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+INFO 2025-10-25 12:18:25,634 basehttp 26644 26612 "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+INFO 2025-10-25 12:18:25,636 basehttp 26644 18728 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+INFO 2025-10-25 12:18:25,636 basehttp 26644 26612 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+INFO 2025-10-25 12:18:25,638 basehttp 26644 18728 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+INFO 2025-10-25 12:18:25,638 basehttp 26644 26612 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+INFO 2025-10-25 12:18:25,640 basehttp 26644 26612 "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+INFO 2025-10-25 12:18:25,640 basehttp 26644 18728 "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+INFO 2025-10-25 12:18:25,886 basehttp 26644 18728 "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+INFO 2025-10-25 13:28:58,943 autoreload 15156 3048 Watching for file changes with StatReloader
+INFO 2025-10-25 13:41:25,922 basehttp 15156 5556 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+INFO 2025-10-25 13:41:25,922 basehttp 15156 1976 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+WARNING 2025-10-25 13:41:25,971 log 15156 1976 Not Found: /api/users/me/
+WARNING 2025-10-25 13:41:25,972 basehttp 15156 1976 "GET /api/users/me/ HTTP/1.1" 404 27289
+WARNING 2025-10-25 13:41:25,977 log 15156 5556 Not Found: /api/users/me/
+WARNING 2025-10-25 13:41:25,978 basehttp 15156 5556 "GET /api/users/me/ HTTP/1.1" 404 27289
+INFO 2025-10-25 13:46:18,503 basehttp 15156 29620 "OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+INFO 2025-10-25 13:47:19,937 basehttp 15156 29620 "OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+INFO 2025-10-25 13:47:19,938 basehttp 15156 29620 "OPTIONS /api/auth/profile/ HTTP/1.1" 200 0
+INFO 2025-10-25 13:56:18,089 autoreload 13256 3716 Watching for file changes with StatReloader
