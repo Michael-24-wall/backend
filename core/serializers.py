@@ -6,10 +6,101 @@ from django.db import transaction
 from django.contrib.auth.password_validation import validate_password
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.utils import timezone
+from django.core.exceptions import ValidationError as DjangoValidationError
 
 from .models import Organization, OrganizationMembership, Invitation
 
 User = get_user_model()
+
+# --- 10. Password Reset Request Serializer ---
+class PasswordResetRequestSerializer(serializers.Serializer):
+    email = serializers.EmailField(required=True)
+    
+    def validate_email(self, value):
+        try:
+            user = User.objects.get(email=value)
+            if not user.is_active:
+                raise serializers.ValidationError("User account is disabled.")
+            return value
+        except User.DoesNotExist:
+            # Don't reveal whether email exists for security
+            return value
+
+    class Meta:
+        ref_name = "PasswordResetRequest"
+
+# --- 11. Password Reset Confirm Serializer ---
+class PasswordResetConfirmSerializer(serializers.Serializer):
+    uidb64 = serializers.CharField(required=True)
+    token = serializers.CharField(required=True)
+    new_password = serializers.CharField(
+        required=True, 
+        write_only=True, 
+        min_length=8,
+        style={'input_type': 'password'}
+    )
+    confirm_password = serializers.CharField(
+        required=True, 
+        write_only=True, 
+        min_length=8,
+        style={'input_type': 'password'}
+    )
+    
+    def validate(self, data):
+        if data['new_password'] != data['confirm_password']:
+            raise serializers.ValidationError({"confirm_password": "Passwords do not match."})
+        
+        # Validate password strength
+        try:
+            validate_password(data['new_password'])
+        except DjangoValidationError as e:
+            raise serializers.ValidationError({"new_password": list(e.messages)})
+        
+        return data
+
+    class Meta:
+        ref_name = "PasswordResetConfirm"
+
+# --- 12. Change Password Serializer ---
+class ChangePasswordSerializer(serializers.Serializer):
+    old_password = serializers.CharField(
+        required=True, 
+        write_only=True,
+        style={'input_type': 'password'}
+    )
+    new_password = serializers.CharField(
+        required=True, 
+        write_only=True, 
+        min_length=8,
+        style={'input_type': 'password'}
+    )
+    confirm_password = serializers.CharField(
+        required=True, 
+        write_only=True, 
+        min_length=8,
+        style={'input_type': 'password'}
+    )
+    
+    def validate_old_password(self, value):
+        user = self.context['request'].user
+        if not user.check_password(value):
+            raise serializers.ValidationError("Old password is incorrect.")
+        return value
+    
+    def validate(self, data):
+        if data['new_password'] != data['confirm_password']:
+            raise serializers.ValidationError({"confirm_password": "Passwords do not match."})
+        
+        # Validate password strength
+        try:
+            validate_password(data['new_password'], self.context['request'].user)
+        except DjangoValidationError as e:
+            raise serializers.ValidationError({"new_password": list(e.messages)})
+        
+        return data
+
+    class Meta:
+        ref_name = "ChangePassword"
 
 # --- 1. Organization Registration Serializer (Nested) ---
 class OrganizationRegistrationSerializer(serializers.ModelSerializer):

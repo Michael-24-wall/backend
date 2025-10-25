@@ -6193,3 +6193,54 @@ INFO 2025-10-24 21:08:06,856 autoreload 21528 23592 Watching for file changes wi
 WARNING 2025-10-24 21:08:18,236 log 21528 20088 Bad Request: /api/chat/upload/
 WARNING 2025-10-24 21:08:18,237 basehttp 21528 20088 "POST /api/chat/upload/ HTTP/1.1" 400 28
 INFO 2025-10-24 21:11:56,556 basehttp 21528 13516 "GET /api/chat/rooms-list/ HTTP/1.1" 200 1302
+INFO 2025-10-24 21:17:44,646 autoreload 21528 23592 C:\Users\MICHAEL\workflow\backend\paperless_saas\urls.py changed, reloading.
+INFO 2025-10-24 21:17:45,248 autoreload 19208 19204 Watching for file changes with StatReloader
+INFO 2025-10-24 21:19:54,650 autoreload 19208 19204 C:\Users\MICHAEL\workflow\backend\core\utils.py changed, reloading.
+INFO 2025-10-24 21:19:55,274 autoreload 21668 780 Watching for file changes with StatReloader
+INFO 2025-10-24 21:20:04,865 autoreload 21668 780 C:\Users\MICHAEL\workflow\backend\core\utils.py changed, reloading.
+INFO 2025-10-24 21:20:05,551 autoreload 15640 1676 Watching for file changes with StatReloader
+INFO 2025-10-24 21:21:00,396 autoreload 15640 1676 C:\Users\MICHAEL\workflow\backend\core\views.py changed, reloading.
+INFO 2025-10-24 21:21:01,186 autoreload 18672 19616 Watching for file changes with StatReloader
+INFO 2025-10-24 21:21:02,552 autoreload 18672 19616 C:\Users\MICHAEL\workflow\backend\core\views.py changed, reloading.
+INFO 2025-10-24 21:21:03,133 autoreload 19668 7676 Watching for file changes with StatReloader
+INFO 2025-10-24 21:26:11,984 autoreload 19668 7676 C:\Users\MICHAEL\workflow\backend\core\views.py changed, reloading.
+INFO 2025-10-24 21:26:12,578 autoreload 20584 10708 Watching for file changes with StatReloader
+INFO 2025-10-24 21:34:58,880 autoreload 20584 10708 C:\Users\MICHAEL\workflow\backend\core\views.py changed, reloading.
+INFO 2025-10-24 21:34:59,562 autoreload 3116 25392 Watching for file changes with StatReloader
+INFO 2025-10-24 21:35:00,874 autoreload 3116 25392 C:\Users\MICHAEL\workflow\backend\core\views.py changed, reloading.
+INFO 2025-10-24 21:35:01,455 autoreload 24448 7784 Watching for file changes with StatReloader
+INFO 2025-10-24 21:36:57,183 autoreload 24448 7784 C:\Users\MICHAEL\workflow\backend\core\utils.py changed, reloading.
+INFO 2025-10-24 21:36:57,783 autoreload 8404 21052 Watching for file changes with StatReloader
+INFO 2025-10-24 21:36:59,080 autoreload 8404 21052 C:\Users\MICHAEL\workflow\backend\core\utils.py changed, reloading.
+INFO 2025-10-24 21:36:59,668 autoreload 22756 16672 Watching for file changes with StatReloader
+INFO 2025-10-24 21:38:33,409 autoreload 22756 16672 C:\Users\MICHAEL\workflow\backend\core\utils.py changed, reloading.
+INFO 2025-10-24 21:38:34,067 autoreload 19852 22284 Watching for file changes with StatReloader
+INFO 2025-10-24 21:38:35,391 autoreload 19852 22284 C:\Users\MICHAEL\workflow\backend\core\utils.py changed, reloading.
+INFO 2025-10-24 21:38:35,937 autoreload 7024 21548 Watching for file changes with StatReloader
+INFO 2025-10-24 21:41:34,702 basehttp 7024 24044 "POST /api/auth/forgot_password/ HTTP/1.1" 200 88
+WARNING 2025-10-24 21:47:59,018 log 7024 13992 Bad Request: /api/auth/change_password/
+WARNING 2025-10-24 21:47:59,018 basehttp 7024 13992 "POST /api/auth/change_password/ HTTP/1.1" 400 67
+INFO 2025-10-24 21:48:32,391 basehttp 7024 13992 "POST /api/auth/change_password/ HTTP/1.1" 200 44
+WARNING 2025-10-24 22:05:38,713 log 7024 13480 Unauthorized: /api/organization/send_invitation/
+WARNING 2025-10-24 22:05:38,713 basehttp 7024 13480 "POST /api/organization/send_invitation/ HTTP/1.1" 401 172
+WARNING 2025-10-24 22:08:00,640 log 7024 2468 Unauthorized: /api/organization/send_invitation/
+WARNING 2025-10-24 22:08:00,641 basehttp 7024 2468 "POST /api/organization/send_invitation/ HTTP/1.1" 401 172
+WARNING 2025-10-24 22:08:19,622 log 7024 2468 Unauthorized: /api/organization/send_invitation/
+WARNING 2025-10-24 22:08:19,623 basehttp 7024 2468 "POST /api/organization/send_invitation/ HTTP/1.1" 401 172
+WARNING 2025-10-24 22:08:31,205 log 7024 2468 Unauthorized: /api/organization/send_invitation/
+WARNING 2025-10-24 22:08:31,205 basehttp 7024 2468 "POST /api/organization/send_invitation/ HTTP/1.1" 401 172
+WARNING 2025-10-24 22:08:49,236 log 7024 21820 Unauthorized: /api/auth/login/
+WARNING 2025-10-24 22:08:49,236 basehttp 7024 21820 "POST /api/auth/login/ HTTP/1.1" 401 63
+INFO 2025-10-24 22:09:11,075 basehttp 7024 21820 "POST /api/auth/login/ HTTP/1.1" 200 1069
+WARNING 2025-10-24 22:09:41,866 log 7024 2468 Unauthorized: /api/organization/send_invitation/
+WARNING 2025-10-24 22:09:41,867 basehttp 7024 2468 "POST /api/organization/send_invitation/ HTTP/1.1" 401 172
+WARNING 2025-10-24 22:10:25,704 log 7024 2468 Unauthorized: /api/organization/send_invitation/
+WARNING 2025-10-24 22:10:25,705 basehttp 7024 2468 "POST /api/organization/send_invitation/ HTTP/1.1" 401 172
+WARNING 2025-10-24 22:11:08,010 log 7024 2468 Unauthorized: /api/organization/send_invitation/
+WARNING 2025-10-24 22:11:08,011 basehttp 7024 2468 "POST /api/organization/send_invitation/ HTTP/1.1" 401 172
+WARNING 2025-10-24 22:11:45,927 log 7024 25084 Unauthorized: /api/organization/send_invitation/
+WARNING 2025-10-24 22:11:45,929 basehttp 7024 25084 "GET /api/organization/send_invitation/ HTTP/1.1" 401 3910
+INFO 2025-10-24 22:15:20,833 basehttp 7024 13912 "POST /api/organization/send_invitation/ HTTP/1.1" 201 541
+INFO 2025-10-24 22:19:21,769 basehttp 7024 24072 "POST /api/auth/register/ HTTP/1.1" 201 355
+INFO 2025-10-24 22:32:05,761 autoreload 7024 21548 C:\Users\MICHAEL\workflow\backend\core\views.py changed, reloading.
+INFO 2025-10-24 22:32:06,450 autoreload 13000 15124 Watching for file changes with StatReloader

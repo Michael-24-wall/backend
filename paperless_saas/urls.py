@@ -34,7 +34,6 @@ urlpatterns = [
     path('api/', include('projects.urls')),
     path('api/dashboard/', include('dashboard.urls')),
     
-    # ✅ ADD CHAT URLs (simple include)
     path('api/chat/', include('chat.urls')),
     
     path('chat/', TemplateView.as_view(template_name='chat_app.html'), name='chat'),

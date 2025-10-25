@@ -1,64 +1,148 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            line-height: 1.6; 
-            color: #333; 
-            margin: 0;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1e3a8a;
+            max-width: 600px;
+            margin: 0 auto;
             padding: 0;
             background-color: #ffffff;
         }
-        .container { 
-            max-width: 600px; 
-            margin: 0 auto; 
-            padding: 40px 20px;
-        }
-        .button { 
-            display: inline-block; 
-            padding: 14px 28px; 
-            background-color: #001a33; /* Blue 900 */
-            color: white; 
-            text-decoration: none; 
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 16px;
-        }
-        .footer { 
-            margin-top: 30px; 
-            font-size: 12px; 
-            color: #666;
-            border-top: 1px solid #e0e0e0;
-            padding-top: 20px;
+        .container {
+            background: #ffffff;
+            border: 1px solid #dbeafe;
+            border-radius: 8px;
+            overflow: hidden;
         }
         .header {
-            color: #001a33; /* Blue 900 */
-            margin-bottom: 20px;
+            background: #1e3a8a;
+            color: #ffffff;
+            padding: 30px;
+            text-align: center;
         }
-        .link-text {
-            color: #001a33; /* Blue 900 */
+        .content {
+            padding: 30px;
+            background: #ffffff;
+        }
+        .button {
+            background: #1e3a8a;
+            color: #ffffff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 6px;
+            display: inline-block;
+            font-weight: 600;
+            margin: 20px 0;
+            border: none;
+            cursor: pointer;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #1e3a8a;
+            border-top: 1px solid #dbeafe;
+            background: #f8fafc;
+        }
+        .info {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid #1e3a8a;
+        }
+        .steps {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .step {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        .step:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #1e3a8a;
+            font-weight: bold;
+        }
+        .token-box {
+            background: #f1f5f9;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border: 1px solid #dbeafe;
+            font-family: monospace;
             word-break: break-all;
+            font-size: 14px;
+            color: #1e3a8a;
+        }
+        .urgent {
+            background: #fef3cd;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid #eab308;
+            color: #854d0e;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2 class="header">Welcome to Paperless SaaS!</h2>
-        <p>Hi {{ user.first_name }},</p>
-        <p>Thank you for registering with Paperless SaaS. Please verify your email address to activate your account and start using our services.</p>
+        <div class="header">
+            <h1>🎉 Welcome to Paperless SaaS!</h1>
+            <p>Verify your email to continue</p>
+        </div>
         
-        <p style="margin: 30px 0;">
-            <a href="{{ verification_url }}" class="button">Verify Email Address</a>
-        </p>
-        
-        <p>Or copy and paste this link in your browser:</p>
-        <p><a href="{{ verification_url }}" class="link-text">{{ verification_url }}</a></p>
-        
-        <p>If you didn't create an account with us, please ignore this email.</p>
+        <div class="content">
+            <h2>Hello {{ user.first_name|default:"there" }}!</h2>
+            
+            <p>Thank you for registering with Paperless SaaS! We're excited to have you on board.</p>
+            
+            <div class="info">
+                <p><strong>Almost there!</strong> To complete your registration and access your account, please verify your email address.</p>
+            </div>
+            
+            <p style="text-align: center;">
+                <a href="{{ verification_url }}" class="button">Verify Email Address & Continue</a>
+            </p>
+            
+            <div class="urgent">
+                <p><strong>⚠️ Action Required:</strong> You must verify your email before you can log in to your account.</p>
+            </div>
+            
+            <div class="steps">
+                <h3>Quick Setup Guide:</h3>
+                <div class="step"><strong>Verify Email:</strong> Click the button above</div>
+                <div class="step"><strong>Login:</strong> Use your email and password</div>
+                <div class="step"><strong>Explore:</strong> Access your dashboard</div>
+                <div class="step"><strong>Customize:</strong> Set up your workspace</div>
+            </div>
+            
+            <div class="info">
+                <p><strong>Having trouble with the button?</strong></p>
+                <p>Copy and paste this link into your browser:</p>
+                <p class="token-box">{{ verification_url }}</p>
+                
+                <p><strong>Or use this verification token:</strong></p>
+                <p class="token-box">{{ token }}</p>
+                <p><small>Go to the verification page on our app and enter this token manually.</small></p>
+            </div>
+            
+            <p><strong>Didn't create an account?</strong> If you didn't request this registration, please ignore this email.</p>
+        </div>
         
         <div class="footer">
-            <p>Best regards,<br>The Paperless SaaS Team</p>
+            <p>Welcome to the Paperless SaaS family! 🚀</p>
+            <p>&copy; {% now "Y" %} Paperless SaaS. All rights reserved.</p>
+            <p><small>This verification link will expire in 7 days for security reasons.</small></p>
         </div>
     </div>
 </body>

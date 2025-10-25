@@ -24,6 +24,9 @@ from .serializers import (
     InvitationResponseSerializer,
     OrganizationSerializer,
     JoinOrganizationSerializer,
+    PasswordResetRequestSerializer,
+    PasswordResetConfirmSerializer,
+    ChangePasswordSerializer,
 )
 from .models import Organization, Invitation, OrganizationMembership 
 
@@ -84,6 +87,12 @@ class AuthViewSet(viewsets.GenericViewSet):
             return UserSerializer
         elif self.action == 'join_organization':
             return JoinOrganizationSerializer
+        elif self.action == 'forgot_password':
+            return PasswordResetRequestSerializer
+        elif self.action == 'password_reset_confirm':
+            return PasswordResetConfirmSerializer
+        elif self.action == 'change_password':
+            return ChangePasswordSerializer
         # For other actions that don't need a serializer, return None
         return None
 
@@ -101,6 +110,7 @@ class AuthViewSet(viewsets.GenericViewSet):
                 'user': user,
                 'domain': domain,
                 'verification_url': verification_url,
+                'token': token,
                 'protocol': request.scheme,
             })
             
@@ -112,6 +122,34 @@ class AuthViewSet(viewsets.GenericViewSet):
             print(f"✅ Verification email sent to: {to_email}")
         except Exception as e:
             print(f"❌ Failed to send verification email: {str(e)}")
+
+    # --- Helper Method to Send Password Reset Email ---
+    def _send_password_reset_email(self, user, request):
+        """Send password reset email to user"""
+        try:
+            domain = request.get_host()
+            uid = urlsafe_base64_encode(force_bytes(user.pk))
+            token = account_activation_token.make_token(user)
+            
+            reset_url = f"{request.scheme}://{domain}/api/auth/password_reset_confirm/?uidb64={uid}&token={token}"
+            
+            mail_subject = 'Reset your Paperless SaaS Password'
+            message = render_to_string('core/password_reset_email.html', {
+                'user': user,
+                'domain': domain,
+                'reset_url': reset_url,
+                'token': token,
+                'protocol': request.scheme,
+            })
+            
+            to_email = user.email
+            email = EmailMessage(mail_subject, message, to=[to_email])
+            email.content_subtype = "html"
+            email.send()
+            
+            print(f"✅ Password reset email sent to: {to_email}")
+        except Exception as e:
+            print(f"❌ Failed to send password reset email: {str(e)}")
 
     # --- 2.1. Registration Endpoint ---
     @swagger_auto_schema(
@@ -378,18 +416,10 @@ class AuthViewSet(viewsets.GenericViewSet):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    # --- 2.6. Change Password Endpoint ---
+    # --- 2.6. Change Password Endpoint (Updated with Serializer) ---
     @swagger_auto_schema(
         operation_description="Change user password",
-        request_body=openapi.Schema(
-            type=openapi.TYPE_OBJECT,
-            properties={
-                'old_password': openapi.Schema(type=openapi.TYPE_STRING),
-                'new_password': openapi.Schema(type=openapi.TYPE_STRING),
-                'confirm_password': openapi.Schema(type=openapi.TYPE_STRING),
-            },
-            required=['old_password', 'new_password', 'confirm_password']
-        ),
+        request_body=ChangePasswordSerializer,
         responses={
             200: openapi.Response(
                 description="Password changed successfully",
@@ -405,57 +435,118 @@ class AuthViewSet(viewsets.GenericViewSet):
     )
     @action(detail=False, methods=['post'], permission_classes=[IsAuthenticated])
     def change_password(self, request):
-        """Change user password"""
-        old_password = request.data.get('old_password')
-        new_password = request.data.get('new_password')
-        confirm_password = request.data.get('confirm_password')
+        """Change user password using serializer"""
+        serializer_class = self.get_serializer_class()
+        serializer = serializer_class(data=request.data, context={'request': request})
         
-        if not old_password or not new_password or not confirm_password:
-            return Response(
-                {'error': 'All password fields are required.'}, 
-                status=status.HTTP_400_BAD_REQUEST
-            )
+        if serializer.is_valid():
+            user = request.user
+            new_password = serializer.validated_data['new_password']
+            
+            user.set_password(new_password)
+            user.save()
+            
+            return Response({
+                'message': 'Password changed successfully.'
+            }, status=status.HTTP_200_OK)
         
-        if new_password != confirm_password:
-            return Response(
-                {'error': 'New passwords do not match.'}, 
-                status=status.HTTP_400_BAD_REQUEST
-            )
-        
-        user = request.user
-        
-        if not user.check_password(old_password):
-            return Response(
-                {'error': 'Old password is incorrect.'}, 
-                status=status.HTTP_400_BAD_REQUEST
-            )
-        
-        try:
-            validate_password(new_password, user)
-        except Exception as e:
-            return Response(
-                {'error': str(e)}, 
-                status=status.HTTP_400_BAD_REQUEST
-            )
-        
-        user.set_password(new_password)
-        user.save()
-        
-        return Response(
-            {'message': 'Password changed successfully.'}, 
-            status=status.HTTP_200_OK
-        )
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    # --- 2.7. Join Organization Endpoint ---
+    # --- 2.7. Forgot Password / Password Reset Request Endpoint ---
+    @swagger_auto_schema(
+        operation_description="Request password reset email",
+        request_body=PasswordResetRequestSerializer,
+        responses={
+            200: openapi.Response(
+                description="Password reset email sent if account exists",
+                schema=openapi.Schema(
+                    type=openapi.TYPE_OBJECT,
+                    properties={
+                        'message': openapi.Schema(type=openapi.TYPE_STRING),
+                    }
+                )
+            ),
+            400: 'Bad Request'
+        }
+    )
+    @action(detail=False, methods=['post'], permission_classes=[AllowAny])
+    def forgot_password(self, request):
+        """Handle password reset request using serializer"""
+        serializer_class = self.get_serializer_class()
+        serializer = serializer_class(data=request.data)
+        
+        if serializer.is_valid():
+            email = serializer.validated_data['email']
+            
+            try:
+                user = User.objects.get(email=email)
+                # Send password reset email only if user exists and is active
+                if user.is_active:
+                    self._send_password_reset_email(user, request)
+                    print(f"✅ Password reset email sent to: {email}")
+                else:
+                    print(f"⚠️ User {email} is inactive, skipping password reset email")
+                
+            except User.DoesNotExist:
+                # For security, don't reveal whether email exists
+                print(f"⚠️ Password reset requested for non-existent email: {email}")
+                pass
+            
+            return Response({
+                'message': 'If an account with this email exists, a password reset link has been sent.'
+            }, status=status.HTTP_200_OK)
+        
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    # --- 2.8. Password Reset Confirm Endpoint ---
+    @swagger_auto_schema(
+        operation_description="Confirm password reset with token",
+        request_body=PasswordResetConfirmSerializer,
+        responses={
+            200: openapi.Response(
+                description="Password reset successful",
+                schema=openapi.Schema(
+                    type=openapi.TYPE_OBJECT,
+                    properties={
+                        'message': openapi.Schema(type=openapi.TYPE_STRING),
+                    }
+                )
+            ),
+            400: 'Invalid token or bad request'
+        }
+    )
+    @action(detail=False, methods=['post'], permission_classes=[AllowAny])
+    def password_reset_confirm(self, request):
+        """Confirm password reset with token using serializer"""
+        serializer_class = self.get_serializer_class()
+        serializer = serializer_class(data=request.data)
+        
+        if serializer.is_valid():
+            uidb64 = serializer.validated_data['uidb64']
+            token = serializer.validated_data['token']
+            new_password = serializer.validated_data['new_password']
+            
+            # Decode user ID and validate token using existing utility
+            user = decode_uid_and_token(uidb64, token)
+
+            if user is not None:
+                user.set_password(new_password)
+                user.save()
+                
+                return Response({
+                    'message': 'Password has been reset successfully. You can now log in with your new password.'
+                }, status=status.HTTP_200_OK)
+            
+            return Response({
+                'error': 'Invalid or expired reset link.'
+            }, status=status.HTTP_400_BAD_REQUEST)
+        
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    # --- 2.9. Join Organization Endpoint ---
     @swagger_auto_schema(
         operation_description="Join an organization using an invite token",
-        request_body=openapi.Schema(
-            type=openapi.TYPE_OBJECT,
-            properties={
-                'invite_token': openapi.Schema(type=openapi.TYPE_STRING, description='Invitation token'),
-            },
-            required=['invite_token']
-        ),
+        request_body=JoinOrganizationSerializer,
         responses={
             200: openapi.Response(
                 description="Successfully joined organization",
@@ -528,6 +619,32 @@ class OrganizationViewSet(viewsets.GenericViewSet):
         elif self.action == 'my_organization':
             return OrganizationSerializer
         return None
+
+    # --- Helper Method to Send Invitation Email ---
+    def _send_invitation_email(self, invitation, request):
+        """Send invitation email to the invited user"""
+        try:
+            domain = request.get_host()
+            invite_url = f"{request.scheme}://{domain}/register?invite_token={invitation.token}"
+            
+            mail_subject = f'Invitation to join {invitation.organization.name} on Paperless SaaS'
+            message = render_to_string('core/invitation_email.html', {
+                'invitation': invitation,
+                'invite_url': invite_url,
+                'domain': domain,
+                'protocol': request.scheme,
+            })
+            
+            to_email = invitation.email
+            email = EmailMessage(mail_subject, message, to=[to_email])
+            email.content_subtype = "html"
+            email.send()
+            
+            print(f"✅ Invitation email sent to: {to_email}")
+            return True
+        except Exception as e:
+            print(f"❌ Failed to send invitation email: {str(e)}")
+            return False
 
     # --- Helper function to check if user is owner, manager, or HR ---
     def _is_owner_manager_or_hr(self, user):
@@ -617,13 +734,18 @@ class OrganizationViewSet(viewsets.GenericViewSet):
                 invited_by=user
             )
             
-            # TODO: Send invitation email here
-            print(f"📧 Invitation created for {invitation.email} as {invitation.role}. Token: {invitation.token}")
+            # 4. Send invitation email
+            email_sent = self._send_invitation_email(invitation, request)
+            
+            if email_sent:
+                message = f'Invitation sent to {invitation.email}'
+            else:
+                message = f'Invitation created for {invitation.email} but email failed to send. Token: {invitation.token}'
             
             # Use the response serializer for the response
             response_serializer = InvitationResponseSerializer(invitation)
             return Response({
-                'message': f'Invitation sent to {invitation.email}',
+                'message': message,
                 'invitation': response_serializer.data
             }, status=status.HTTP_201_CREATED)
         
