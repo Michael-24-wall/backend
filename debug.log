@@ -6190,3 +6190,6 @@ INFO 2025-10-24 21:08:04,328 autoreload 24868 14836 C:\Users\MICHAEL\workflow\ba
 INFO 2025-10-24 21:08:04,945 autoreload 23232 6952 Watching for file changes with StatReloader
 INFO 2025-10-24 21:08:06,288 autoreload 23232 6952 C:\Users\MICHAEL\workflow\backend\paperless_saas\urls.py changed, reloading.
 INFO 2025-10-24 21:08:06,856 autoreload 21528 23592 Watching for file changes with StatReloader
+WARNING 2025-10-24 21:08:18,236 log 21528 20088 Bad Request: /api/chat/upload/
+WARNING 2025-10-24 21:08:18,237 basehttp 21528 20088 "POST /api/chat/upload/ HTTP/1.1" 400 28
+INFO 2025-10-24 21:11:56,556 basehttp 21528 13516 "GET /api/chat/rooms-list/ HTTP/1.1" 200 1302
