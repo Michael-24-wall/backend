@@ -6244,3 +6244,8 @@ INFO 2025-10-24 22:15:20,833 basehttp 7024 13912 "POST /api/organization/send_in
 INFO 2025-10-24 22:19:21,769 basehttp 7024 24072 "POST /api/auth/register/ HTTP/1.1" 201 355
 INFO 2025-10-24 22:32:05,761 autoreload 7024 21548 C:\Users\MICHAEL\workflow\backend\core\views.py changed, reloading.
 INFO 2025-10-24 22:32:06,450 autoreload 13000 15124 Watching for file changes with StatReloader
+INFO 2025-10-24 22:32:52,279 basehttp 13000 3956 "POST /api/auth/forgot_password/ HTTP/1.1" 200 88
+WARNING 2025-10-25 10:54:05,644 log 13000 23456 Unauthorized: /api/auth/forgot_password/
+WARNING 2025-10-25 10:54:05,645 basehttp 13000 23456 "POST /api/auth/forgot_password/ HTTP/1.1" 401 172
+INFO 2025-10-25 10:54:17,858 basehttp 13000 23456 "POST /api/auth/login/ HTTP/1.1" 200 1069
+INFO 2025-10-25 10:54:56,175 basehttp 13000 23456 "POST /api/auth/forgot_password/ HTTP/1.1" 200 88
