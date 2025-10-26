@@ -324,7 +324,78 @@ class AuthViewSet(viewsets.GenericViewSet):
                 status=status.HTTP_404_NOT_FOUND
             )
 
-    # --- 2.4. User Profile Endpoint ---
+    # --- 2.4. Validate Invitation Token Endpoint ---
+    @swagger_auto_schema(
+        operation_description="Validate an invitation token",
+        manual_parameters=[
+            openapi.Parameter('token', openapi.IN_QUERY, type=openapi.TYPE_STRING, description='Invitation token', required=True),
+        ],
+        responses={
+            200: openapi.Response(
+                description="Token is valid",
+                schema=openapi.Schema(
+                    type=openapi.TYPE_OBJECT,
+                    properties={
+                        'valid': openapi.Schema(type=openapi.TYPE_BOOLEAN),
+                        'invitation': openapi.Schema(
+                            type=openapi.TYPE_OBJECT,
+                            properties={
+                                'email': openapi.Schema(type=openapi.TYPE_STRING),
+                                'organization': openapi.Schema(type=openapi.TYPE_STRING),
+                                'role': openapi.Schema(type=openapi.TYPE_STRING),
+                                'expires_at': openapi.Schema(type=openapi.TYPE_STRING),
+                            }
+                        )
+                    }
+                )
+            ),
+            400: 'Invalid or expired token'
+        }
+    )
+    @action(detail=False, methods=['get'], permission_classes=[AllowAny])
+    def validate_invitation_token(self, request):
+        """Validate an invitation token"""
+        token = request.query_params.get('token')
+        
+        if not token:
+            return Response(
+                {'error': 'Token parameter is required.'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        try:
+            invitation = Invitation.objects.get(token=token)
+            
+            if invitation.is_accepted:
+                return Response(
+                    {'error': 'This invitation has already been accepted.'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            if invitation.is_expired:
+                return Response(
+                    {'error': 'Invitation token has expired.'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            return Response({
+                'valid': True,
+                'invitation': {
+                    'email': invitation.email,
+                    'organization': invitation.organization.name,
+                    'role': invitation.role,
+                    'expires_at': invitation.expires_at.isoformat(),
+                    'invited_by': invitation.invited_by.get_full_name() or invitation.invited_by.email
+                }
+            })
+            
+        except Invitation.DoesNotExist:
+            return Response(
+                {'error': 'Invalid invitation token.'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+    # --- 2.5. User Profile Endpoint ---
     @swagger_auto_schema(
         operation_description="Get current user profile information",
         responses={
@@ -353,7 +424,7 @@ class AuthViewSet(viewsets.GenericViewSet):
         serializer = UserSerializer(request.user)
         return Response(serializer.data)
 
-    # --- 2.5. Update Profile Endpoint ---
+    # --- 2.6. Update Profile Endpoint ---
     @swagger_auto_schema(
         method='put',
         operation_description="Full update of user profile",
@@ -416,7 +487,7 @@ class AuthViewSet(viewsets.GenericViewSet):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    # --- 2.6. Change Password Endpoint (Updated with Serializer) ---
+    # --- 2.7. Change Password Endpoint (Updated with Serializer) ---
     @swagger_auto_schema(
         operation_description="Change user password",
         request_body=ChangePasswordSerializer,
@@ -452,7 +523,7 @@ class AuthViewSet(viewsets.GenericViewSet):
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    # --- 2.7. Forgot Password / Password Reset Request Endpoint ---
+    # --- 2.8. Forgot Password / Password Reset Request Endpoint ---
     @swagger_auto_schema(
         operation_description="Request password reset email",
         request_body=PasswordResetRequestSerializer,
@@ -498,7 +569,7 @@ class AuthViewSet(viewsets.GenericViewSet):
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    # --- 2.8. Password Reset Confirm Endpoint ---
+    # --- 2.9. Password Reset Confirm Endpoint ---
     @swagger_auto_schema(
         operation_description="Confirm password reset with token",
         request_body=PasswordResetConfirmSerializer,
@@ -543,7 +614,7 @@ class AuthViewSet(viewsets.GenericViewSet):
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    # --- 2.9. Join Organization Endpoint ---
+    # --- 2.10. Join Organization Endpoint ---
     @swagger_auto_schema(
         operation_description="Join an organization using an invite token",
         request_body=JoinOrganizationSerializer,
@@ -638,12 +709,23 @@ class OrganizationViewSet(viewsets.GenericViewSet):
             to_email = invitation.email
             email = EmailMessage(mail_subject, message, to=[to_email])
             email.content_subtype = "html"
-            email.send()
             
-            print(f"✅ Invitation email sent to: {to_email}")
+            # Add detailed logging for debugging
+            print(f"📧 Attempting to send invitation email to: {to_email}")
+            print(f"📧 Subject: {mail_subject}")
+            print(f"📧 Invite URL: {invite_url}")
+            print(f"📧 Organization: {invitation.organization.name}")
+            print(f"📧 Token: {invitation.token}")
+            
+            email_sent_count = email.send()
+            print(f"✅ Invitation email sent successfully to: {to_email}, sent count: {email_sent_count}")
             return True
+            
         except Exception as e:
-            print(f"❌ Failed to send invitation email: {str(e)}")
+            print(f"❌ Failed to send invitation email to {invitation.email}: {str(e)}")
+            print(f"❌ Error type: {type(e).__name__}")
+            import traceback
+            print(f"❌ Traceback: {traceback.format_exc()}")
             return False
 
     # --- Helper function to check if user is owner, manager, or HR ---
@@ -734,6 +816,13 @@ class OrganizationViewSet(viewsets.GenericViewSet):
                 invited_by=user
             )
             
+            # DEBUG: Log token information
+            print(f"🔐 Invitation created:")
+            print(f"🔐 Email: {invitation.email}")
+            print(f"🔐 Token: {invitation.token}")
+            print(f"🔐 Token Type: {type(invitation.token)}")
+            print(f"🔐 Expires: {invitation.expires_at}")
+            
             # 4. Send invitation email
             email_sent = self._send_invitation_email(invitation, request)
             
@@ -746,7 +835,9 @@ class OrganizationViewSet(viewsets.GenericViewSet):
             response_serializer = InvitationResponseSerializer(invitation)
             return Response({
                 'message': message,
-                'invitation': response_serializer.data
+                'invitation': response_serializer.data,
+                'email_sent': email_sent,  # Add this field to track email status
+                'token': str(invitation.token)  # Include token in response for debugging
             }, status=status.HTTP_201_CREATED)
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -929,12 +1020,15 @@ class OrganizationViewSet(viewsets.GenericViewSet):
         active_members = User.objects.filter(organization=organization, is_active=True).count()
         pending_invitations = Invitation.objects.filter(organization=organization, is_accepted=False).count()
         
-        # Role distribution
+        # ✅ FIXED: Role distribution - use OrganizationMembership instead of User.primary_role
         role_distribution = dict(
-            User.objects.filter(organization=organization)
-            .values('primary_role')
+            OrganizationMembership.objects.filter(
+                organization=organization, 
+                is_active=True
+            )
+            .values('role')
             .annotate(count=Count('id'))
-            .values_list('primary_role', 'count')
+            .values_list('role', 'count')
         )
         
         return Response({
@@ -943,3 +1037,104 @@ class OrganizationViewSet(viewsets.GenericViewSet):
             'pending_invitations': pending_invitations,
             'role_distribution': role_distribution,
         })
+
+    # --- 3.6. Test Invitation Email Endpoint ---
+    @swagger_auto_schema(
+        operation_description="Test invitation email sending",
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            properties={
+                'email': openapi.Schema(type=openapi.TYPE_STRING, description='Test email address'),
+            },
+            required=['email']
+        ),
+        responses={
+            200: openapi.Response(
+                description="Test email result",
+                schema=openapi.Schema(
+                    type=openapi.TYPE_OBJECT,
+                    properties={
+                        'email_sent': openapi.Schema(type=openapi.TYPE_BOOLEAN),
+                        'test_email': openapi.Schema(type=openapi.TYPE_STRING),
+                        'message': openapi.Schema(type=openapi.TYPE_STRING),
+                    }
+                )
+            )
+        }
+    )
+    @action(detail=False, methods=['post'], permission_classes=[IsAuthenticated])
+    def test_invitation_email(self, request):
+        """Test endpoint to debug invitation emails"""
+        test_email = request.data.get('email', 'test@example.com')
+        
+        # Create a mock invitation for testing
+        from .models import Invitation
+        test_invitation = Invitation(
+            email=test_email,
+            organization=request.user.organization,
+            invited_by=request.user,
+            role='contributor'
+        )
+        
+        email_sent = self._send_invitation_email(test_invitation, request)
+        
+        return Response({
+            'email_sent': email_sent,
+            'test_email': test_email,
+            'message': 'Test invitation email sent successfully.' if email_sent else 'Failed to send test invitation email.'
+        })
+
+    # --- 3.7. Debug Invitation Template Endpoint ---
+    @swagger_auto_schema(
+        operation_description="Debug invitation template rendering",
+        responses={
+            200: openapi.Response(
+                description="Template rendering result",
+                schema=openapi.Schema(
+                    type=openapi.TYPE_OBJECT,
+                    properties={
+                        'success': openapi.Schema(type=openapi.TYPE_BOOLEAN),
+                        'html_content': openapi.Schema(type=openapi.TYPE_STRING),
+                        'template_used': openapi.Schema(type=openapi.TYPE_STRING),
+                    }
+                )
+            )
+        }
+    )
+    @action(detail=False, methods=['get'], permission_classes=[IsAuthenticated])
+    def debug_invitation_template(self, request):
+        """Debug endpoint to check invitation template rendering"""
+        from django.template.loader import render_to_string
+        
+        # Create a mock invitation for testing
+        mock_invitation = Invitation(
+            email="test@example.com",
+            organization=request.user.organization,
+            invited_by=request.user,
+            role='contributor',
+            message='This is a test invitation'
+        )
+        
+        domain = request.get_host()
+        invite_url = f"{request.scheme}://{domain}/register?invite_token=test-token-123"
+        
+        try:
+            html_content = render_to_string('core/invitation_email.html', {
+                'invitation': mock_invitation,
+                'invite_url': invite_url,
+                'domain': domain,
+                'protocol': request.scheme,
+            })
+            
+            return Response({
+                'success': True,
+                'html_content': html_content,
+                'template_used': 'core/invitation_email.html'
+            })
+            
+        except Exception as e:
+            return Response({
+                'success': False,
+                'error': str(e),
+                'template_error': True
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

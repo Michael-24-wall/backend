@@ -372,8 +372,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         print(f"🔍 LOGIN DEBUG - Organization: {user.organization}")
         print(f"🔍 LOGIN DEBUG - Primary Role: {user.primary_role}")
         print(f"🔍 LOGIN DEBUG - Has Valid Organization: {user.has_valid_organization}")
-        
-        # Check if user is verified
+                # Check if user is verified
         if not user.is_verified:
             raise serializers.ValidationError({
                 'detail': 'Please verify your email address before logging in.'

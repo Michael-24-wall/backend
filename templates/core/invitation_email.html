@@ -64,6 +64,24 @@
             display: inline-block;
             margin: 5px 0;
         }
+        .token-info {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            word-break: break-all;
+        }
+        .url-box {
+            background: #f8fafc;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #dbeafe;
+            word-break: break-all;
+            font-size: 14px;
+            color: #1e3a8a;
+        }
     </style>
 </head>
 <body>
@@ -86,6 +104,15 @@
                 <p><strong>Message:</strong> "{{ invitation.message }}"</p>
                 {% endif %}
             </div>
+
+            <!-- Token Information Section -->
+            <div class="token-info">
+                <p><strong>Your Invitation Token:</strong></p>
+                <p style="font-size: 16px; font-weight: bold; color: #1e3a8a; background: #f8fafc; padding: 10px; border-radius: 4px; font-family: monospace;">
+                    {{ invitation.token }}
+                </p>
+                <p><small>You can use this token during registration if the link doesn't work.</small></p>
+            </div>
             
             <p>Click the button below to accept this invitation and join the organization:</p>
             
@@ -94,9 +121,11 @@
             </p>
             
             <p>Or copy and paste this link into your browser:</p>
-            <p style="word-break: break-all; color: #1e3a8a;">{{ invite_url }}</p>
+            <div class="url-box">{{ invite_url }}</div>
             
             <p>This invitation will expire on <strong>{{ invitation.expires_at|date:"F j, Y" }}</strong>.</p>
+            
+            <p><small>If you didn't request this invitation, you can safely ignore this email.</small></p>
         </div>
         
         <div class="footer">

@@ -229,8 +229,8 @@ class OrganizationMembership(models.Model):
         return f"{self.user.email} as {self.get_role_display()} in {self.organization.name} ({status})"
 
     def save(self, *args, **kwargs):
-        # Ensure user's primary organization is set if this is their first membership
-        if not self.user.organization and self.is_active:
+        # Ensure user's primary organization is set if this is their first ACTIVE membership
+        if self.is_active and (not self.user.organization or not self.user.has_valid_organization):
             self.user.organization = self.organization
             self.user.save()
         
@@ -252,6 +252,24 @@ class OrganizationMembership(models.Model):
     def has_permission_over(self, other_role):
         """Check if this role has permission over another role"""
         return self.role_weight >= self.ROLE_HIERARCHY.get(other_role, 0)
+
+# Invitation Manager
+class InvitationManager(models.Manager):
+    def active(self):
+        """Return active (not accepted and not expired) invitations"""
+        from django.utils import timezone
+        return self.filter(
+            is_accepted=False,
+            expires_at__gt=timezone.now()
+        )
+    
+    def for_organization(self, organization):
+        """Return invitations for a specific organization"""
+        return self.filter(organization=organization)
+    
+    def pending_for_email(self, email):
+        """Return pending invitations for an email"""
+        return self.active().filter(email=email)
 
 # --- 4. Invitation Model ---
 class Invitation(models.Model):
@@ -289,8 +307,11 @@ class Invitation(models.Model):
         help_text="Optional personal message to include with the invitation"
     )
 
+    objects = InvitationManager()
+
     class Meta:
-        unique_together = ('email', 'organization', 'is_accepted')
+        # FIXED: Allow only one active invitation per email per organization
+        unique_together = ('email', 'organization')
         verbose_name = "Invitation"
         verbose_name_plural = "Invitations"
         ordering = ['-created_at']
@@ -316,9 +337,14 @@ class Invitation(models.Model):
             return timezone.now() > self.expires_at
         return False
     
+    @property
+    def is_active(self):
+        """Check if invitation is still active (not accepted and not expired)"""
+        return not self.is_accepted and not self.is_expired
+    
     def can_accept(self):
         """Check if the invitation can be accepted"""
-        return not self.is_accepted and not self.is_expired
+        return self.is_active
     
     @property
     def days_until_expiry(self):
@@ -327,3 +353,18 @@ class Invitation(models.Model):
             delta = self.expires_at - timezone.now()
             return delta.days
         return None
+    
+    @classmethod
+    def cleanup_expired(cls):
+        """Clean up expired invitations (optional maintenance method)"""
+        from django.utils import timezone
+        expired_count = cls.objects.filter(
+            expires_at__lte=timezone.now(),
+            is_accepted=False
+        ).delete()[0]
+        return expired_count
+
+    def get_role_display(self):
+        """Get human-readable role name"""
+        role_dict = dict(OrganizationMembership.ROLE_CHOICES)
+        return role_dict.get(self.role, self.role)
