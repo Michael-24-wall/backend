@@ -9,14 +9,13 @@ class DocumentTemplate(models.Model):
     organization = models.ForeignKey(
         Organization, 
         on_delete=models.CASCADE,
-        related_name='templates',
+        related_name='documents_templates',  # CHANGED: Unique related_name
         help_text="The organization this template belongs to."
     )
     name = models.CharField(max_length=255, help_text="Template name (e.g., 'Employment Contract')")
     title = models.CharField(max_length=255, blank=True, help_text="Display title (optional)")
     description = models.TextField(blank=True, help_text="Template description and usage notes")
     
-    # Stores the structure/content (HTML or placeholder text) for generation
     content = models.TextField(
         help_text="HTML/Markdown content with placeholders (e.g., {{user.first_name}})."
     )
@@ -26,12 +25,11 @@ class DocumentTemplate(models.Model):
     )
     
     is_active = models.BooleanField(default=True)
-    created_by = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, related_name='created_templates')
+    created_by = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, related_name='documents_created_templates')  # CHANGED
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        # Ensures each organization has uniquely named templates
         unique_together = ('organization', 'name') 
         verbose_name = "Document Template"
         ordering = ['name']
@@ -40,7 +38,6 @@ class DocumentTemplate(models.Model):
         return f"{self.name} ({self.organization.name})"
     
     def save(self, *args, **kwargs):
-        # Backward compatibility: copy content to content_template if empty
         if not self.content_template and self.content:
             self.content_template = self.content
         super().save(*args, **kwargs)
@@ -58,26 +55,26 @@ class Document(models.Model):
     STATUS_REJECTED = 'rejected'
     
     STATUS_CHOICES = [
-        (STATUS_DRAFT, 'Draft'),                         # Still being edited
-        (STATUS_PENDING_REVIEW, 'Pending Review'),       # Waiting for review
-        (STATUS_PENDING_APPROVAL, 'Pending Approval'),   # Waiting for approval
-        (STATUS_PENDING_FINAL_SIGNATURE, 'Pending Final Signature'), # Waiting for final signature
-        (STATUS_SIGNED, 'Signed/Final'),                 # Finalized and signed
-        (STATUS_ARCHIVED, 'Archived'),                   # Archived/completed
-        (STATUS_REJECTED, 'Rejected'),                   # Rejected in workflow
+        (STATUS_DRAFT, 'Draft'),
+        (STATUS_PENDING_REVIEW, 'Pending Review'),
+        (STATUS_PENDING_APPROVAL, 'Pending Approval'),
+        (STATUS_PENDING_FINAL_SIGNATURE, 'Pending Final Signature'),
+        (STATUS_SIGNED, 'Signed/Final'),
+        (STATUS_ARCHIVED, 'Archived'),
+        (STATUS_REJECTED, 'Rejected'),
     ]
 
     organization = models.ForeignKey(
         Organization, 
         on_delete=models.CASCADE,
-        related_name='documents'
+        related_name='documents_documents'  # CHANGED: Unique related_name
     )
     template = models.ForeignKey(
         DocumentTemplate, 
         on_delete=models.SET_NULL, 
         null=True,
         blank=True,
-        related_name='documents'
+        related_name='documents_documents'  # CHANGED: Unique related_name
     )
     title = models.CharField(max_length=255)
     status = models.CharField(
@@ -86,22 +83,19 @@ class Document(models.Model):
         default=STATUS_DRAFT
     )
     
-    # Stores the generated, finalized HTML content (after placeholder substitution)
     final_content = models.TextField(
         null=True, 
         blank=True,
         help_text="The rendered HTML content of the document instance."
     )
     
-    # Link to the associated PDF/file
     file_attachment = models.FileField(
         upload_to='documents/%Y/%m/',
         null=True, 
         blank=True,
         help_text="The final PDF or file representation."
     )
-    file_description = models.CharField(
-        max_length=255,
+    file_description = models.TextField(
         blank=True,
         help_text="Description of the attached file"
     )
@@ -114,12 +108,11 @@ class Document(models.Model):
     created_by = models.ForeignKey(
         CustomUser, 
         on_delete=models.CASCADE, 
-        related_name='authored_documents'
+        related_name='documents_authored_documents'  # CHANGED: Unique related_name
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
-    # Metadata fields
     version = models.IntegerField(default=1)
     is_archived = models.BooleanField(default=False)
 
@@ -138,7 +131,6 @@ class Document(models.Model):
         return f"Doc: {self.title} ({self.status})"
     
     def save(self, *args, **kwargs):
-        # Update file_size when file_attachment changes
         if self.file_attachment and not self.file_size:
             self.file_size = self.file_attachment.size
         super().save(*args, **kwargs)
@@ -150,18 +142,17 @@ class DigitalSignatureLog(models.Model):
     document = models.ForeignKey(
         Document, 
         on_delete=models.CASCADE, 
-        related_name='signatures'
+        related_name='documents_signatures'  # CHANGED: Unique related_name
     )
     signer = models.ForeignKey(
         CustomUser, 
         on_delete=models.PROTECT,
-        related_name='document_signatures'
+        related_name='documents_document_signatures'  # CHANGED: Unique related_name
     )
     
     signed_at = models.DateTimeField(auto_now_add=True)
     signer_role = models.CharField(max_length=50)
     
-    # Enhanced signature fields
     signature_data = models.TextField(
         blank=True,
         help_text="Encrypted signature data or hash"
@@ -181,7 +172,6 @@ class DigitalSignatureLog(models.Model):
         help_text="Browser/user agent information"
     )
     
-    # Security fields
     content_hash = models.CharField(
         max_length=64, 
         null=True, 
@@ -193,7 +183,6 @@ class DigitalSignatureLog(models.Model):
     invalidated_reason = models.TextField(blank=True)
 
     class Meta:
-        # Prevents one person from signing the same document multiple times
         unique_together = ('document', 'signer')
         verbose_name = "Digital Signature Log"
         verbose_name_plural = "Digital Signature Logs"
@@ -221,7 +210,7 @@ class DocumentPermission(models.Model):
     document = models.ForeignKey(
         Document, 
         on_delete=models.CASCADE, 
-        related_name='permissions'
+        related_name='documents_permissions'  # CHANGED: Unique related_name
     )
     user = models.ForeignKey(
         CustomUser, 
@@ -242,14 +231,13 @@ class DocumentPermission(models.Model):
     granted_by = models.ForeignKey(
         CustomUser, 
         on_delete=models.CASCADE,
-        related_name='granted_document_permissions'
+        related_name='documents_granted_permissions'  # CHANGED: Unique related_name
     )
     granted_at = models.DateTimeField(auto_now_add=True)
     expires_at = models.DateTimeField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
 
     class Meta:
-        # Allows for flexible permissions (user or role-based)
         unique_together = ('document', 'user', 'permission_type') 
         verbose_name = "Document Permission"
         verbose_name_plural = "Document Permissions"
@@ -259,18 +247,18 @@ class DocumentPermission(models.Model):
         return f"{target} - {self.get_permission_type_display()} on {self.document.title}"
 
 
-# --- 5. NEW: Document Comment Model ---
+# --- 5. Document Comment Model ---
 class DocumentComment(models.Model):
     """Comments and discussions on documents."""
     document = models.ForeignKey(
         Document,
         on_delete=models.CASCADE,
-        related_name='comments'
+        related_name='documents_comments'  # CHANGED: Unique related_name
     )
     user = models.ForeignKey(
         CustomUser,
         on_delete=models.CASCADE,
-        related_name='documents_document_comments'  # Fixed: unique related_name
+        related_name='documents_document_comments'  # CHANGED: Unique related_name
     )
     comment = models.TextField()
     is_internal = models.BooleanField(
@@ -289,13 +277,13 @@ class DocumentComment(models.Model):
         return f"Comment by {self.user.email} on {self.document.title}"
 
 
-# --- 6. NEW: Document Version Model ---
+# --- 6. Document Version Model ---
 class DocumentVersion(models.Model):
     """Tracks version history of documents."""
     document = models.ForeignKey(
         Document,
         on_delete=models.CASCADE,
-        related_name='versions'
+        related_name='documents_versions'  # CHANGED: Unique related_name
     )
     version_number = models.IntegerField()
     content = models.TextField()
@@ -306,7 +294,7 @@ class DocumentVersion(models.Model):
     created_by = models.ForeignKey(
         CustomUser,
         on_delete=models.CASCADE,
-        related_name='created_document_versions'
+        related_name='documents_created_versions'  # CHANGED: Unique related_name
     )
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -320,23 +308,24 @@ class DocumentVersion(models.Model):
         return f"v{self.version_number} of {self.document.title}"
 
 
-# --- 7. NEW: Document Share Model ---
+# --- 7. Document Share Model ---
 class DocumentShare(models.Model):
     """Tracks document sharing with external parties."""
     document = models.ForeignKey(
         Document,
         on_delete=models.CASCADE,
-        related_name='shares'
+        related_name='documents_shares'  # CHANGED: Unique related_name
     )
     share_token = models.CharField(
         max_length=64,
         unique=True,
+        default=uuid.uuid4,
         help_text="Unique token for external sharing"
     )
     shared_by = models.ForeignKey(
         CustomUser,
         on_delete=models.CASCADE,
-        related_name='shared_documents'
+        related_name='documents_shared_documents'  # CHANGED: Unique related_name
     )
     shared_with_email = models.EmailField(
         blank=True,
@@ -368,24 +357,40 @@ class DocumentShare(models.Model):
 # --- 8. Collaboration Models ---
 class DocumentSession(models.Model):
     """Tracks active editing sessions"""
-    document = models.ForeignKey(Document, on_delete=models.CASCADE)
+    document = models.ForeignKey(Document, on_delete=models.CASCADE, related_name='documents_sessions')  # CHANGED
     session_id = models.UUIDField(default=uuid.uuid4, unique=True)
-    created_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    created_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='documents_sessions')  # CHANGED
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f"Session {self.session_id} for {self.document.title}"
+
 class CollaborationCursor(models.Model):
     """Tracks user cursor positions in real-time"""
-    session = models.ForeignKey(DocumentSession, on_delete=models.CASCADE)
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    position = models.IntegerField(default=0)  # cursor position in text
-    selection_range = models.JSONField(null=True, blank=True)  # {"start": 0, "end": 10}
+    session = models.ForeignKey(DocumentSession, on_delete=models.CASCADE, related_name='documents_cursors')  # CHANGED
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='documents_cursors')  # CHANGED
+    position = models.IntegerField(default=0)
+    selection_range = models.JSONField(null=True, blank=True)
     last_activity = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        unique_together = ('session', 'user')
+
+    def __str__(self):
+        return f"Cursor for {self.user.email} in session {self.session.session_id}"
 
 class OperationalTransform(models.Model):
     """For conflict resolution in collaborative editing"""
-    session = models.ForeignKey(DocumentSession, on_delete=models.CASCADE)
+    session = models.ForeignKey(DocumentSession, on_delete=models.CASCADE, related_name='documents_operations')  # CHANGED
     version = models.IntegerField()
-    operation = models.JSONField()  # {"type": "insert", "position": 5, "text": "hello"}
-    applied_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    operation = models.JSONField()
+    applied_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='documents_operations')  # CHANGED
     created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('session', 'version')
+        ordering = ['session', 'version']
+
+    def __str__(self):
+        return f"OT v{self.version} for session {self.session.session_id}"

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            padding: 0;
+        }
+        .header { 
+            background: #1E40AF; 
+            color: white; 
+            padding: 30px 20px; 
+            text-align: center; 
+        }
+        .content { 
+            padding: 40px 20px; 
+            background: #ffffff;
+            color: #1E40AF;
+        }
+        .message {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .document-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #1E40AF;
+        }
+        .action-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .action-button {
+            background: #1E40AF;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .details {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #1E40AF;
+            margin: 25px 0;
+        }
+        .detail-item {
+            margin: 10px 0;
+            color: #1E40AF;
+        }
+        .urgency {
+            background: #1E40AF;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .footer {
+            background: #f8fafc;
+            padding: 20px;
+            text-align: center;
+            color: #6B7280;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 style="margin: 0; font-size: 28px;">⏰ Approval Required</h1>
+        </div>
+        
+        <div class="content">
+            <div class="message">
+                Hello <strong>{{ approver.get_full_name }}</strong>,
+            </div>
+            
+            <div class="message">
+                Your approval is required for the following document:
+            </div>
+            
+            <div class="document-title">"{{ document.title }}"</div>
+            
+            <div class="details">
+                <div class="detail-item">
+                    <strong>Submitted by:</strong> {{ submitted_by.get_full_name }}
+                </div>
+                <div class="detail-item">
+                    <strong>Current Step:</strong> {{ step.get_approver_role_display }}
+                </div>
+                <div class="detail-item">
+                    <strong>Step Number:</strong> {{ step.step_order }}
+                </div>
+                <div class="detail-item">
+                    <strong>Assigned:</strong> {{ assigned_date|date:"F j, Y" }}
+                </div>
+            </div>
+            
+            {% if flow.current_deadline %}
+            <div class="urgency">
+                ⚡ Please review before {{ flow.current_deadline|date:"F j, Y" }}
+            </div>
+            {% endif %}
+            
+            <div class="action-section">
+                <a href="{{ approval_url }}" class="action-button">
+                    Review Document
+                </a>
+            </div>
+            
+            <div class="message">
+                Please review the document and take appropriate action (approve, reject, or route) as required.
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p style="margin: 0; color: #6B7280;">
+                This is an automated notification from the Approval Workflow System.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

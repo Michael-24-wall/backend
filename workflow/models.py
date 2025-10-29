@@ -1,21 +1,15 @@
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
-from django.core.exceptions import ValidationError
-from django.db.models import Q
-
-# Import your actual models - adjust these imports based on your project structure
-from core.models import Organization, OrganizationMembership
-from documents.models import Document
-
+from django.core.exceptions import ValidationError, ObjectDoesNotExist
+from datetime import timedelta
 
 class ApprovalWorkflow(models.Model):
     """
     Defines a reusable, named sequence of approval steps for an organization.
-    This is the blueprint (e.g., 'Expense Report Flow').
     """
     organization = models.ForeignKey(
-        Organization,
+        'core.Organization',
         on_delete=models.CASCADE, 
         related_name='approval_workflows'
     )
@@ -37,39 +31,27 @@ class ApprovalWorkflow(models.Model):
         return f"Workflow: {self.name} ({self.organization.name})"
 
     def clean(self):
-        """Validate workflow data"""
         if not self.organization:
             raise ValidationError("Workflow must belong to an organization")
-        
-        # Ensure unique name within organization (handled by unique_together but nice to have in clean)
-        if ApprovalWorkflow.objects.filter(
-            organization=self.organization, 
-            name=self.name
-        ).exclude(pk=self.pk).exists():
-            raise ValidationError(f"A workflow with name '{self.name}' already exists in this organization")
 
     def get_steps_count(self):
-        """Return number of steps in this workflow"""
         return self.template_steps.count()
 
     def can_delete(self):
-        """Check if workflow can be safely deleted (not in use)"""
         return not self.document_approval_flows.exists()
 
 
 class WorkflowTemplateStep(models.Model):
     """
-    A single stage in an ApprovalWorkflow template, defining the required role 
-    and conditional routing options.
+    A single stage in an ApprovalWorkflow template.
     """
-    
-    # Define role choices locally to avoid dependency issues
     ROLE_CHOICES = [
         ('viewer', 'Viewer'),
         ('contributor', 'Contributor'),
         ('manager', 'Manager'),
         ('admin', 'Administrator'),
         ('owner', 'Owner'),
+        ('staff', 'Staff'),  # ADDED: For view compatibility
     ]
 
     workflow = models.ForeignKey(
@@ -84,21 +66,17 @@ class WorkflowTemplateStep(models.Model):
     )
     step_order = models.IntegerField(help_text="The sequence number (1, 2, 3...)")
     
-    # Conditional Routing Logic: Maps the approver's decision key to the next step's order number
-    # Example: {"approve": 2, "reject": 0, "escalate": 3} where 0 = end workflow
     next_step_routes = models.JSONField(
         default=dict,
         blank=True,
         help_text="JSON mapping of decision keys to subsequent step_order numbers. Use 0 to end workflow."
     )
     
-    # Optional: Timeout for this step (in days)
     timeout_days = models.PositiveIntegerField(
         default=7,
         help_text="Number of days before this step is considered overdue"
     )
     
-    # Whether multiple approvers with this role are required
     require_all_approvers = models.BooleanField(
         default=False,
         help_text="If True, all users with this role must approve. If False, any one can approve."
@@ -119,21 +97,18 @@ class WorkflowTemplateStep(models.Model):
         return f"{self.workflow.name} - Step {self.step_order} ({self.get_approver_role_display()})"
 
     def clean(self):
-        """Validate step data"""
         if self.step_order < 1:
             raise ValidationError("Step order must be a positive integer")
         
-        # Validate next_step_routes structure
         if self.next_step_routes:
             if not isinstance(self.next_step_routes, dict):
                 raise ValidationError("next_step_routes must be a JSON object")
             
-            # Get valid step orders for this workflow
             valid_orders = list(self.workflow.template_steps.values_list('step_order', flat=True))
-            if self.pk:  # Exclude self if updating
+            if self.pk:
                 valid_orders = [order for order in valid_orders if order != self.step_order]
             
-            valid_orders.append(0)  # 0 means end workflow
+            valid_orders.append(0)
             
             for decision_key, target_step in self.next_step_routes.items():
                 if not isinstance(target_step, int):
@@ -145,14 +120,12 @@ class WorkflowTemplateStep(models.Model):
                     )
 
     def get_next_step(self, decision_key='default'):
-        """Get the next step based on decision"""
         if decision_key in self.next_step_routes:
             next_order = self.next_step_routes[decision_key]
         else:
-            # Default linear progression
             next_order = self.step_order + 1
         
-        if next_order == 0:  # End workflow
+        if next_order == 0:
             return None
         
         try:
@@ -163,27 +136,15 @@ class WorkflowTemplateStep(models.Model):
         except WorkflowTemplateStep.DoesNotExist:
             return None
 
-    def get_potential_approvers(self, document):
-        """Get users who could approve this step for a given document"""
-        # This would depend on your organization structure
-        # Example implementation:
-        from django.contrib.auth import get_user_model
-        User = get_user_model()
-        
-        # Get users with the required role in the document's organization
-        organization_memberships = OrganizationMembership.objects.filter(
-            organization=document.organization,
-            role=self.approver_role
-        )
-        return User.objects.filter(organization_memberships__in=organization_memberships)
+    # ADDED: Method to calculate deadline
+    def calculate_deadline(self):
+        return timezone.now() + timedelta(days=self.timeout_days)
 
 
 class DocumentApprovalFlow(models.Model):
     """
     Tracks the current state of a specific Document within its assigned workflow.
-    This is the active instance tracker.
     """
-    
     STATUS_CHOICES = [
         ('pending', 'Pending'),
         ('in_progress', 'In Progress'),
@@ -193,7 +154,7 @@ class DocumentApprovalFlow(models.Model):
     ]
 
     document = models.OneToOneField(
-        Document,
+        'documents.Document',
         on_delete=models.CASCADE, 
         related_name='approval_flow'
     )
@@ -203,7 +164,6 @@ class DocumentApprovalFlow(models.Model):
         help_text="The template this flow is based on."
     )
     
-    # Current state
     current_template_step = models.ForeignKey(
         WorkflowTemplateStep, 
         on_delete=models.SET_NULL, 
@@ -230,12 +190,10 @@ class DocumentApprovalFlow(models.Model):
     is_complete = models.BooleanField(default=False)
     is_approved = models.BooleanField(default=False)
     
-    # Timestamps
     started_at = models.DateTimeField(auto_now_add=True)
     current_step_started_at = models.DateTimeField(null=True, blank=True)
     completed_at = models.DateTimeField(null=True, blank=True)
     
-    # Metadata
     current_deadline = models.DateTimeField(null=True, blank=True)
     auto_escalate_after = models.DateTimeField(null=True, blank=True)
 
@@ -254,12 +212,15 @@ class DocumentApprovalFlow(models.Model):
         return f"Flow for {self.document.title}: Step {current_step} ({status})"
 
     def clean(self):
-        """Validate flow data"""
         if self.document.organization != self.workflow_template.organization:
             raise ValidationError("Document organization must match workflow organization")
 
     def save(self, *args, **kwargs):
-        """Override save to handle auto-timestamps and status sync"""
+        # Set deadline when step changes
+        if (self.current_template_step and self.current_step_started_at and 
+            not self.current_deadline):
+            self.current_deadline = self.current_template_step.calculate_deadline()
+        
         if self.is_complete and not self.completed_at:
             self.completed_at = timezone.now()
             if self.is_approved:
@@ -267,7 +228,6 @@ class DocumentApprovalFlow(models.Model):
             else:
                 self.status = 'rejected'
         
-        # Sync boolean fields with status
         if self.status in ['approved', 'rejected', 'cancelled']:
             self.is_complete = True
             self.is_approved = (self.status == 'approved')
@@ -277,116 +237,8 @@ class DocumentApprovalFlow(models.Model):
         
         super().save(*args, **kwargs)
 
-    def start_workflow(self):
-        """Initialize the workflow - start with first step"""
-        first_step = self.workflow_template.template_steps.filter(step_order=1).first()
-        if not first_step:
-            raise ValidationError("Workflow template has no steps")
-        
-        self.current_template_step = first_step
-        self.current_step_started_at = timezone.now()
-        self.status = 'in_progress'
-        self.assign_approver()
-        self.save()
-
-    def assign_approver(self):
-        """Assign an approver for the current step"""
-        if not self.current_template_step:
-            return
-        
-        potential_approvers = self.current_template_step.get_potential_approvers(self.document)
-        if potential_approvers.exists():
-            # For now, assign the first available approver
-            # You might want more sophisticated logic here
-            self.current_approver = potential_approvers.first()
-            
-            # Set deadline
-            if self.current_template_step.timeout_days:
-                self.current_deadline = timezone.now() + timezone.timedelta(
-                    days=self.current_template_step.timeout_days
-                )
-        else:
-            # No approver available - might want to handle this case
-            self.current_approver = None
-
-    def process_approval(self, user, decision_key='approve', comments=''):
-        """Process an approval decision and move to next step"""
-        if self.is_complete:
-            raise ValidationError("Workflow is already complete")
-        
-        if user != self.current_approver:
-            raise ValidationError("User is not the current approver")
-        
-        # Log the action
-        action_type = 'approve' if decision_key == 'approve' else 'route'
-        WorkflowLog.objects.create(
-            document=self.document,
-            template_step=self.current_template_step,
-            actor=user,
-            action_type=action_type,
-            comments=comments
-        )
-        
-        # Get next step
-        next_step = self.current_template_step.get_next_step(decision_key)
-        
-        if next_step:
-            # Move to next step
-            self.current_template_step = next_step
-            self.current_step_started_at = timezone.now()
-            self.assign_approver()
-        else:
-            # Workflow complete
-            self.complete_workflow(approved=(decision_key == 'approve'))
-        
-        self.save()
-
-    def process_rejection(self, user, comments=''):
-        """Process a rejection and end workflow"""
-        if self.is_complete:
-            raise ValidationError("Workflow is already complete")
-        
-        if user != self.current_approver:
-            raise ValidationError("User is not the current approver")
-        
-        # Log the rejection
-        WorkflowLog.objects.create(
-            document=self.document,
-            template_step=self.current_template_step,
-            actor=user,
-            action_type='reject',
-            comments=comments
-        )
-        
-        # End workflow with rejection
-        self.complete_workflow(approved=False)
-        self.save()
-
-    def complete_workflow(self, approved=True):
-        """Mark workflow as complete"""
-        self.is_complete = True
-        self.is_approved = approved
-        self.status = 'approved' if approved else 'rejected'
-        self.completed_at = timezone.now()
-        self.current_template_step = None
-        self.current_approver = None
-        self.current_deadline = None
-
-    def get_current_step_deadline(self):
-        """Calculate deadline for current step"""
-        if self.current_template_step and self.current_step_started_at:
-            return self.current_step_started_at + timezone.timedelta(
-                days=self.current_template_step.timeout_days
-            )
-        return None
-
-    def is_overdue(self):
-        """Check if current step is overdue"""
-        deadline = self.get_current_step_deadline()
-        return deadline and timezone.now() > deadline
-
     def get_progress_percentage(self):
-        """Calculate workflow progress as percentage"""
+        """Calculate progress percentage"""
         total_steps = self.workflow_template.template_steps.count()
         if not self.current_template_step or total_steps == 0:
             return 0
@@ -394,12 +246,37 @@ class DocumentApprovalFlow(models.Model):
         current_step_order = self.current_template_step.step_order
         return int((current_step_order - 1) / total_steps * 100)
 
+    def get_status_display(self):
+        """Get human-readable status"""
+        return dict(self.STATUS_CHOICES).get(self.status, self.status)
+
+    def is_overdue(self):
+        if self.current_deadline:
+            return timezone.now() > self.current_deadline
+        return False
+
+    # ADDED: Method to check if user can take action
+    def user_can_take_action(self, user):
+        """Check if user can approve/reject this flow"""
+        if self.is_complete:
+            return False
+        if self.current_approver == user:
+            return True
+        
+        # Allow organization owners to take action on any flow
+        try:
+            if hasattr(user, 'organizationmembership'):
+                return user.organizationmembership.role.lower() == 'owner'
+        except (AttributeError, ObjectDoesNotExist):
+            pass
+        
+        return False
+
 
 class WorkflowLog(models.Model):
     """
-    Records every action taken (Approval, Rejection, Routing) throughout the workflow's history.
+    Records every action taken throughout the workflow's history.
     """
-    
     ACTION_CHOICES = [
         ('approve', 'Approved/Pushed Up'),
         ('reject', 'Rejected'),
@@ -410,7 +287,7 @@ class WorkflowLog(models.Model):
     ]
 
     document = models.ForeignKey(
-        Document,
+        'documents.Document',
         on_delete=models.CASCADE, 
         related_name='workflow_logs'
     )
@@ -426,19 +303,11 @@ class WorkflowLog(models.Model):
         on_delete=models.PROTECT, 
         help_text="The user who took the action."
     )
-    action_type = models.CharField(
-        max_length=50, 
-        choices=ACTION_CHOICES
-    )
-    decision_key = models.CharField(
-        max_length=100,
-        blank=True,
-        help_text="The specific decision route taken (e.g., 'approve', 'escalate')"
-    )
+    action_type = models.CharField(max_length=50, choices=ACTION_CHOICES)
+    decision_key = models.CharField(max_length=100, blank=True, help_text="The specific decision route taken")
     comments = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     
-    # Additional context
     from_step = models.ForeignKey(
         WorkflowTemplateStep,
         on_delete=models.SET_NULL,
@@ -469,28 +338,44 @@ class WorkflowLog(models.Model):
         return f"[{self.get_action_type_display()}] by {self.actor.username} on {self.document.title}"
 
     def save(self, *args, **kwargs):
-        """Set from_step based on template_step if not provided"""
         if not self.from_step and self.template_step:
             self.from_step = self.template_step
         super().save(*args, **kwargs)
 
 
-# Signal handlers for automation
-from django.db.models.signals import post_save
-from django.dispatch import receiver
+# Chat Integration Models
+class ApprovalChatRoom(models.Model):
+    """Links approval flows to chat rooms"""
+    approval_flow = models.OneToOneField(
+        DocumentApprovalFlow, 
+        on_delete=models.CASCADE, 
+        related_name='chat_room_link'
+    )
+    chat_room = models.ForeignKey('chat.ChatRoom', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
 
-@receiver(post_save, sender=DocumentApprovalFlow)
-def handle_workflow_creation(sender, instance, created, **kwargs):
-    """Automatically start workflow when created"""
-    if created and not instance.current_template_step:
-        instance.start_workflow()
+    class Meta:
+        indexes = [
+            models.Index(fields=['approval_flow']),
+        ]
+
+    def __str__(self):
+        return f"Chat for {self.approval_flow.document.title}"
 
 
-@receiver(post_save, sender=WorkflowTemplateStep)
-def validate_step_routes(sender, instance, **kwargs):
-    """Validate step routes after save"""
-    try:
-        instance.clean()
-    except ValidationError as e:
-        # Log error or handle as needed
-        pass
+class WorkflowMessageContext(models.Model):
+    """Adds workflow context to chat messages"""
+    message = models.OneToOneField('chat.Message', on_delete=models.CASCADE)
+    workflow_action = models.CharField(max_length=50, blank=True)
+    related_step = models.ForeignKey(WorkflowTemplateStep, on_delete=models.SET_NULL, null=True)
+    is_urgent = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        indexes = [
+            models.Index(fields=['message']),
+            models.Index(fields=['related_step']),
+        ]
+
+    def __str__(self):
+        return f"Context for message {self.message.id}"

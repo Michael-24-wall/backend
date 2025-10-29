@@ -14,6 +14,7 @@ import os
 import json
 from datetime import datetime
 from django.db import models  
+from io import BytesIO
 
 # CORRECT IMPORT - Add this line
 from django_filters.rest_framework import DjangoFilterBackend
@@ -162,7 +163,8 @@ class DocumentViewSet(viewsets.ModelViewSet):
         if template_filter:
             queryset = queryset.filter(template_id=template_filter)
             
-        return queryset.select_related('template', 'created_by', 'organization').prefetch_related('signatures')
+        # FIXED: Changed 'signatures' to 'documents_signatures'
+        return queryset.select_related('template', 'created_by', 'organization').prefetch_related('documents_signatures')
 
     # --- Standard CRUD Operations ---
 
@@ -424,7 +426,7 @@ class DocumentViewSet(viewsets.ModelViewSet):
             'recent_activity': recent_data
         })
 
-    # --- Your Existing Actions (Enhanced) ---
+    # --- FIXED PDF Generation with ReportLab ---
 
     @swagger_auto_schema(
         method='post',
@@ -438,7 +440,7 @@ class DocumentViewSet(viewsets.ModelViewSet):
     @transaction.atomic
     def generate_pdf(self, request, pk=None):
         """
-        Endpoint to trigger PDF generation (using WeasyPrint).
+        Endpoint to trigger PDF generation using ReportLab.
         """
         document = get_object_or_404(self.get_queryset(), pk=pk)
 
@@ -446,20 +448,107 @@ class DocumentViewSet(viewsets.ModelViewSet):
             return Response({'error': 'Only documents in draft status can be generated.'}, status=status.HTTP_400_BAD_REQUEST)
 
         try:
-            # REAL PDF Generation Implementation
-            from weasyprint import HTML
-            from weasyprint.text.fonts import FontConfiguration
+            # Use ReportLab for PDF generation (more reliable than WeasyPrint)
+            from reportlab.pdfgen import canvas
+            from reportlab.lib.pagesizes import A4
+            from reportlab.lib.units import mm
+            from reportlab.lib.styles import getSampleStyleSheet
+            from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
+            from reportlab.lib import colors
             
-            font_config = FontConfiguration()
-            html = HTML(string=document.final_content)
+            # Create a buffer for the PDF
+            buffer = BytesIO()
             
-            # Generate PDF
-            pdf_file = html.write_pdf(font_config=font_config)
+            # Create the PDF document
+            doc = SimpleDocTemplate(
+                buffer,
+                pagesize=A4,
+                rightMargin=72,
+                leftMargin=72,
+                topMargin=72,
+                bottomMargin=18
+            )
+            
+            # Container for the PDF elements
+            elements = []
+            styles = getSampleStyleSheet()
+            
+            # Add title
+            title_style = styles['Heading1']
+            title = Paragraph(document.title, title_style)
+            elements.append(title)
+            elements.append(Spacer(1, 20))
+            
+            # Add document metadata
+            metadata_text = f"""
+            <b>Document ID:</b> {document.id}<br/>
+            <b>Created:</b> {document.created_at.strftime('%Y-%m-%d')}<br/>
+            <b>Status:</b> {document.get_status_display()}<br/>
+            <b>Version:</b> {document.version}<br/>
+            <b>Organization:</b> {document.organization.name}<br/>
+            """
+            metadata = Paragraph(metadata_text, styles['Normal'])
+            elements.append(metadata)
+            elements.append(Spacer(1, 20))
+            
+            # Add content section
+            elements.append(Paragraph("Content", styles['Heading2']))
+            elements.append(Spacer(1, 12))
+            
+            if document.final_content:
+                # Simple text content - you can enhance this to handle HTML
+                content_text = document.final_content.replace('\n', '<br/>')
+                content = Paragraph(content_text, styles['Normal'])
+                elements.append(content)
+            else:
+                no_content = Paragraph("No content available for this document.", styles['Italic'])
+                elements.append(no_content)
+            
+            elements.append(Spacer(1, 30))
+            
+            # Add signatures section if available
+            signatures = document.documents_signatures.filter(is_valid=True)
+            if signatures.exists():
+                elements.append(Paragraph("Digital Signatures", styles['Heading2']))
+                elements.append(Spacer(1, 12))
+                
+                # Create signature table
+                signature_data = [['Signer', 'Role', 'Signed At', 'Status']]
+                for sig in signatures:
+                    signature_data.append([
+                        f"{sig.signer.get_full_name() or sig.signer.email}",
+                        sig.signer_role or 'N/A',
+                        sig.signed_at.strftime('%Y-%m-%d %H:%M') if sig.signed_at else 'N/A',
+                        'Valid' if sig.is_valid else 'Invalid'
+                    ])
+                
+                signature_table = Table(signature_data, colWidths=[80*mm, 40*mm, 50*mm, 30*mm])
+                signature_table.setStyle(TableStyle([
+                    ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#2c3e50')),
+                    ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+                    ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+                    ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                    ('FONTSIZE', (0, 0), (-1, 0), 10),
+                    ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+                    ('BACKGROUND', (0, 1), (-1, -1), colors.HexColor('#ecf0f1')),
+                    ('TEXTCOLOR', (0, 1), (-1, -1), colors.black),
+                    ('FONTNAME', (0, 1), (-1, -1), 'Helvetica'),
+                    ('FONTSIZE', (0, 1), (-1, -1), 9),
+                    ('GRID', (0, 0), (-1, -1), 1, colors.HexColor('#bdc3c7'))
+                ]))
+                elements.append(signature_table)
+            
+            # Build PDF
+            doc.build(elements)
+            
+            # Get PDF content
+            pdf_content = buffer.getvalue()
+            buffer.close()
             
             # Save to file field
             filename = f"{document.title.replace(' ', '_')}_{document.id}.pdf"
-            document.file_attachment.save(filename, ContentFile(pdf_file))
-            document.file_size = len(pdf_file)
+            document.file_attachment.save(filename, ContentFile(pdf_content))
+            document.file_size = len(pdf_content)
             
             # Update status
             document.status = 'pending_review'
@@ -468,11 +557,19 @@ class DocumentViewSet(viewsets.ModelViewSet):
             return Response({
                 'detail': f'PDF generated successfully for {document.title}',
                 'file_url': document.file_attachment.url,
-                'file_size': len(pdf_file)
+                'file_size': len(pdf_content),
+                'pages': len(elements) // 3 + 1,  # Rough page estimate
+                'status': document.status
             }, status=status.HTTP_200_OK)
             
+        except ImportError:
+            return Response({
+                'error': 'PDF generation requires ReportLab. Install with: pip install reportlab'
+            }, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            return Response({'error': f'PDF generation failed: {str(e)}'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({
+                'error': f'PDF generation failed: {str(e)}'
+            }, status=status.HTTP_400_BAD_REQUEST)
 
     @swagger_auto_schema(
         method='post',
@@ -525,7 +622,8 @@ class DocumentViewSet(viewsets.ModelViewSet):
             return Response({'error': f'Signature failed: {str(e)}'}, status=status.HTTP_400_BAD_REQUEST)
             
         # 5. Update Document Status based on signature count
-        signature_count = document.signatures.count()
+        # FIXED: Use the correct related_name 'documents_signatures'
+        signature_count = document.documents_signatures.count()
         if signature_count >= 2:  # Example: require 2 signatures for completion
             document.status = 'signed'
         elif signature_count >= 1:
@@ -548,5 +646,3 @@ class DocumentViewSet(viewsets.ModelViewSet):
         else:
             ip = request.META.get('REMOTE_ADDR')
         return ip
-    
-    

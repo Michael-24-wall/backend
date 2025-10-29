@@ -30,12 +30,11 @@ urlpatterns = [
     # Core Application APIs
     path('api/', include('core.urls')), 
     path('api/documents/', include('documents.urls')),
-    path('api/workflow/', include('workflow.urls')),
+    
+      path('api/workflow/', include('workflow.urls')),     
     path('api/', include('projects.urls')),
     path('api/dashboard/', include('dashboard.urls')),
-    
     path('api/chat/', include('chat.urls')),
-    
     path('chat/', TemplateView.as_view(template_name='chat_app.html'), name='chat'),
     path('api/editor/', include('editor.urls')),
 ]

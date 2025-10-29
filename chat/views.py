@@ -14,6 +14,9 @@ from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 from datetime import datetime
 
+# Import for workflow integration
+from workflow.models import ApprovalChatRoom
+
 class IsRoomMember(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
         if hasattr(obj, 'room'):
@@ -127,6 +130,7 @@ class MessageViewSet(viewsets.ModelViewSet):
     def react(self, request, pk=None):
         message = self.get_object()
         reaction = request.data.get('reaction')
+        # You can implement reaction logic here
         return Response({'status': 'reaction added'})
     
     @action(detail=False, methods=['post'], url_path='upload-file', parser_classes=[MultiPartParser, FormParser])
@@ -401,3 +405,117 @@ class FileUploadAPI(APIView):
             return Response({'error': 'Room not found'}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
             return Response({'error': f'File upload failed: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+class WorkflowChatViewSet(viewsets.GenericViewSet):
+    """Special chat endpoints for workflow integration"""
+    permission_classes = [permissions.IsAuthenticated]
+    
+    @action(detail=False, methods=['get'], url_path='workflow-rooms')
+    def workflow_rooms(self, request):
+        """Get all chat rooms related to user's workflow documents"""
+        try:
+            # Rooms where user is involved in approval process
+            approval_rooms = ChatRoom.objects.filter(
+                Q(approvalchatroom__approval_flow__current_approver=request.user) |
+                Q(approvalchatroom__approval_flow__document__created_by=request.user) |
+                Q(roommembership__user=request.user, name__startswith='approval-')
+            ).distinct()
+            
+            serializer = ChatRoomSerializer(approval_rooms, many=True, context={'request': request})
+            return Response(serializer.data)
+            
+        except Exception as e:
+            return Response({'error': f'Error fetching workflow rooms: {str(e)}'}, 
+                          status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+    @action(detail=False, methods=['post'], url_path='workflow-quick-action')
+    def workflow_quick_action(self, request):
+        """Take workflow action directly from chat"""
+        message_id = request.data.get('message_id')
+        action = request.data.get('action')  # 'approve', 'reject', 'request_changes'
+        comments = request.data.get('comments', '')
+        
+        try:
+            message = Message.objects.get(id=message_id)
+            chat_room = message.room
+            
+            # Find related approval flow
+            approval_room = ApprovalChatRoom.objects.get(chat_room=chat_room)
+            flow = approval_room.approval_flow
+            
+            # Verify user can take action
+            if flow.current_approver != request.user:
+                return Response({'error': 'Not authorized to take action on this document'}, 
+                              status=status.HTTP_403_FORBIDDEN)
+            
+            # Process the action
+            if action == 'approve':
+                decision_key = 'approve'
+                action_message = "approved"
+            elif action == 'reject':
+                decision_key = 'reject' 
+                action_message = "rejected"
+            elif action == 'request_changes':
+                decision_key = 'request_changes'
+                action_message = "requested changes for"
+            else:
+                return Response({'error': 'Invalid action'}, status=status.HTTP_400_BAD_REQUEST)
+            
+            # Note: In a full implementation, you would call the actual workflow processing methods
+            # from workflow.views.WorkflowActionViewSet here
+            
+            # Send confirmation message to chat
+            Message.objects.create(
+                room=chat_room,
+                user=request.user,
+                content=f"✅ {action_message.title()} the document. {comments}",
+                message_type='system'
+            )
+            
+            return Response({
+                'status': f'{action} completed',
+                'document_title': flow.document.title,
+                'action': action_message
+            })
+            
+        except Message.DoesNotExist:
+            return Response({'error': 'Message not found'}, status=status.HTTP_404_NOT_FOUND)
+        except ApprovalChatRoom.DoesNotExist:
+            return Response({'error': 'Not a workflow chat room'}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            return Response({'error': f'Action failed: {str(e)}'}, 
+                          status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+    @action(detail=False, methods=['get'], url_path='my-workflow-discussions')
+    def my_workflow_discussions(self, request):
+        """Get workflow chat rooms where user is currently involved"""
+        try:
+            # Get rooms where user is either current approver or document creator
+            workflow_rooms = ChatRoom.objects.filter(
+                Q(approvalchatroom__approval_flow__current_approver=request.user) |
+                Q(approvalchatroom__approval_flow__document__created_by=request.user)
+            ).distinct()
+            
+            # Add context about the workflow status
+            rooms_data = []
+            for room in workflow_rooms:
+                try:
+                    approval_room = ApprovalChatRoom.objects.get(chat_room=room)
+                    flow = approval_room.approval_flow
+                    
+                    room_info = ChatRoomSerializer(room, context={'request': request}).data
+                    room_info['workflow_status'] = flow.status
+                    room_info['document_title'] = flow.document.title
+                    room_info['current_approver'] = flow.current_approver.get_full_name() if flow.current_approver else None
+                    room_info['is_current_approver'] = flow.current_approver == request.user
+                    
+                    rooms_data.append(room_info)
+                except ApprovalChatRoom.DoesNotExist:
+                    continue
+            
+            return Response(rooms_data)
+            
+        except Exception as e:
+            return Response({'error': f'Error fetching discussions: {str(e)}'}, 
+                          status=status.HTTP_500_INTERNAL_SERVER_ERROR)

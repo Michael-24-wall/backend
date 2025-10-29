@@ -20,7 +20,8 @@ class DocumentTemplateSerializer(serializers.ModelSerializer):
         read_only_fields = ['id', 'created_by', 'organization_name', 'documents_count', 'created_at', 'updated_at']
 
     def get_documents_count(self, obj):
-        return obj.documents.count()
+        # FIX: Use the correct related_name 'documents_documents' instead of 'documents'
+        return obj.documents_documents.count()
 
     def validate_name(self, value):
         """Ensure template name is unique within organization"""
@@ -138,7 +139,8 @@ class DocumentUpdateSerializer(serializers.ModelSerializer):
 class DocumentDetailSerializer(serializers.ModelSerializer):
     template = DocumentTemplateSerializer(read_only=True)
     created_by = SimpleUserSerializer(read_only=True)
-    signatures = DigitalSignatureSerializer(many=True, read_only=True)
+    # FIX: Use the correct source for signatures
+    signatures = DigitalSignatureSerializer(source='documents_signatures', many=True, read_only=True)
     organization_name = serializers.CharField(source='organization.name', read_only=True)
     can_edit = serializers.SerializerMethodField()
     can_sign = serializers.SerializerMethodField()
@@ -166,7 +168,8 @@ class DocumentDetailSerializer(serializers.ModelSerializer):
         if not request or not request.user.is_authenticated:
             return False
         # User can sign if they haven't signed already and document is in signable status
-        has_signed = obj.signatures.filter(signer=request.user).exists()
+        # FIX: Use the correct related_name
+        has_signed = obj.documents_signatures.filter(signer=request.user).exists()
         signable_statuses = [Document.STATUS_PENDING_APPROVAL, Document.STATUS_PENDING_FINAL_SIGNATURE]
         return not has_signed and obj.status in signable_statuses
 
@@ -194,7 +197,8 @@ class DocumentListSerializer(serializers.ModelSerializer):
         return f"{obj.created_by.first_name} {obj.created_by.last_name}".strip() or obj.created_by.email
 
     def get_signature_count(self, obj):
-        return obj.signatures.count()
+        # FIX: Use the correct related_name
+        return obj.documents_signatures.count()
 
 # --- 7. Document Share Serializer ---
 class DocumentShareSerializer(serializers.Serializer):
