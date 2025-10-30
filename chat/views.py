@@ -28,7 +28,7 @@ from .serializers import RoomMembershipSerializer, UserProfileSerializer
 from .permissions import IsRoomMember, IsRoomAdmin
 
 # Provide a fallback alias in case a module-local MessageRateThrottle isn't defined.
-MessageRateThrottle = UserRateThrottle
+from rest_framework.throttling import UserRateThrottle, ScopedRateThrottle
 
 try:
     # Prefer explicit imports from the filters module if available
@@ -491,6 +491,44 @@ class MessageViewSet(viewsets.ModelViewSet):
             ip = self.request.META.get('REMOTE_ADDR')
         return ip
     
+    def destroy(self, request, *args, **kwargs):
+        """Standard DELETE method for message deletion"""
+        try:
+            message = self.get_object()
+            
+            can_delete = (
+                message.user == request.user or 
+                self.has_mod_permission(request.user, message.room)
+            )
+            
+            if not can_delete:
+                return Response(
+                    {'error': 'Insufficient permissions to delete this message'}, 
+                    status=status.HTTP_403_FORBIDDEN
+                )
+            
+            # Check if already deleted
+            if message.is_deleted:
+                return Response(
+                    {'error': 'Message is already deleted'}, 
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            with transaction.atomic():
+                deleted_by = request.user if message.user != request.user else None
+                message.soft_delete(deleted_by)
+                
+                logger.info(f"Message {message.id} deleted by {request.user.email}")
+            
+            return Response({'status': 'message deleted'})
+            
+        except Exception as e:
+            logger.error(f"Error in destroy method: {str(e)}")
+            return Response(
+                {'error': f'Failed to delete message: {str(e)}'}, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
     @transaction.atomic
     def update(self, request, *args, **kwargs):
         """Update message with validation"""
@@ -521,29 +559,97 @@ class MessageViewSet(viewsets.ModelViewSet):
         
         return Response(serializer.data)
     
-    @action(detail=True, methods=['post'])
+    @action(detail=True, methods=['post'], url_path='delete')
     def delete(self, request, pk=None):
-        """Soft delete message"""
-        message = self.get_object()
-        
-        can_delete = (
-            message.user == request.user or 
-            self.has_mod_permission(request.user, message.room)
-        )
-        
-        if not can_delete:
-            return Response(
-                {'error': 'Insufficient permissions to delete this message'}, 
-                status=status.HTTP_403_FORBIDDEN
-            )
-        
-        with transaction.atomic():
-            deleted_by = request.user if message.user != request.user else None
-            message.soft_delete(deleted_by)
+        """Soft delete message via POST"""
+        try:
+            message = self.get_object()
             
-            logger.info(f"Message {message.id} deleted by {request.user.email}")
-        
-        return Response({'status': 'message deleted'})
+            can_delete = (
+                message.user == request.user or 
+                self.has_mod_permission(request.user, message.room)
+            )
+            
+            if not can_delete:
+                return Response(
+                    {'error': 'Insufficient permissions to delete this message'}, 
+                    status=status.HTTP_403_FORBIDDEN
+                )
+            
+            # Check if already deleted
+            if message.is_deleted:
+                return Response(
+                    {'error': 'Message is already deleted'}, 
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            with transaction.atomic():
+                deleted_by = request.user if message.user != request.user else None
+                message.soft_delete(deleted_by)
+                
+                logger.info(f"Message {message.id} deleted by {request.user.email}")
+            
+            return Response({'status': 'message deleted'})
+            
+        except Exception as e:
+            logger.error(f"Error in delete action: {str(e)}")
+            return Response(
+                {'error': f'Failed to delete message: {str(e)}'}, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    @action(detail=True, methods=['post'])
+    def edit(self, request, pk=None):
+        """Edit message content"""
+        try:
+            message = self.get_object()
+            new_content = request.data.get('content')
+            
+            if not new_content:
+                return Response(
+                    {'error': 'Content is required'}, 
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            # Check permissions
+            if not (message.user == request.user or self.has_mod_permission(request.user, message.room)):
+                return Response(
+                    {'error': 'You can only edit your own messages'}, 
+                    status=status.HTTP_403_FORBIDDEN
+                )
+            
+            # Check if message is deleted
+            if message.is_deleted:
+                return Response(
+                    {'error': 'Cannot edit a deleted message'}, 
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            # 15-minute edit window (you can adjust this)
+            if (timezone.now() - message.timestamp).total_seconds() > 900:
+                return Response(
+                    {'error': 'Message is too old to edit'}, 
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            with transaction.atomic():
+                message.edit_message(new_content)
+                
+                logger.info(f"Message {message.id} edited by {request.user.email}")
+            
+            # Return updated message
+            serializer = MessageSerializer(message, context={'request': request})
+            return Response({
+                'status': 'message edited',
+                'message': serializer.data
+            })
+            
+        except Exception as e:
+            logger.error(f"Error in edit action: {str(e)}")
+            return Response(
+                {'error': f'Failed to edit message: {str(e)}'}, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
     
     @action(detail=True, methods=['post'])
     def read(self, request, pk=None):
@@ -1291,3 +1397,389 @@ def room_suggestions(request):
     
     serializer = ChatRoomSerializer(rooms, many=True, context={'request': request})
     return Response(serializer.data)
+class MessageViewSet(viewsets.ModelViewSet):
+    """
+    Complete Message Management API - FIXED VERSION
+    """
+    permission_classes = [permissions.IsAuthenticated, IsRoomMember]
+    throttle_classes = [MessageRateThrottle]
+    filter_backends = [DjangoFilterBackend, OrderingFilter]
+    filterset_class = MessageFilter
+    ordering_fields = ['timestamp', 'id']
+    ordering = ['-timestamp']
+    
+    def get_serializer_class(self):
+        if self.action == 'create':
+            return CreateMessageSerializer
+        elif self.action in ['update', 'partial_update']:
+            return UpdateMessageSerializer
+        return MessageSerializer
+    
+    def get_queryset(self):
+        """Highly optimized message queryset"""
+        return Message.objects.filter(
+            room__roommembership__user=self.request.user,
+            room__roommembership__is_banned=False,
+            is_deleted=False
+        ).select_related(
+            'user', 'user__chat_profile', 'reply_to', 'reply_to__user', 'room'
+        ).prefetch_related(
+            'read_receipts', 'reactions', 'edit_history'
+        ).only(
+            'id', 'room_id', 'user_id', 'content', 'message_type',
+            'file_url', 'file_name', 'file_size', 'file_type',
+            'reply_to_id', 'is_edited', 'edited_at', 'is_deleted',
+            'timestamp', 'user__username', 'user__email', 'user__first_name', 'user__last_name'
+        )
+
+    def create(self, request, *args, **kwargs):
+        """Override create to handle errors properly"""
+        try:
+            serializer = self.get_serializer(data=request.data)
+            serializer.is_valid(raise_exception=True)
+            
+            # Check if user can post in this room
+            room_id = request.data.get('room')
+            if room_id:
+                try:
+                    room = ChatRoom.objects.get(id=room_id)
+                    # Check if user is a member of the room
+                    if not RoomMembership.objects.filter(room=room, user=request.user, is_banned=False).exists():
+                        return Response(
+                            {'error': 'You are not a member of this room'}, 
+                            status=status.HTTP_403_FORBIDDEN
+                        )
+                except ChatRoom.DoesNotExist:
+                    return Response(
+                        {'error': 'Room not found'}, 
+                        status=status.HTTP_404_NOT_FOUND
+                    )
+            
+            self.perform_create(serializer)
+            headers = self.get_success_headers(serializer.data)
+            return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+            
+        except Exception as e:
+            logger.error(f"Error in message creation: {str(e)}")
+            return Response(
+                {'error': f'Failed to create message: {str(e)}'}, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    @transaction.atomic
+    def perform_create(self, serializer):
+        """Create message with validation - FIXED VERSION"""
+        try:
+            # Get room from validated data
+            validated_data = serializer.validated_data
+            room = validated_data.get('room')
+            
+            # Create message
+            message = serializer.save(
+                user=self.request.user,
+                ip_address=self.get_client_ip()
+            )
+            
+            # Update room last activity
+            room.last_activity = timezone.now()
+            room.save()
+            
+            logger.info(f"Message created by {self.request.user.email} in room {room.name}")
+            
+        except Exception as e:
+            logger.error(f"Error in perform_create: {str(e)}")
+            raise e
+    
+    def get_client_ip(self):
+        """Get client IP address"""
+        x_forwarded_for = self.request.META.get('HTTP_X_FORWARDED_FOR')
+        if x_forwarded_for:
+            ip = x_forwarded_for.split(',')[0]
+        else:
+            ip = self.request.META.get('REMOTE_ADDR')
+        return ip
+    
+    def destroy(self, request, *args, **kwargs):
+        """Standard DELETE method for message deletion"""
+        try:
+            message = self.get_object()
+            
+            can_delete = (
+                message.user == request.user or 
+                self.has_mod_permission(request.user, message.room)
+            )
+            
+            if not can_delete:
+                return Response(
+                    {'error': 'Insufficient permissions to delete this message'}, 
+                    status=status.HTTP_403_FORBIDDEN
+                )
+            
+            # Check if already deleted
+            if message.is_deleted:
+                return Response(
+                    {'error': 'Message is already deleted'}, 
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            with transaction.atomic():
+                deleted_by = request.user if message.user != request.user else None
+                message.soft_delete(deleted_by)
+                
+                logger.info(f"Message {message.id} deleted by {request.user.email}")
+            
+            return Response({'status': 'message deleted'})
+            
+        except Exception as e:
+            logger.error(f"Error in destroy method: {str(e)}")
+            return Response(
+                {'error': f'Failed to delete message: {str(e)}'}, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    @transaction.atomic
+    def update(self, request, *args, **kwargs):
+        """Update message with validation"""
+        instance = self.get_object()
+        
+        if not (instance.user == request.user or self.has_mod_permission(request.user, instance.room)):
+            return Response(
+                {'error': 'You can only edit your own messages'}, 
+                status=status.HTTP_403_FORBIDDEN
+            )
+        
+        if instance.is_deleted:
+            return Response(
+                {'error': 'Cannot edit a deleted message'}, 
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        # 15-minute edit window
+        if (timezone.now() - instance.timestamp).total_seconds() > 900:
+            return Response(
+                {'error': 'Message is too old to edit'}, 
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        serializer = self.get_serializer(instance, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+        
+        return Response(serializer.data)
+    
+    @action(detail=True, methods=['post'], url_path='delete')
+    def delete(self, request, pk=None):
+        """Soft delete message via POST"""
+        try:
+            message = self.get_object()
+            
+            can_delete = (
+                message.user == request.user or 
+                self.has_mod_permission(request.user, message.room)
+            )
+            
+            if not can_delete:
+                return Response(
+                    {'error': 'Insufficient permissions to delete this message'}, 
+                    status=status.HTTP_403_FORBIDDEN
+                )
+            
+            # Check if already deleted
+            if message.is_deleted:
+                return Response(
+                    {'error': 'Message is already deleted'}, 
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            with transaction.atomic():
+                deleted_by = request.user if message.user != request.user else None
+                message.soft_delete(deleted_by)
+                
+                logger.info(f"Message {message.id} deleted by {request.user.email}")
+            
+            return Response({'status': 'message deleted'})
+            
+        except Exception as e:
+            logger.error(f"Error in delete action: {str(e)}")
+            return Response(
+                {'error': f'Failed to delete message: {str(e)}'}, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    @action(detail=True, methods=['post'])
+    def edit(self, request, pk=None):
+        """Edit message content"""
+        try:
+            message = self.get_object()
+            new_content = request.data.get('content')
+            
+            if not new_content:
+                return Response(
+                    {'error': 'Content is required'}, 
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            # Check permissions
+            if not (message.user == request.user or self.has_mod_permission(request.user, message.room)):
+                return Response(
+                    {'error': 'You can only edit your own messages'}, 
+                    status=status.HTTP_403_FORBIDDEN
+                )
+            
+            # Check if message is deleted
+            if message.is_deleted:
+                return Response(
+                    {'error': 'Cannot edit a deleted message'}, 
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            # 15-minute edit window (you can adjust this)
+            if (timezone.now() - message.timestamp).total_seconds() > 900:
+                return Response(
+                    {'error': 'Message is too old to edit'}, 
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            with transaction.atomic():
+                message.edit_message(new_content)
+                
+                logger.info(f"Message {message.id} edited by {request.user.email}")
+            
+            # Return updated message
+            serializer = MessageSerializer(message, context={'request': request})
+            return Response({
+                'status': 'message edited',
+                'message': serializer.data
+            })
+            
+        except Exception as e:
+            logger.error(f"Error in edit action: {str(e)}")
+            return Response(
+                {'error': f'Failed to edit message: {str(e)}'}, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    @action(detail=True, methods=['post'])
+    def read(self, request, pk=None):
+        """Mark message as read"""
+        message = self.get_object()
+        
+        receipt, created = MessageReadReceipt.objects.get_or_create(
+            message=message,
+            user=request.user
+        )
+        
+        # Clear unread count cache
+        cache_key = f"unread_{message.room_id}_{request.user.id}"
+        cache.delete(cache_key)
+        
+        return Response({
+            'status': 'message marked as read',
+            'read_at': receipt.read_at
+        })
+    
+    @action(detail=True, methods=['post'])
+    def react(self, request, pk=None):
+        """Add reaction to message"""
+        message = self.get_object()
+        reaction_type = request.data.get('reaction_type')
+        
+        if not reaction_type:
+            return Response(
+                {'error': 'reaction_type is required'}, 
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        valid_reactions = dict(Reaction.REACTION_TYPES)
+        if reaction_type not in valid_reactions:
+            return Response(
+                {'error': f'Invalid reaction type. Valid types: {list(valid_reactions.keys())}'}, 
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        with transaction.atomic():
+            # Remove existing reaction if exists
+            Reaction.objects.filter(
+                message=message,
+                user=request.user
+            ).delete()
+            
+            # Add new reaction
+            reaction = Reaction.objects.create(
+                message=message,
+                user=request.user,
+                reaction_type=reaction_type
+            )
+        
+        return Response({
+            'status': 'reaction added',
+            'reaction_type': reaction_type,
+            'reaction_emoji': valid_reactions[reaction_type]
+        })
+    
+    @action(detail=True, methods=['delete'], url_path='react')
+    def remove_reaction(self, request, pk=None):
+        """Remove reaction from message"""
+        message = self.get_object()
+        reaction_type = request.data.get('reaction_type')
+        
+        if not reaction_type:
+            return Response(
+                {'error': 'reaction_type is required'}, 
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        deleted_count, _ = Reaction.objects.filter(
+            message=message,
+            user=request.user,
+            reaction_type=reaction_type
+        ).delete()
+        
+        if deleted_count > 0:
+            return Response({'status': 'reaction removed'})
+        else:
+            return Response(
+                {'error': 'Reaction not found'}, 
+                status=status.HTTP_404_NOT_FOUND
+            )
+    
+    @action(detail=True, methods=['get'])
+    def readers(self, request, pk=None):
+        """Get users who have read this message"""
+        message = self.get_object()
+        readers = message.read_receipts.select_related('user').order_by('-read_at')
+        
+        serializer = MessageReadReceiptSerializer(readers, many=True)
+        return Response(serializer.data)
+    
+    @action(detail=True, methods=['get'])
+    def reactions(self, request, pk=None):
+        """Get all reactions for this message"""
+        message = self.get_object()
+        reactions = message.reactions.select_related('user')
+        
+        # Group by reaction type
+        reaction_summary = {}
+        for reaction in reactions:
+            if reaction.reaction_type not in reaction_summary:
+                reaction_summary[reaction.reaction_type] = {
+                    'count': 0,
+                    'users': [],
+                    'emoji': dict(Reaction.REACTION_TYPES).get(reaction.reaction_type, '')
+                }
+            reaction_summary[reaction.reaction_type]['count'] += 1
+            reaction_summary[reaction.reaction_type]['users'].append({
+                'id': reaction.user.id,
+                'username': reaction.user.username,
+                'display_name': reaction.user.get_full_name()
+            })
+        
+        return Response(reaction_summary)
+    
+    def has_mod_permission(self, user, room):
+        """Check if user has moderation permissions"""
+        try:
+            membership = RoomMembership.objects.get(room=room, user=user)
+            return membership.role in ['owner', 'admin', 'moderator']
+        except RoomMembership.DoesNotExist:
+            return False

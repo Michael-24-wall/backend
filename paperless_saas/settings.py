@@ -175,6 +175,13 @@ REST_FRAMEWORK = {
         'rest_framework.filters.SearchFilter',
         'rest_framework.filters.OrderingFilter',
     ],
+     # ADD THIS SECTION FOR THROTTLING:
+    'DEFAULT_THROTTLE_RATES': {
+        'user': '1000/day',
+        'anon': '100/day',
+        'message': '100/hour', 
+        'chat_room': '50/hour', 
+    }
 }
 
 # Simple JWT Configuration: CRITICAL for setting token lifetimes
@@ -406,3 +413,4 @@ CACHES = {
 # ==============================================================================
 HRIS_API_KEY = os.environ.get('HRIS_API_KEY', 'your-hris-api-key')
 HRIS_BASE_URL = os.environ.get('HRIS_BASE_URL', 'https://api.hrsystem.com/v1')
+

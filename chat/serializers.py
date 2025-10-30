@@ -499,3 +499,16 @@ class MessageSearchSerializer(serializers.Serializer):
     date_from = serializers.DateField(required=False)
     date_to = serializers.DateField(required=False)
     include_files = serializers.BooleanField(default=True)
+
+    # chat/serializers.py
+class CreateMessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Message
+        fields = ['room', 'content', 'reply_to', 'message_type']
+    
+    def validate_room(self, value):
+        # Ensure user has access to the room
+        user = self.context['request'].user
+        if not RoomMembership.objects.filter(room=value, user=user, is_banned=False).exists():
+            raise serializers.ValidationError("You are not a member of this room")
+        return value
