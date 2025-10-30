@@ -5,6 +5,8 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from django.views.generic import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -31,10 +33,13 @@ urlpatterns = [
     path('api/', include('core.urls')), 
     path('api/documents/', include('documents.urls')),
     
-      path('api/workflow/', include('workflow.urls')),     
+    path('api/workflow/', include('workflow.urls')),     
     path('api/', include('projects.urls')),
     path('api/dashboard/', include('dashboard.urls')),
     path('api/chat/', include('chat.urls')),
     path('chat/', TemplateView.as_view(template_name='chat_app.html'), name='chat'),
     path('api/editor/', include('editor.urls')),
+    
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

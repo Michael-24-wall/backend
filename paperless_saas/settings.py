@@ -3,6 +3,7 @@
 from pathlib import Path
 from decouple import config
 from datetime import timedelta # Used for JWT configuration
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -209,25 +210,39 @@ SWAGGER_SETTINGS = {
 }
 
 # ==============================================================================
-# # ==============================================================================
-# CORS Settings
+# CORS & CSRF SETTINGS (FIXED)
 # ==============================================================================
-CORS_ALLOW_ALL_ORIGINS = config('CORS_ALLOW_ALL_ORIGINS', default=DEBUG, cast=bool) 
-
-# Add these specific settings for credentials
+CORS_ALLOW_ALL_ORIGINS = True  # Allow all during development
 CORS_ALLOW_CREDENTIALS = True
 
 # Explicitly allow your frontend origins
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "http://localhost:9000",  # Add your backend port too
-    "http://127.0.0.1:9000",
+    "http://localhost:5174",
+    "http://127.0.0.1:5174",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
 ]
 
-# Or if you want to keep it simple during development:
-# CORS_ALLOW_ALL_ORIGINS = True  # This should already be set from your config
-# CORS_ALLOW_CREDENTIALS = True
+# 🔥 CRITICAL FIX: Add CSRF trusted origins
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:5174",
+    "http://127.0.0.1:5174", 
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
+# Session & Cookie settings for development
+SESSION_COOKIE_SAMESITE = 'Lax'
+CSRF_COOKIE_SAMESITE = 'Lax'
+SESSION_COOKIE_HTTPONLY = True
+CSRF_COOKIE_HTTPONLY = False  # Allow JavaScript to read CSRF token
+
+# For development - allow cookies from different ports
+if DEBUG:
+    SESSION_COOKIE_DOMAIN = None
+    CSRF_COOKIE_DOMAIN = None
+    CSRF_COOKIE_SECURE = False
+    SESSION_COOKIE_SECURE = False
 
 # Allow specific headers
 CORS_ALLOW_HEADERS = [
@@ -240,6 +255,7 @@ CORS_ALLOW_HEADERS = [
     'user-agent',
     'x-csrftoken',
     'x-requested-with',
+    'x-requested-with',
 ]
 
 # Allow specific methods
@@ -251,8 +267,6 @@ CORS_ALLOW_METHODS = [
     'POST',
     'PUT',
 ]
-
-# ]
 
 # ==============================================================================
 # CHANNELS (WebSockets) Configuration - CHAT
@@ -311,6 +325,17 @@ if not DEBUG:
     SECURE_HSTS_SECONDS = 31536000  # 1 year
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
+    
+    # Production CORS settings
+    CORS_ALLOW_ALL_ORIGINS = False
+    CORS_ALLOWED_ORIGINS = [
+        "https://yourproductiondomain.com",
+        # Add your production frontend domains
+    ]
+    CSRF_TRUSTED_ORIGINS = [
+        "https://yourproductiondomain.com",
+        # Add your production frontend domains
+    ]
 
 # ==============================================================================
 # LOGGING CONFIGURATION
@@ -376,10 +401,8 @@ CACHES = {
 #     }
 # }
 
-import os
-from pathlib import Path
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+# ==============================================================================
+# EXTERNAL API CONFIGURATION
+# ==============================================================================
 HRIS_API_KEY = os.environ.get('HRIS_API_KEY', 'your-hris-api-key')
 HRIS_BASE_URL = os.environ.get('HRIS_BASE_URL', 'https://api.hrsystem.com/v1')
